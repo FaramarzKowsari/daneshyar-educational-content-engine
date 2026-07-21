@@ -1,15 +1,29 @@
-# اصلاح استخراج PDF فارسی دانشیار
+# راهنمای دو‌زبانهٔ نسخهٔ نمایشی دانشیار
 
-فایل‌های این بسته را در مسیرهای هم‌نام مخزن جایگزین کنید:
+نام فارسی صفحه:
+راهنمای نسخهٔ نمایشی دانشیار — معماری، محدودیت‌ها و هزینه‌ها
 
-- app/services/pdf_ingestion.py
-- app/services/text_utils.py
-- render.yaml
-- tests/test_persian_pdf_quality.py
+English title:
+Daneshyar Demo Guide — Architecture, Limits & Costs
 
-پیام Commit پیشنهادی:
+مسیر صفحه:
+docs/demo-guide.html
 
-Fix Persian PDF extraction and OCR fallback
+نشانی پس از انتشار:
+https://faramarzkowsari.github.io/daneshyar-educational-content-engine/demo-guide.html
 
-پس از Push، Render خودکار Deploy می‌شود. کتاب قبلی را حذف و PDF را دوباره بارگذاری کنید؛
-زیرا قطعات متنی قبلی از استخراج خراب ساخته شده‌اند.
+## نصب
+
+محتویات پوشهٔ docs این بسته را در پوشهٔ docs مخزن جایگزین کنید.
+
+این بسته بر اساس نسخهٔ تعمیرشدهٔ رابط عملیاتی ساخته شده و اتصال واقعی Render را حفظ می‌کند.
+
+Commit پیشنهادی:
+
+Add bilingual Daneshyar demo architecture limits and cost guide
+
+سپس:
+Commit to main
+Push origin
+
+پس از انتشار صفحه را با Ctrl+F5 بازخوانی کنید.

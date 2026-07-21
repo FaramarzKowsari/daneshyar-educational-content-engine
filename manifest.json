@@ -1,0 +1,13 @@
+{
+  "page_title_fa": "راهنمای نسخهٔ نمایشی دانشیار — معماری، محدودیت‌ها و هزینه‌ها",
+  "page_title_en": "Daneshyar Demo Guide — Architecture, Limits & Costs",
+  "filename": "docs/demo-guide.html",
+  "updated": "2026-07-21",
+  "checks": {
+    "bilingual_switcher": true,
+    "cost_calculator": true,
+    "official_sources": true,
+    "index_link_added": true,
+    "render_connection_preserved": true
+  }
+}
