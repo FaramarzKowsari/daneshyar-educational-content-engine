@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software in research, please cite it as below."
+message: "If you use this software in research, teaching, or educational technology projects, please cite it as below."
 title: "Daneshyar Educational Content Engine — Public Beta"
 type: software
 authors:
@@ -8,7 +8,24 @@ authors:
     orcid: "https://orcid.org/0000-0003-1692-0453"
   - family-names: Siadat
     given-names: Safieh
-version: 0.2.0
-date-released: 2026-07-20
+version: 0.3.0
+date-released: 2026-07-21
 license: MIT
+abstract: >-
+  Daneshyar is a bilingual, open-source educational content engine that turns
+  user-supplied university PDF books into grounded question answering,
+  summaries, quizzes, flashcards, concept maps, and presentation drafts.
+  The public beta combines a static GitHub Pages frontend with a FastAPI and
+  Docker backend deployed on Render, supports Persian and English OCR, and can
+  operate with local extractive fallbacks or optional OpenAI-based generation.
+keywords:
+  - artificial intelligence
+  - educational technology
+  - PDF question answering
+  - retrieval-augmented generation
+  - OCR
+  - Persian language processing
+  - FastAPI
+  - open-source software
 repository-code: "https://github.com/FaramarzKowsari/daneshyar-educational-content-engine"
+url: "https://faramarzkowsari.github.io/daneshyar-educational-content-engine/"
