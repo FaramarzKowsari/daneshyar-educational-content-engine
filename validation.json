@@ -1,10 +1,11 @@
 {
-  "clickable_feature_cards": true,
-  "feature_click_handler": true,
-  "mindmap_button": true,
-  "mindmap_api_mapping": true,
-  "real_upload_preserved": true,
-  "render_config_preserved": true,
-  "demo_guide_preserved": true,
-  "author_page_preserved": true
+  "summary_preview": true,
+  "quiz_preview": true,
+  "flashcard_preview": true,
+  "mindmap_preview": true,
+  "slides_preview": true,
+  "backend_download_endpoint": true,
+  "slides_as_draft": true,
+  "authenticated_download": true,
+  "doi_preserved": true
 }

@@ -14,3 +14,13 @@ def public_home(request: Request):
 @router.get("/author.html")
 def author_page(request: Request):
     return FileResponse(request.app.state.settings.public_dir / "author.html")
+
+
+@router.get("/demo-guide.html")
+def demo_guide_page(request: Request):
+    return FileResponse(request.app.state.settings.public_dir / "demo-guide.html")
+
+
+@router.get("/citation.html")
+def citation_page(request: Request):
+    return FileResponse(request.app.state.settings.public_dir / "citation.html")

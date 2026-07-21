@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-language="fa">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="citation_doi" content="10.5281/zenodo.21481330">
+<meta name="DC.identifier" content="doi:10.5281/zenodo.21481330">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="راهنمای دو‌زبانهٔ معماری، محدودیت‌ها، سرعت، هزینه‌ها، فایل مناسب و گزینه‌های هوش مصنوعی برای نسخهٔ نمایشی دانشیار.">
+  <meta name="author" content="Faramarz Kowsari">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="راهنمای نسخهٔ نمایشی دانشیار">
+  <meta property="og:description" content="معماری، محدودیت‌ها، هزینه‌های Render و AI API و بهترین شیوهٔ آزمایش دانشیار.">
+  <meta property="og:url" content="https://faramarzkowsari.github.io/daneshyar-educational-content-engine/demo-guide.html">
+  <link rel="canonical" href="https://faramarzkowsari.github.io/daneshyar-educational-content-engine/demo-guide.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>راهنمای نسخهٔ نمایشی دانشیار — معماری، محدودیت‌ها و هزینه‌ها</title>
+  <style>
+    :root{
+      --ink:#07111f;
+      --ink2:#10233a;
+      --surface:#fff;
+      --soft:#f4f8fb;
+      --line:#dce6ef;
+      --muted:#65768b;
+      --teal:#0aa7a5;
+      --teal2:#087b87;
+      --violet:#7657d6;
+      --green:#16865b;
+      --amber:#a56a13;
+      --red:#a3423b;
+      --shadow:0 24px 70px rgba(7,17,31,.10);
+      --shadow2:0 12px 34px rgba(7,17,31,.065);
+      --max:1190px;
+      --grad:linear-gradient(135deg,var(--teal),var(--violet));
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Vazirmatn,Inter,Tahoma,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 88% 4%,rgba(10,167,165,.15),transparent 29rem),
+        radial-gradient(circle at 8% 18%,rgba(118,87,214,.10),transparent 25rem),
+        #fbfdff;
+      line-height:1.9;
+    }
+    html[dir="ltr"] body{font-family:Inter,Vazirmatn,system-ui,sans-serif;line-height:1.75}
+    a{text-decoration:none;color:inherit}
+    button,input,select{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 34px));margin:auto}
+    [data-lang]{display:none}
+    html[data-language="fa"] [data-lang="fa"],
+    html[data-language="en"] [data-lang="en"]{display:block}
+    html[data-language="fa"] .inline[data-lang="fa"],
+    html[data-language="en"] .inline[data-lang="en"]{display:inline}
+
+    .top{
+      position:sticky;top:0;z-index:50;
+      background:rgba(251,253,255,.86);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(220,230,239,.9);
+    }
+    .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900}
+    .mark{
+      width:46px;height:46px;border-radius:16px;display:grid;place-items:center;
+      color:white;background:var(--grad);box-shadow:0 11px 27px rgba(10,167,165,.24)
+    }
+    .brand small{display:block;color:var(--muted);font-size:.69rem;font-weight:600;line-height:1.25}
+    .navActions{display:flex;align-items:center;gap:10px}
+    .switch{
+      display:flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);
+      border-radius:14px;background:white;box-shadow:var(--shadow2)
+    }
+    .switch button{
+      min-width:48px;padding:7px 10px;border:0;border-radius:10px;background:transparent;
+      color:#52677c;font-weight:900;cursor:pointer
+    }
+    .switch button.active{color:white;background:var(--grad)}
+    .back{
+      display:inline-flex;align-items:center;gap:8px;padding:11px 15px;
+      border:1px solid var(--line);border-radius:13px;background:white;
+      color:#35506c;font-size:.84rem;font-weight:800;transition:.2s
+    }
+    .back:hover{transform:translateY(-2px);border-color:#afd7d8;color:var(--teal2)}
+
+    .hero{padding:72px 0 40px}
+    .heroBox{
+      position:relative;overflow:hidden;padding:50px;
+      border:1px solid var(--line);border-radius:34px;background:rgba(255,255,255,.88);
+      box-shadow:var(--shadow)
+    }
+    .heroBox:before{
+      content:"";position:absolute;width:390px;height:390px;border-radius:50%;
+      inset:-190px auto auto -120px;background:radial-gradient(circle,rgba(118,87,214,.18),transparent 68%)
+    }
+    html[dir="rtl"] .heroBox:before{inset:-190px -120px auto auto}
+    .badge{
+      position:relative;display:inline-flex;align-items:center;gap:8px;
+      padding:7px 12px;border:1px solid #c8e6e3;border-radius:999px;
+      background:#eefaf8;color:#087b76;font-size:.8rem;font-weight:900
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(22,134,91,.11)}
+    h1{position:relative;max-width:900px;margin:20px 0 15px;font-size:clamp(2.25rem,5.2vw,4.7rem);line-height:1.18;letter-spacing:-2px}
+    html[dir="rtl"] h1{letter-spacing:0}
+    .gradient{color:transparent;background:linear-gradient(105deg,var(--teal2),var(--violet));background-clip:text;-webkit-background-clip:text}
+    .lead{position:relative;max-width:890px;margin:0;color:#4b6177;font-size:1.04rem}
+    .heroActions{position:relative;display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:11px 17px;border-radius:14px;border:0;font-weight:800;cursor:pointer;transition:.2s
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .primary{color:white;background:linear-gradient(135deg,var(--teal),var(--teal2));box-shadow:0 13px 27px rgba(10,167,165,.22)}
+    .secondary{background:white;border:1px solid var(--line);box-shadow:var(--shadow2)}
+    .statusGrid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+    .statusCard{padding:17px;border:1px solid var(--line);border-radius:18px;background:rgba(248,251,253,.92)}
+    .statusCard strong{display:block;font-size:1.13rem}
+    .statusCard span{color:var(--muted);font-size:.78rem}
+
+    .toc{padding:24px 0 8px}
+    .tocBox{display:flex;flex-wrap:wrap;gap:8px;padding:14px;border:1px solid var(--line);border-radius:18px;background:white;box-shadow:var(--shadow2)}
+    .tocBox a{padding:8px 11px;border-radius:11px;color:#3c566e;background:#f7fafc;font-size:.79rem;font-weight:700}
+    .tocBox a:hover{background:#eaf8f7;color:var(--teal2)}
+
+    section.contentSection{padding:58px 0}
+    .sectionHead{max-width:820px;margin-bottom:27px}
+    .kicker{color:var(--teal2);font-size:.82rem;font-weight:900}
+    h2{font-size:clamp(1.75rem,3.3vw,2.8rem);line-height:1.35;margin:7px 0 11px}
+    .sectionHead p{margin:0;color:var(--muted)}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{
+      padding:24px;border:1px solid var(--line);border-radius:23px;background:white;
+      box-shadow:var(--shadow2)
+    }
+    .card h3{margin:0 0 9px;font-size:1.05rem}
+    .card p{margin:0;color:#53677c;font-size:.87rem}
+    .icon{
+      width:51px;height:51px;border-radius:16px;display:grid;place-items:center;
+      margin-bottom:15px;color:white;background:var(--grad);font-weight:900
+    }
+    .architecture{
+      display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+      align-items:stretch;gap:12px;padding:25px;border-radius:27px;
+      background:linear-gradient(145deg,#07111f,#102c48);box-shadow:var(--shadow)
+    }
+    .archBox{padding:22px;border:1px solid rgba(255,255,255,.13);border-radius:19px;background:rgba(255,255,255,.07);color:white}
+    .archBox strong{display:block;margin-bottom:7px}
+    .archBox span{color:#bdcad6;font-size:.78rem}
+    .arrow{display:grid;place-items:center;color:#77e6df;font-size:1.5rem;font-weight:900}
+    html[dir="ltr"] .arrow{transform:scaleX(-1)}
+
+    .flow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+    .flowStep{position:relative;padding:17px 10px;text-align:center;border:1px solid var(--line);border-radius:17px;background:white}
+    .flowStep b{display:block;margin-top:7px;font-size:.81rem}
+    .flowStep span{color:var(--muted);font-size:.69rem}
+    .flowNum{width:32px;height:32px;margin:auto;border-radius:10px;display:grid;place-items:center;color:white;background:var(--grad);font-weight:900}
+
+    .notice{padding:19px 21px;border-radius:19px;border:1px solid #efd6aa;background:#fff8ea;color:#714d18}
+    .notice strong{display:block;margin-bottom:5px}
+    .danger{border-color:#efcbc6;background:#fff5f3;color:#803d37}
+    .success{border-color:#c4e4d9;background:#f0faf6;color:#275e4b}
+
+    .limitsTable,.priceTable{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:21px;background:white;box-shadow:var(--shadow2)}
+    .limitsTable th,.limitsTable td,.priceTable th,.priceTable td{padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top;text-align:start}
+    .limitsTable tr:last-child td,.priceTable tr:last-child td{border-bottom:0}
+    .limitsTable th,.priceTable th{background:#f4f8fb;color:#314b65;font-size:.78rem}
+    .limitsTable td,.priceTable td{font-size:.82rem;color:#52677c}
+    .limitsTable td strong,.priceTable td strong{color:var(--ink)}
+    .pill{display:inline-flex;padding:4px 8px;border-radius:999px;background:#eaf8f6;color:#087b76;font-size:.7rem;font-weight:800}
+    .pill.amber{background:#fff4de;color:#8a5a10}
+    .pill.red{background:#fff0ee;color:#923f38}
+    .pill.violet{background:#f1eeff;color:#6245c2}
+
+    .timeline{display:grid;gap:12px}
+    .timeRow{display:grid;grid-template-columns:190px 1fr;gap:13px;align-items:start;padding:16px;border:1px solid var(--line);border-radius:17px;background:white}
+    .timeValue{font-weight:900;color:var(--teal2)}
+    .timeText strong{display:block;font-size:.9rem}
+    .timeText span{color:var(--muted);font-size:.8rem}
+
+    .checkGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .checkCard{padding:20px;border:1px solid var(--line);border-radius:20px;background:white}
+    .checkCard h3{margin:0 0 12px}
+    .checkList{display:grid;gap:9px}
+    .checkItem{display:flex;align-items:flex-start;gap:9px;color:#51667b;font-size:.84rem}
+    .checkMark{flex:0 0 24px;width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:#eaf8f4;color:var(--green);font-weight:900}
+    .cross .checkMark{background:#fff0ee;color:var(--red)}
+
+    .costHero{display:grid;grid-template-columns:.78fr 1.22fr;gap:18px}
+    .costSummary{padding:27px;border-radius:24px;color:white;background:linear-gradient(145deg,#07111f,#143553);box-shadow:var(--shadow)}
+    .costSummary h3{margin:0 0 10px;font-size:1.35rem}
+    .bigCost{display:block;margin:12px 0;font-size:3rem;font-weight:900;line-height:1}
+    .costSummary p{margin:0;color:#c3d0dc;font-size:.84rem}
+    .costCards{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+    .miniCost{padding:20px;border:1px solid var(--line);border-radius:20px;background:white;box-shadow:var(--shadow2)}
+    .miniCost strong{display:block;font-size:1.12rem}
+    .miniCost span{color:var(--muted);font-size:.78rem}
+
+    .calculator{
+      margin-top:20px;padding:25px;border:1px solid var(--line);border-radius:24px;background:white;box-shadow:var(--shadow2)
+    }
+    .calcGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .field{display:grid;gap:6px}
+    .field label{font-size:.76rem;font-weight:800;color:#466079}
+    .field input,.field select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:white;outline:none}
+    .field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,167,165,.08)}
+    .calcResult{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:17px}
+    .resultBox{padding:16px;border-radius:16px;background:#f5f9fc;border:1px solid var(--line)}
+    .resultBox strong{display:block;font-size:1.18rem}
+    .resultBox span{color:var(--muted);font-size:.72rem}
+
+    .providerCards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .provider{position:relative;padding:24px;border:1px solid var(--line);border-radius:23px;background:white;box-shadow:var(--shadow2)}
+    .providerTag{position:absolute;top:17px;inset-inline-end:17px}
+    .provider h3{margin:0 0 7px}
+    .provider p{margin:0;color:var(--muted);font-size:.83rem}
+    .provider ul{margin:15px 0 0;padding-inline-start:20px;color:#50657a;font-size:.81rem}
+    .provider .price{display:block;margin:17px 0 5px;font-size:1.45rem;font-weight:900}
+
+    .faq{display:grid;gap:11px}
+    details{border:1px solid var(--line);border-radius:17px;background:white;box-shadow:0 8px 24px rgba(7,17,31,.035)}
+    summary{padding:16px 18px;cursor:pointer;font-weight:900}
+    details p{margin:0;padding:0 18px 18px;color:#53677c;font-size:.85rem}
+
+    .sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+    .sourceLink{display:flex;align-items:center;justify-content:space-between;gap:13px;padding:14px 16px;border:1px solid var(--line);border-radius:15px;background:white;color:#35516b;font-size:.8rem}
+    .sourceLink:hover{border-color:#afd9d9;color:var(--teal2)}
+
+    footer{margin-top:35px;border-top:1px solid var(--line);background:white}
+    .foot{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--muted);font-size:.78rem}
+
+    @media(max-width:1000px){
+      .statusGrid{grid-template-columns:repeat(2,1fr)}
+      .architecture{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}
+      html[dir="ltr"] .arrow{transform:rotate(90deg)}
+      .flow{grid-template-columns:repeat(4,1fr)}
+      .costHero{grid-template-columns:1fr}
+      .providerCards{grid-template-columns:1fr}
+    }
+    @media(max-width:760px){
+      .nav{flex-wrap:wrap;padding:10px 0}
+      .navActions{width:100%;justify-content:space-between}
+      .heroBox{padding:30px 22px}
+      .grid2,.grid3,.checkGrid,.sources{grid-template-columns:1fr}
+      .flow{grid-template-columns:repeat(2,1fr)}
+      .calcGrid,.calcResult,.costCards{grid-template-columns:1fr 1fr}
+      .timeRow{grid-template-columns:1fr}
+      .limitsTable,.priceTable{display:block;overflow-x:auto}
+    }
+    @media(max-width:500px){
+      .wrap{width:min(var(--max),calc(100% - 20px))}
+      .brand small{display:none}
+      .statusGrid,.calcGrid,.calcResult,.costCards{grid-template-columns:1fr}
+      h1{font-size:2.25rem}
+      .back{font-size:.75rem;padding:10px 11px}
+    }
+  .doiBadge{display:inline-flex;align-items:center;gap:7px;padding:10px 13px;border:1px solid var(--line);border-radius:13px;background:#fff;color:#244861;font-size:.76rem;font-weight:900;direction:ltr;box-shadow:var(--shadow2)}.doiBadge span{padding:2px 6px;border-radius:6px;background:#53616d;color:#fff}.doiBadge:hover{border-color:var(--teal);transform:translateY(-2px)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <span class="mark">د</span>
+      <span>
+        <span data-lang="fa">دانشیار</span><span data-lang="en">Daneshyar</span>
+        <small data-lang="fa">راهنمای فنی نسخهٔ نمایشی</small>
+        <small data-lang="en">Technical Demo Guide</small>
+      </span>
+    </a>
+    <div class="navActions">
+      <div class="switch" role="group" aria-label="Language switch">
+        <button type="button" data-set-lang="fa">FA</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="doiBadge" href="https://doi.org/10.5281/zenodo.21481330" target="_blank" rel="noopener noreferrer" aria-label="DOI 10.5281/zenodo.21481330"><span>DOI</span><strong>10.5281/zenodo.21481330</strong></a><a class="back" href="index.html">
+        <span data-lang="fa">بازگشت به دانشیار ←</span>
+        <span data-lang="en">← Back to Daneshyar</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="heroBox">
+      <span class="badge"><span class="dot"></span><span data-lang="fa">راهنمای رسمی نسخهٔ Public Beta</span><span data-lang="en">Official Public Beta Handbook</span></span>
+      <h1 data-lang="fa">راهنمای نسخهٔ نمایشی دانشیار<br><span class="gradient">معماری، محدودیت‌ها و هزینه‌ها</span></h1>
+      <h1 data-lang="en">Daneshyar Demo Guide<br><span class="gradient">Architecture, Limits &amp; Costs</span></h1>
+      <p class="lead" data-lang="fa">این صفحه به زبان ساده توضیح می‌دهد دانشیار چگونه کار می‌کند، کدام بخش در GitHub Pages و کدام بخش در Render اجرا می‌شود، چرا نسخهٔ رایگان کند و موقت است، چه PDFهایی بهترین نتیجه را می‌دهند، ارتقای میزبانی چقدر هزینه دارد و افزودن API هوش مصنوعی چه چیزی را بهتر می‌کند.</p>
+      <p class="lead" data-lang="en">This page explains in plain language how Daneshyar works, what runs on GitHub Pages versus Render, why the free demo is slow and temporary, which PDFs work best, what paid hosting costs, and how an AI API changes the product.</p>
+      <div class="heroActions">
+        <a class="btn primary" href="#architecture"><span data-lang="fa">دیدن معماری</span><span data-lang="en">See the architecture</span></a>
+        <a class="btn secondary" href="#costs"><span data-lang="fa">بررسی هزینه‌ها</span><span data-lang="en">Review costs</span></a>
+        <a class="btn secondary" href="#files"><span data-lang="fa">راهنمای PDF مناسب</span><span data-lang="en">PDF preparation guide</span></a>
+      </div>
+      <div class="statusGrid"><a class="statusCard" href="https://doi.org/10.5281/zenodo.21481330" target="_blank" rel="noopener"><strong>DOI</strong><span>10.5281/zenodo.21481330 · Zenodo</span></a>
+        <div class="statusCard"><strong data-lang="fa">نسخهٔ نمایشی</strong><strong data-lang="en">Public Demo</strong><span data-lang="fa">برای اثبات جریان اصلی محصول، نه استفادهٔ دانشگاهی گسترده</span><span data-lang="en">For validating the product workflow, not large institutional production</span></div>
+        <div class="statusCard"><strong>GitHub Pages</strong><span data-lang="fa">میزبان فرانت‌اند استاتیک و رایگان</span><span data-lang="en">Hosts the free static frontend</span></div>
+        <div class="statusCard"><strong>Render Free</strong><span data-lang="fa">میزبان Backend پایتون و OCR با منابع محدود</span><span data-lang="en">Hosts the Python backend and OCR with limited compute</span></div>
+        <div class="statusCard"><strong data-lang="fa">هوش مولد اختیاری</strong><strong data-lang="en">Optional Generative AI</strong><span data-lang="fa">بدون کلید هم کار می‌کند؛ با کلید خروجی هوشمندتر می‌شود</span><span data-lang="en">Runs without a key; becomes more capable with one</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="toc">
+  <div class="wrap tocBox">
+    <a href="#meaning"><span data-lang="fa">این دمو چیست؟</span><span data-lang="en">What is this demo?</span></a>
+    <a href="#architecture"><span data-lang="fa">معماری</span><span data-lang="en">Architecture</span></a>
+    <a href="#workflow"><span data-lang="fa">فرایند پردازش</span><span data-lang="en">Processing flow</span></a>
+    <a href="#limits"><span data-lang="fa">محدودیت‌ها</span><span data-lang="en">Limits</span></a>
+    <a href="#speed"><span data-lang="fa">سرعت و زمان انتظار</span><span data-lang="en">Speed &amp; wait times</span></a>
+    <a href="#files"><span data-lang="fa">PDF مناسب</span><span data-lang="en">Best PDF format</span></a>
+    <a href="#ai"><span data-lang="fa">API هوش مصنوعی</span><span data-lang="en">AI APIs</span></a>
+    <a href="#costs"><span data-lang="fa">هزینه‌ها</span><span data-lang="en">Costs</span></a>
+    <a href="#privacy"><span data-lang="fa">حریم خصوصی</span><span data-lang="en">Privacy</span></a>
+    <a href="#faq"><span data-lang="fa">پرسش‌های رایج</span><span data-lang="en">FAQ</span></a>
+  </div>
+</div>
+
+<section class="contentSection" id="meaning">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">تعریف نسخه</span><span class="kicker" data-lang="en">Version definition</span>
+      <h2 data-lang="fa">نسخهٔ دمو دقیقاً چه چیزی را ثابت می‌کند؟</h2>
+      <h2 data-lang="en">What does the demo actually prove?</h2>
+      <p data-lang="fa">این نسخه نشان می‌دهد که می‌توان یک PDF واقعی را گرفت، متن آن را صفحه‌به‌صفحه استخراج کرد، به قطعات قابل جست‌وجو تبدیل نمود و از همان کتاب پاسخ و محتوای آموزشی ساخت.</p>
+      <p data-lang="en">This version demonstrates that a real PDF can be ingested, extracted page by page, split into searchable chunks, and turned into grounded answers and educational assets.</p>
+    </div>
+    <div class="grid3">
+      <article class="card"><div class="icon">✓</div><h3 data-lang="fa">آنچه واقعاً کار می‌کند</h3><h3 data-lang="en">What is real</h3><p data-lang="fa">بارگذاری PDF، استخراج متن، OCR فارسی و انگلیسی، تشخیص اولیهٔ فصل، جست‌وجوی متن، گفت‌وگو، خلاصه، آزمون، فلش‌کارت و اسلاید.</p><p data-lang="en">PDF upload, text extraction, Persian/English OCR, initial chapter detection, retrieval, chat, summaries, quizzes, flashcards, and slides.</p></article>
+      <article class="card"><div class="icon">β</div><h3 data-lang="fa">آنچه هنوز آزمایشی است</h3><h3 data-lang="en">What remains experimental</h3><p data-lang="fa">کیفیت OCR همهٔ کتاب‌ها، تشخیص فصل در قالب‌های نامنظم، پاسخ محلی بدون مدل زبانی و تحمل هم‌زمان هزاران کاربر.</p><p data-lang="en">OCR quality across every book, chapter detection in irregular layouts, local answers without an LLM, and handling thousands of concurrent users.</p></article>
+      <article class="card"><div class="icon">≠</div><h3 data-lang="fa">آنچه نسخهٔ تولیدی نیست</h3><h3 data-lang="en">What it is not</h3><p data-lang="fa">سامانهٔ فعلی حساب دانشگاهی، SSO، ذخیره‌سازی دائمی تضمین‌شده، صف پردازش حرفه‌ای، پشتیبان‌گیری و SLA ندارد.</p><p data-lang="en">The current system does not provide institutional accounts, SSO, guaranteed durable storage, production queues, backups, or an SLA.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="architecture">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">ساختار فنی به زبان ساده</span><span class="kicker" data-lang="en">The technical structure in plain language</span>
+      <h2 data-lang="fa">فرانت‌اند و Backend کجا هستند و چه می‌کنند؟</h2>
+      <h2 data-lang="en">Where do the frontend and backend live?</h2>
+      <p data-lang="fa">کاربر یک صفحهٔ وب سبک می‌بیند؛ کارهای سنگین مانند دریافت فایل، OCR، پردازش متن و پاسخ‌گویی در سرور پایتون انجام می‌شود.</p>
+      <p data-lang="en">Users see a lightweight web interface, while heavy work—file upload, OCR, parsing, retrieval, and generation—runs on the Python server.</p>
+    </div>
+    <div class="architecture">
+      <div class="archBox"><strong data-lang="fa">فرانت‌اند: GitHub Pages</strong><strong data-lang="en">Frontend: GitHub Pages</strong><span data-lang="fa">فایل‌های HTML، CSS و JavaScript؛ رابط فارسی، انتخاب PDF، نمایش وضعیت، گفتگو و پیش‌نویس‌ها.</span><span data-lang="en">HTML, CSS, and JavaScript; language UI, PDF selection, status, chat, and draft presentation.</span></div>
+      <div class="arrow">←</div>
+      <div class="archBox"><strong>HTTPS API</strong><span data-lang="fa">فایل config.js نشانی Render را به رابط معرفی می‌کند. درخواست‌ها با Fetch و توکن موقت ارسال می‌شوند.</span><span data-lang="en">config.js points the frontend to Render. Requests use Fetch and a temporary access token.</span></div>
+      <div class="arrow">←</div>
+      <div class="archBox"><strong data-lang="fa">Backend: Render</strong><strong data-lang="en">Backend: Render</strong><span data-lang="fa">FastAPI در Docker، PyMuPDF، Tesseract OCR، SQLite، بازیابی متن، ساخت خروجی و APIهای عمومی.</span><span data-lang="en">FastAPI in Docker, PyMuPDF, Tesseract OCR, SQLite, retrieval, content generation, and public APIs.</span></div>
+    </div>
+    <div class="grid2" style="margin-top:18px">
+      <article class="card"><h3 data-lang="fa">چرا فرانت‌اند روی GitHub Pages است؟</h3><h3 data-lang="en">Why GitHub Pages for the frontend?</h3><p data-lang="fa">GitHub Pages فایل‌های استاتیک را سریع و رایگان از CDN نمایش می‌دهد، اما نمی‌تواند Python، OCR یا پایگاه داده اجرا کند.</p><p data-lang="en">GitHub Pages serves static files quickly and free through a CDN, but it cannot run Python, OCR, or a database.</p></article>
+      <article class="card"><h3 data-lang="fa">چرا Backend روی Render است؟</h3><h3 data-lang="en">Why Render for the backend?</h3><p data-lang="fa">Render می‌تواند Docker و FastAPI را اجرا کند، متغیرهای محرمانه مانند API Key را نگه دارد و یک نشانی HTTPS عمومی ارائه دهد.</p><p data-lang="en">Render can run Docker and FastAPI, hold secrets such as API keys, and expose a public HTTPS endpoint.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="workflow">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">از PDF تا پاسخ</span><span class="kicker" data-lang="en">From PDF to answer</span>
+      <h2 data-lang="fa">جریان پردازش در هفت گام</h2><h2 data-lang="en">The seven-step processing flow</h2>
+    </div>
+    <div class="flow">
+      <div class="flowStep"><div class="flowNum">۱</div><b data-lang="fa">بارگذاری</b><b data-lang="en">Upload</b><span data-lang="fa">PDF و شرایط نشر</span><span data-lang="en">PDF and usage consent</span></div>
+      <div class="flowStep"><div class="flowNum">۲</div><b data-lang="fa">اعتبارسنجی</b><b data-lang="en">Validation</b><span data-lang="fa">حجم، نوع و امضای PDF</span><span data-lang="en">Size, MIME type, PDF signature</span></div>
+      <div class="flowStep"><div class="flowNum">۳</div><b data-lang="fa">استخراج</b><b data-lang="en">Extraction</b><span data-lang="fa">متن صفحه‌محور</span><span data-lang="en">Page-aware text</span></div>
+      <div class="flowStep"><div class="flowNum">۴</div><b>OCR</b><span data-lang="fa">برای صفحهٔ اسکن‌شده یا متن خراب</span><span data-lang="en">For scans or broken text layers</span></div>
+      <div class="flowStep"><div class="flowNum">۵</div><b data-lang="fa">قطعه‌بندی</b><b data-lang="en">Chunking</b><span data-lang="fa">فصل، صفحه و تکه‌های متن</span><span data-lang="en">Chapters, pages, chunks</span></div>
+      <div class="flowStep"><div class="flowNum">۶</div><b data-lang="fa">بازیابی</b><b data-lang="en">Retrieval</b><span data-lang="fa">پیداکردن مرتبط‌ترین بخش‌ها</span><span data-lang="en">Find the most relevant passages</span></div>
+      <div class="flowStep"><div class="flowNum">۷</div><b data-lang="fa">پاسخ و خروجی</b><b data-lang="en">Answer &amp; assets</b><span data-lang="fa">محلی یا با مدل هوش مصنوعی</span><span data-lang="en">Local or AI-assisted</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="limits">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">محدودیت‌های عمدی نسخهٔ عمومی</span><span class="kicker" data-lang="en">Intentional public-beta limits</span>
+      <h2 data-lang="fa">نسخهٔ رایگان چه محدودیت‌هایی دارد؟</h2><h2 data-lang="en">What limits are imposed on the free demo?</h2>
+      <p data-lang="fa">این مقادیر برای جلوگیری از سوءاستفاده، حفظ منابع محدود Render و امکان آزمایش عمومی انتخاب شده‌اند.</p>
+      <p data-lang="en">These values protect the limited Render instance, reduce abuse, and keep the public experiment usable.</p>
+    </div>
+    <table class="limitsTable">
+      <thead><tr><th data-lang="fa">مورد</th><th data-lang="en">Item</th><th data-lang="fa">مقدار فعلی</th><th data-lang="en">Current value</th><th data-lang="fa">دلیل</th><th data-lang="en">Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong data-lang="fa">حجم PDF</strong><strong data-lang="en">PDF size</strong></td><td>10 MB</td><td data-lang="fa">RAM، زمان Upload و جلوگیری از فایل‌های بسیار سنگین</td><td data-lang="en">RAM, upload time, and protection from oversized files</td></tr>
+        <tr><td><strong data-lang="fa">تعداد صفحات</strong><strong data-lang="en">Page count</strong></td><td>120</td><td data-lang="fa">کنترل زمان استخراج و حافظه</td><td data-lang="en">Controls parsing time and memory usage</td></tr>
+        <tr><td><strong>OCR</strong></td><td>60 pages · 160 DPI</td><td data-lang="fa">OCR روی CPU رایگان بسیار پرهزینه است</td><td data-lang="en">OCR is CPU-intensive on a free instance</td></tr>
+        <tr><td><strong data-lang="fa">نگه‌داری کتاب</strong><strong data-lang="en">Book retention</strong></td><td>2 hours</td><td data-lang="fa">داده‌ها آزمایشی و فضای فایل موقت است</td><td data-lang="en">The data and filesystem are temporary</td></tr>
+        <tr><td><strong data-lang="fa">بارگذاری</strong><strong data-lang="en">Uploads</strong></td><td>2 / hour / IP</td><td data-lang="fa">جلوگیری از مصرف انبوه CPU و فضا</td><td data-lang="en">Prevents bulk CPU and storage consumption</td></tr>
+        <tr><td><strong data-lang="fa">گفت‌وگو</strong><strong data-lang="en">Chat</strong></td><td>20 / hour / book</td><td data-lang="fa">کنترل فشار و هزینهٔ احتمالی API</td><td data-lang="en">Controls server load and possible AI cost</td></tr>
+        <tr><td><strong data-lang="fa">تولید محتوا</strong><strong data-lang="en">Generations</strong></td><td>6 / hour / book</td><td data-lang="fa">خلاصه و اسلاید از چت سنگین‌ترند</td><td data-lang="en">Summaries and slide generation are heavier than chat</td></tr>
+        <tr><td><strong data-lang="fa">منابع Render</strong><strong data-lang="en">Render compute</strong></td><td>512 MB RAM · 0.1 CPU</td><td data-lang="fa">مشخصات پلن رایگان Web Service</td><td data-lang="en">Free Web Service instance specification</td></tr>
+      </tbody>
+    </table>
+    <div class="notice danger" style="margin-top:17px">
+      <strong data-lang="fa">برای هزاران استاد و دانشجو مناسب نیست.</strong><strong data-lang="en">This is not sized for thousands of teachers and students.</strong>
+      <span data-lang="fa">توزیع لینک برای مشاهده و آزمایش سبک ممکن است، اما استفادهٔ هم‌زمان گسترده به سرور همیشه‌روشن، پایگاه دادهٔ دائمی، صف کار، فضای ذخیره‌سازی فایل، کنترل کاربران و بودجهٔ API نیاز دارد.</span>
+      <span data-lang="en">Sharing the link for light evaluation is fine, but broad concurrent usage requires always-on compute, durable storage, a job queue, object storage, identity management, and an API budget.</span>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="speed">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">انتظار واقع‌بینانه</span><span class="kicker" data-lang="en">Realistic expectations</span>
+      <h2 data-lang="fa">چرا کند است و معمولاً چقدر طول می‌کشد؟</h2><h2 data-lang="en">Why is it slow, and how long does it usually take?</h2>
+      <p data-lang="fa">زمان‌های زیر برآورد مهندسی‌اند و SLA نیستند؛ اندازهٔ فایل، نوع PDF، OCR، شلوغی Render و ارائه‌دهندهٔ AI نتیجه را تغییر می‌دهد.</p>
+      <p data-lang="en">The times below are engineering estimates—not an SLA. File size, PDF quality, OCR, Render load, and the AI provider all affect the result.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeRow"><div class="timeValue">45–90 sec</div><div class="timeText"><strong data-lang="fa">اولین درخواست پس از بی‌کاری</strong><strong data-lang="en">First request after inactivity</strong><span data-lang="fa">Render سرویس رایگان را پس از ۱۵ دقیقه بی‌ترافیکی خاموش می‌کند و بیدارشدن آن حدود یک دقیقه زمان می‌برد.</span><span data-lang="en">Render spins the free service down after 15 idle minutes; waking it takes about a minute.</span></div></div>
+      <div class="timeRow"><div class="timeValue">1–5 sec</div><div class="timeText"><strong data-lang="fa">درخواست ساده در حالت گرم</strong><strong data-lang="en">Simple warm request</strong><span data-lang="fa">بررسی سلامت، دریافت تنظیمات و درخواست‌های سبک معمولاً سریع‌اند.</span><span data-lang="en">Health checks, configuration, and lightweight requests are normally quick.</span></div></div>
+      <div class="timeRow"><div class="timeValue">20 sec–2 min</div><div class="timeText"><strong data-lang="fa">PDF متنی ۲۰ تا ۸۰ صفحه</strong><strong data-lang="en">20–80 page text PDF</strong><span data-lang="fa">وقتی متن با موس انتخاب می‌شود و OCR لازم نیست، این بهترین سناریوی نسخهٔ دمو است.</span><span data-lang="en">A selectable text layer with no OCR is the best demo scenario.</span></div></div>
+      <div class="timeRow"><div class="timeValue">2–15+ min</div><div class="timeText"><strong data-lang="fa">PDF اسکن‌شده یا فارسی دشوار</strong><strong data-lang="en">Scanned or difficult Persian PDF</strong><span data-lang="fa">هر صفحه باید تصویرسازی و OCR شود؛ CPU رایگان فقط ۰٫۱ هسته در اختیار دارد.</span><span data-lang="en">Each page must be rendered and OCRed, while the free service has only 0.1 CPU.</span></div></div>
+      <div class="timeRow"><div class="timeValue">1–5 sec</div><div class="timeText"><strong data-lang="fa">پاسخ محلی پس از آماده‌شدن کتاب</strong><strong data-lang="en">Local answer after ingestion</strong><span data-lang="fa">سیستم جمله‌های مرتبط را از متن انتخاب می‌کند؛ روانی و استدلال محدود است.</span><span data-lang="en">The system selects relevant sentences; fluency and reasoning are limited.</span></div></div>
+      <div class="timeRow"><div class="timeValue">3–20 sec</div><div class="timeText"><strong data-lang="fa">پاسخ با AI API</strong><strong data-lang="en">AI-assisted answer</strong><span data-lang="fa">بسته به مدل، طول زمینه، ترافیک و حالت تفکر متفاوت است.</span><span data-lang="en">Varies by model, context length, provider traffic, and reasoning mode.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="files">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">آماده‌سازی منبع</span><span class="kicker" data-lang="en">Preparing the source</span>
+      <h2 data-lang="fa">بهترین PDF برای این نسخه چه شکلی است؟</h2><h2 data-lang="en">What is the best PDF for this demo?</h2>
+    </div>
+    <div class="checkGrid">
+      <div class="checkCard">
+        <h3 data-lang="fa">بهترین انتخاب‌ها</h3><h3 data-lang="en">Best choices</h3>
+        <div class="checkList">
+          <div class="checkItem"><span class="checkMark">✓</span><span data-lang="fa">PDF متنی Born-digital که متن آن با موس انتخاب و کپی می‌شود.</span><span data-lang="en">A born-digital PDF whose text can be selected and copied.</span></div>
+          <div class="checkItem"><span class="checkMark">✓</span><span data-lang="fa">برای آزمون عمومی: ۲۰ تا ۸۰ صفحه و کمتر از ۱۰ مگابایت.</span><span data-lang="en">For public testing: 20–80 pages and under 10 MB.</span></div>
+          <div class="checkItem"><span class="checkMark">✓</span><span data-lang="fa">فونت‌های استاندارد Unicode، صفحهٔ تک‌ستونه و عنوان‌های واضح فصل.</span><span data-lang="en">Standard Unicode fonts, single-column pages, and clear chapter headings.</span></div>
+          <div class="checkItem"><span class="checkMark">✓</span><span data-lang="fa">نسخهٔ انگلیسی متنی برای اولین تست، سپس فارسی استاندارد.</span><span data-lang="en">A text-based English book for the first test, then a standard Persian PDF.</span></div>
+          <div class="checkItem"><span class="checkMark">✓</span><span data-lang="fa">در فایل اسکن: تصویر صاف، پرکنتراست و حدود ۲۰۰ تا ۳۰۰ DPI.</span><span data-lang="en">For scans: straight, high-contrast pages around 200–300 DPI.</span></div>
+        </div>
+      </div>
+      <div class="checkCard cross">
+        <h3 data-lang="fa">فایل‌های مسئله‌ساز</h3><h3 data-lang="en">Problematic files</h3>
+        <div class="checkList">
+          <div class="checkItem"><span class="checkMark">×</span><span data-lang="fa">PDF رمزدار، DRMدار یا فایلی که امضای واقعی PDF ندارد.</span><span data-lang="en">Password-protected, DRM-protected, or invalid PDF files.</span></div>
+          <div class="checkItem"><span class="checkMark">×</span><span data-lang="fa">کتاب اسکن‌شدهٔ بسیار بزرگ، کج، تار یا دارای دست‌نویس.</span><span data-lang="en">Very large, skewed, blurry, or handwritten scanned books.</span></div>
+          <div class="checkItem"><span class="checkMark">×</span><span data-lang="fa">PDF فارسی با فونت قدیمی که کپی متن را به حروف جدا تبدیل می‌کند.</span><span data-lang="en">Persian PDFs whose legacy fonts copy as fragmented letters.</span></div>
+          <div class="checkItem"><span class="checkMark">×</span><span data-lang="fa">صفحه‌های چندستونه، جدول‌های پیچیده و فرمول‌های تصویری فراوان.</span><span data-lang="en">Dense multi-column layouts, complex tables, and many image-based formulas.</span></div>
+          <div class="checkItem"><span class="checkMark">×</span><span data-lang="fa">محتوای محرمانه، پروندهٔ دانشجو یا کتاب بدون مجوز آزمایش.</span><span data-lang="en">Confidential records, student data, or books without testing permission.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="notice" style="margin-top:17px">
+      <strong data-lang="fa">افزودن API Key متن خراب را تعمیر نمی‌کند.</strong><strong data-lang="en">An AI API key does not repair broken extraction.</strong>
+      <span data-lang="fa">مدل زبانی فقط پس از استخراج و بازیابی متن وارد عمل می‌شود. برای فونت خراب یا اسکن نامناسب، ابتدا باید PDF بهتر یا OCR مناسب فراهم شود.</span>
+      <span data-lang="en">The language model runs after extraction and retrieval. Broken fonts or poor scans first require a cleaner PDF or better OCR.</span>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="ai">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">لایهٔ هوشمندی</span><span class="kicker" data-lang="en">The intelligence layer</span>
+      <h2 data-lang="fa">API هوش مصنوعی چه چیزی را بهتر می‌کند؟</h2><h2 data-lang="en">What improves when an AI API is added?</h2>
+      <p data-lang="fa">کلید API خودش هزینه‌ای ندارد؛ مصرف مدل بر اساس توکن محاسبه می‌شود. در کد فعلی، OpenAI ساده‌ترین اتصال مستقیم است.</p>
+      <p data-lang="en">The key itself has no price; model usage is billed by tokens. In the current codebase, OpenAI is the direct built-in integration.</p>
+    </div>
+    <div class="grid2">
+      <article class="card"><div class="icon">بدون</div><h3 data-lang="fa">بدون AI API</h3><h3 data-lang="en">Without an AI API</h3><p data-lang="fa">جست‌وجو و ارجاع کار می‌کند، اما پاسخ از انتخاب و کنارهم‌گذاشتن جمله‌های کتاب ساخته می‌شود. خلاصه‌ها ساده‌تر، آزمون‌ها قالبی‌تر و زبان پاسخ گاهی خشک است.</p><p data-lang="en">Retrieval and citations work, but answers are built by selecting textbook sentences. Summaries are simpler, quizzes more templated, and wording less natural.</p></article>
+      <article class="card"><div class="icon">AI</div><h3 data-lang="fa">با AI API</h3><h3 data-lang="en">With an AI API</h3><p data-lang="fa">پاسخ‌ها روان‌تر و تحلیلی‌تر می‌شوند؛ خلاصه، آزمون، فلش‌کارت و ساختار اسلاید بهتر تولید می‌شود. مدل همچنان فقط باید از متن بازیابی‌شده پاسخ دهد و خطای احتمالی کاملاً حذف نمی‌شود.</p><p data-lang="en">Answers become more fluent and analytical; summaries, quizzes, flashcards, and slide structures improve. The model is still grounded in retrieved text, but errors cannot be eliminated entirely.</p></article>
+    </div>
+    <div class="providerCards" style="margin-top:18px">
+      <article class="provider">
+        <span class="providerTag pill">Built-in</span>
+        <h3>OpenAI</h3>
+        <p data-lang="fa">در نسخهٔ فعلی با متغیر OPENAI_API_KEY مستقیماً فعال می‌شود. برای جست‌وجوی معنایی بهتر باید USE_OPENAI_EMBEDDINGS نیز فعال شود.</p>
+        <p data-lang="en">The current code activates it directly with OPENAI_API_KEY. Better semantic retrieval also requires USE_OPENAI_EMBEDDINGS=true.</p>
+        <span class="price">GPT-5 mini: $0.25 in / $2 out</span>
+        <ul>
+          <li data-lang="fa">حداقل خرید اعتبار اولیهٔ OpenAI: ۵ دلار.</li><li data-lang="en">OpenAI minimum initial prepaid credit: $5.</li>
+          <li data-lang="fa">Embedding کوچک: ۰٫۰۲ دلار به‌ازای یک میلیون توکن.</li><li data-lang="en">Small embeddings: $0.02 per 1M tokens.</li>
+          <li data-lang="fa">اشتراک ChatGPT Plus جایگزین اعتبار API نیست.</li><li data-lang="en">ChatGPT Plus does not include API usage credit.</li>
+        </ul>
+      </article>
+      <article class="provider">
+        <span class="providerTag pill amber">Adapter needed</span>
+        <h3>Google Gemini</h3>
+        <p data-lang="fa">بله، بعضی مدل‌های Gemini API فری‌تیر دارند. اما کد فعلی باید یک Provider Adapter برای SDK و قالب درخواست Gemini دریافت کند.</p>
+        <p data-lang="en">Yes, selected Gemini API models have a free tier. The current code needs a provider adapter for Gemini's SDK and request format.</p>
+        <span class="price">Flash-Lite paid: $0.10 in / $0.40 out</span>
+        <ul>
+          <li data-lang="fa">فری‌تیر برای نمونه‌سازی مناسب است، نه تضمین ظرفیت عمومی گسترده.</li><li data-lang="en">The free tier is useful for prototyping, not guaranteed public-scale capacity.</li>
+          <li data-lang="fa">در فری‌تیر، داده می‌تواند برای بهبود محصولات Google استفاده شود.</li><li data-lang="en">Free-tier content may be used to improve Google's products.</li>
+          <li data-lang="fa">فری‌تیر محدودیت نرخ و مدل دارد.</li><li data-lang="en">The free tier has model and rate limits.</li>
+        </ul>
+      </article>
+      <article class="provider">
+        <span class="providerTag pill violet">Low cost</span>
+        <h3>DeepSeek</h3>
+        <p data-lang="fa">اپلیکیشن چت رایگان DeepSeek با API یکی نیست. API رسمی مصرفی و بر اساس موجودی حساب است؛ گرچه قیمت آن پایین است و قالب آن با OpenAI Chat Completions سازگاری دارد.</p>
+        <p data-lang="en">The free DeepSeek chat app is not the same as its API. The official API is metered against account balance, though it is inexpensive and OpenAI Chat Completions compatible.</p>
+        <span class="price">V4 Flash: $0.14 in / $0.28 out</span>
+        <ul>
+          <li data-lang="fa">اتصال به دانشیار نیازمند تغییر LLMService از Responses API به لایهٔ چندارائه‌دهنده است.</li><li data-lang="en">Daneshyar needs a multi-provider layer because its current LLMService uses the Responses API.</li>
+          <li data-lang="fa">اعتبار هدیه ممکن است وجود داشته باشد، اما API رایگان دائمی تضمین نشده است.</li><li data-lang="en">Granted credit may exist, but a permanently free API is not guaranteed.</li>
+          <li data-lang="fa">اجرای مدل متن‌باز DeepSeek روی Render رایگان عملی نیست و GPU جدا می‌خواهد.</li><li data-lang="en">Self-hosting open DeepSeek weights is not practical on free Render and requires separate GPU capacity.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="costs">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">برآورد مالی به‌روز</span><span class="kicker" data-lang="en">Current cost estimate</span>
+      <h2 data-lang="fa">نسخهٔ پولی چقدر هزینه دارد؟</h2><h2 data-lang="en">What does a paid version cost?</h2>
+      <p data-lang="fa">قیمت‌ها مربوط به ۲۱ ژوئیهٔ ۲۰۲۶ هستند و ممکن است بعداً تغییر کنند. مالیات، پهنای‌باند اضافه و پردازش غیرعادی در این برآورد نیست.</p>
+      <p data-lang="en">Prices are current as of July 21, 2026 and can change. Taxes, bandwidth overages, and unusual processing are excluded.</p>
+    </div>
+    <div class="costHero">
+      <div class="costSummary">
+        <h3 data-lang="fa">پایلوت همیشه‌روشن پیشنهادی</h3><h3 data-lang="en">Suggested always-on pilot</h3>
+        <span class="bigCost">≈ $13/mo</span>
+        <p data-lang="fa">Render Starter Web Service برابر ۷ دلار + پایگاه دادهٔ Basic-256mb برابر ۶ دلار. هزینهٔ AI جدا و مصرفی است.</p>
+        <p data-lang="en">Render Starter Web Service at $7 plus a Basic-256mb Postgres database at $6. AI usage is additional and metered.</p>
+      </div>
+      <div class="costCards">
+        <div class="miniCost"><strong>$0/mo</strong><span data-lang="fa">Hobby Workspace؛ فرانت‌اند GitHub Pages نیز رایگان است</span><span data-lang="en">Hobby workspace; GitHub Pages frontend is also free</span></div>
+        <div class="miniCost"><strong>$7/mo</strong><span data-lang="fa">Render Starter؛ همیشه روشن، ۵۱۲MB RAM و ۰٫۵ CPU</span><span data-lang="en">Render Starter; always on, 512 MB RAM and 0.5 CPU</span></div>
+        <div class="miniCost"><strong>$6/mo</strong><span data-lang="fa">کوچک‌ترین Postgres پولی برای دادهٔ ماندگار</span><span data-lang="en">Smallest paid Postgres for durable data</span></div>
+        <div class="miniCost"><strong>$0.25/GB/mo</strong><span data-lang="fa">دیسک دائمی Render برای سرویس پولی</span><span data-lang="en">Render persistent disk for a paid service</span></div>
+        <div class="miniCost"><strong>$25/mo</strong><span data-lang="fa">Standard Web Service؛ ۲GB RAM و ۱ CPU</span><span data-lang="en">Standard Web Service; 2 GB RAM and 1 CPU</span></div>
+        <div class="miniCost"><strong>≈ $18 first month</strong><span data-lang="fa">Starter + Postgres + حداقل ۵ دلار اعتبار اولیهٔ OpenAI</span><span data-lang="en">Starter + Postgres + the $5 minimum initial OpenAI credit</span></div>
+      </div>
+    </div>
+
+    <table class="priceTable" style="margin-top:20px">
+      <thead><tr><th data-lang="fa">سناریو</th><th data-lang="en">Scenario</th><th data-lang="fa">زیرساخت</th><th data-lang="en">Infrastructure</th><th data-lang="fa">برآورد ماهانه</th><th data-lang="en">Monthly estimate</th><th data-lang="fa">مناسب برای</th><th data-lang="en">Suitable for</th></tr></thead>
+      <tbody>
+        <tr><td><strong data-lang="fa">دموی فعلی</strong><strong data-lang="en">Current demo</strong></td><td>GitHub Pages + Render Free + local fallback</td><td><span class="pill">$0</span></td><td data-lang="fa">نمایش، تست محدود و تحقیق اولیه</td><td data-lang="en">Showcase, limited testing, early research</td></tr>
+        <tr><td><strong data-lang="fa">پایلوت همیشه‌روشن ساده</strong><strong data-lang="en">Simple always-on pilot</strong></td><td>Starter Web + temporary/local data</td><td><span class="pill amber">$7 + AI</span></td><td data-lang="fa">دموی سریع بدون Cold Start؛ هنوز ذخیره‌سازی حرفه‌ای نیست</td><td data-lang="en">Fast demo without cold starts; storage still needs care</td></tr>
+        <tr><td><strong data-lang="fa">پایلوت قابل اتکا</strong><strong data-lang="en">Reliable pilot</strong></td><td>Starter Web + Basic Postgres</td><td><span class="pill amber">≈ $13 + AI</span></td><td data-lang="fa">گروه کوچک استادان و دانشجویان</td><td data-lang="en">A small teacher/student pilot group</td></tr>
+        <tr><td><strong data-lang="fa">نسخهٔ متوسط</strong><strong data-lang="en">Medium deployment</strong></td><td>Standard Web + Basic-1gb Postgres</td><td><span class="pill violet">≈ $44 + AI</span></td><td data-lang="fa">مصرف بیشتر، OCR سریع‌تر و هم‌زمانی بهتر</td><td data-lang="en">More usage, faster OCR, better concurrency</td></tr>
+        <tr><td><strong data-lang="fa">دانشگاهی واقعی</strong><strong data-lang="en">Institutional production</strong></td><td>Multiple services, DB, object storage, queue, auth, monitoring</td><td><span class="pill red">$100+ variable</span></td><td data-lang="fa">کاربران زیاد، امنیت، حساب کاربری و پشتیبان‌گیری</td><td data-lang="en">Many users, security, accounts, and backups</td></tr>
+      </tbody>
+    </table>
+
+    <div class="calculator">
+      <h3 style="margin-top:0" data-lang="fa">ماشین‌حساب تقریبی هزینهٔ AI</h3>
+      <h3 style="margin-top:0" data-lang="en">Approximate AI cost calculator</h3>
+      <p style="color:var(--muted);font-size:.82rem" data-lang="fa">فرض پیش‌فرض هر پرسش: ۶۰۰۰ توکن ورودی و ۸۰۰ توکن خروجی. هر تولید آموزشی: ۱۵هزار ورودی و ۴هزار خروجی. این فقط تخمین است.</p>
+      <p style="color:var(--muted);font-size:.82rem" data-lang="en">Default assumption per Q&amp;A: 6,000 input and 800 output tokens. Per educational generation: 15,000 input and 4,000 output tokens. This is only an estimate.</p>
+      <div class="calcGrid">
+        <div class="field"><label data-lang="fa">ارائه‌دهنده</label><label data-lang="en">Provider</label><select id="provider"><option value="openai">OpenAI GPT-5 mini</option><option value="deepseek">DeepSeek V4 Flash</option><option value="gemini">Gemini 2.5 Flash-Lite paid</option><option value="gemini-free">Gemini free tier</option></select></div>
+        <div class="field"><label data-lang="fa">پرسش در ماه</label><label data-lang="en">Q&amp;A per month</label><input id="questions" type="number" min="0" value="1000"></div>
+        <div class="field"><label data-lang="fa">تولید محتوا در ماه</label><label data-lang="en">Content generations per month</label><input id="generations" type="number" min="0" value="100"></div>
+        <div class="field"><label data-lang="fa">کتاب ۱۰۰هزار توکنی در ماه</label><label data-lang="en">100k-token books per month</label><input id="books" type="number" min="0" value="10"></div>
+      </div>
+      <div class="calcResult">
+        <div class="resultBox"><strong id="qaCost">$3.10</strong><span data-lang="fa">هزینهٔ گفت‌وگو</span><span data-lang="en">Q&amp;A cost</span></div>
+        <div class="resultBox"><strong id="genCost">$1.18</strong><span data-lang="fa">هزینهٔ تولید محتوا</span><span data-lang="en">Generation cost</span></div>
+        <div class="resultBox"><strong id="embedCost">$0.02</strong><span data-lang="fa">Embedding کتاب‌ها</span><span data-lang="en">Book embeddings</span></div>
+        <div class="resultBox"><strong id="totalAi">$4.30</strong><span data-lang="fa">جمع تقریبی AI</span><span data-lang="en">Estimated AI total</span></div>
+      </div>
+      <div class="notice success" id="freeNote" style="display:none;margin-top:14px">
+        <strong data-lang="fa">در فری‌تیر Gemini هزینه می‌تواند صفر باشد.</strong><strong data-lang="en">Gemini free-tier cost can be zero.</strong>
+        <span data-lang="fa">اما فقط تا سقف سهمیهٔ فعلی، با محدودیت نرخ و شرایط دادهٔ فری‌تیر. ظرفیت برای محصول عمومی تضمین نمی‌شود.</span>
+        <span data-lang="en">Only within current quotas, rate limits, and free-tier data terms. Public production capacity is not guaranteed.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="privacy">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">امنیت، داده و حقوق نشر</span><span class="kicker" data-lang="en">Security, data, and copyright</span>
+      <h2 data-lang="fa">پیش از بارگذاری چه چیزهایی را باید بدانیم؟</h2><h2 data-lang="en">What should users know before uploading?</h2>
+    </div>
+    <div class="grid3">
+      <article class="card"><div class="icon">۲h</div><h3 data-lang="fa">دادهٔ موقت</h3><h3 data-lang="en">Temporary data</h3><p data-lang="fa">سامانه برای هر کتاب یک توکن تصادفی می‌سازد و زمان نگه‌داری برنامه‌ای دو ساعت است؛ بااین‌حال ری‌استارت یا Spin-down نسخهٔ رایگان می‌تواند داده را زودتر پاک کند.</p><p data-lang="en">Each book receives a random access token and an application TTL of two hours, but a free-instance restart or spin-down may erase data sooner.</p></article>
+      <article class="card"><div class="icon">🔒</div><h3 data-lang="fa">نه برای اطلاعات محرمانه</h3><h3 data-lang="en">Not for confidential material</h3><p data-lang="fa">نسخهٔ عمومی حساب سازمانی، کنترل دسترسی دانشگاهی، رمزگذاری اختصاصی فایل و قرارداد پردازش داده ندارد.</p><p data-lang="en">The public demo has no institutional identity, university access controls, dedicated file encryption workflow, or data-processing agreement.</p></article>
+      <article class="card"><div class="icon">©</div><h3 data-lang="fa">مسئولیت حقوق نشر</h3><h3 data-lang="en">Copyright responsibility</h3><p data-lang="fa">فقط کتابی را بارگذاری کنید که مالک آن هستید، مجوز دارید یا استفادهٔ آزمایشی آن طبق قوانین مربوط مجاز است.</p><p data-lang="en">Upload only books you own, are licensed to use, or may lawfully process for evaluation.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="production">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">مسیر تبدیل به محصول واقعی</span><span class="kicker" data-lang="en">Path to production</span>
+      <h2 data-lang="fa">برای نسخهٔ دانشگاهی چه چیزهایی باید اضافه شود؟</h2><h2 data-lang="en">What is required for an institutional version?</h2>
+    </div>
+    <div class="grid3">
+      <article class="card"><h3 data-lang="fa">زیرساخت</h3><h3 data-lang="en">Infrastructure</h3><p data-lang="fa">سرور همیشه‌روشن، Postgres دائمی، Object Storage برای PDFها، صف پردازش OCR و Worker جداگانه.</p><p data-lang="en">Always-on compute, durable Postgres, object storage for PDFs, a processing queue, and separate OCR workers.</p></article>
+      <article class="card"><h3 data-lang="fa">هویت و امنیت</h3><h3 data-lang="en">Identity &amp; security</h3><p data-lang="fa">ورود استاد و دانشجو، نقش‌ها، SSO، محدودیت سازمانی، ثبت رویداد، سیاست حذف و رضایت‌نامهٔ داده.</p><p data-lang="en">Teacher/student accounts, roles, SSO, organizational policies, audit logs, retention rules, and consent controls.</p></article>
+      <article class="card"><h3 data-lang="fa">کیفیت و مقیاس</h3><h3 data-lang="en">Quality &amp; scale</h3><p data-lang="fa">Vector DB، ارزیابی پاسخ، مانیتورینگ هزینه، Cache، صف‌های Retry، چند Provider هوش مصنوعی و تست بار.</p><p data-lang="en">Vector search, answer evaluation, cost monitoring, caching, retry queues, multiple AI providers, and load testing.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="faq">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">پاسخ‌های کوتاه</span><span class="kicker" data-lang="en">Quick answers</span>
+      <h2 data-lang="fa">پرسش‌های رایج</h2><h2 data-lang="en">Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary data-lang="fa">آیا برای کارکرد پایه حتماً API Key لازم است؟</summary><summary data-lang="en">Is an API key required for basic operation?</summary><p data-lang="fa">خیر. استخراج، جست‌وجو و پاسخ محلی کار می‌کنند. کلید AI کیفیت نوشتار، تحلیل و تولید محتوا را ارتقا می‌دهد.</p><p data-lang="en">No. Extraction, retrieval, and local answers work. An AI key improves writing, reasoning, and content generation.</p></details>
+      <details><summary data-lang="fa">آیا با ۵ دلار OpenAI می‌توان شروع کرد؟</summary><summary data-lang="en">Can the project start with $5 of OpenAI credit?</summary><p data-lang="fa">بله. ۵ دلار حداقل خرید اولیه است و برای یک پایلوت کم‌مصرف می‌تواند تعداد زیادی پرسش و خروجی پوشش دهد. مصرف واقعی به طول زمینه و پاسخ بستگی دارد.</p><p data-lang="en">Yes. Five dollars is the minimum initial purchase and can cover many low-volume pilot requests. Actual usage depends on context and output length.</p></details>
+      <details><summary data-lang="fa">آیا Gemini رایگان بهترین گزینه است؟</summary><summary data-lang="en">Is free Gemini automatically the best option?</summary><p data-lang="fa">برای آزمایش کم‌هزینه گزینهٔ خوبی است، اما محدودیت نرخ، سیاست استفاده از داده و تغییر سهمیه دارد. همچنین کد دانشیار باید برای آن Adapter دریافت کند.</p><p data-lang="en">It is useful for low-cost testing, but rate limits, data terms, and quotas apply. Daneshyar also needs a provider adapter.</p></details>
+      <details><summary data-lang="fa">آیا DeepSeek API رایگان است؟</summary><summary data-lang="en">Is the DeepSeek API free?</summary><p data-lang="fa">API رسمی مصرفی است. ممکن است اعتبار هدیه ارائه شود، اما اپ چت رایگان با API عمومی یکی نیست و موجودی ناکافی باعث توقف درخواست می‌شود.</p><p data-lang="en">The official API is metered. Granted credit may be available, but the free chat app is not the public API, and insufficient balance stops requests.</p></details>
+      <details><summary data-lang="fa">آیا فقط ارتقای Render مشکل مقیاس را حل می‌کند؟</summary><summary data-lang="en">Does upgrading Render alone solve scaling?</summary><p data-lang="fa">نه. Cold Start برطرف و CPU بهتر می‌شود، اما برای کاربران زیاد هنوز پایگاه دادهٔ دائمی، صف، Storage، احراز هویت و کنترل هزینه لازم است.</p><p data-lang="en">No. It removes cold starts and adds compute, but high usage still needs durable storage, queues, identity, and cost controls.</p></details>
+      <details><summary data-lang="fa">چرا PDF انگلیسی برای اولین تست بهتر است؟</summary><summary data-lang="en">Why is an English PDF better for the first test?</summary><p data-lang="fa">رمزگذاری متن چپ‌به‌راست و فونت‌های انگلیسی معمولاً استانداردترند. پس می‌توان ابتدا سلامت Backend را سنجید و سپس چالش OCR و فونت فارسی را جداگانه بررسی کرد.</p><p data-lang="en">English left-to-right text layers and fonts are usually more standardized, helping isolate backend health before testing Persian OCR and font issues.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contentSection" id="sources">
+  <div class="wrap">
+    <div class="sectionHead">
+      <span class="kicker" data-lang="fa">منابع رسمی قیمت و محدودیت</span><span class="kicker" data-lang="en">Official pricing and limit sources</span>
+      <h2 data-lang="fa">پیوندهای مرجع</h2><h2 data-lang="en">Reference links</h2>
+      <p data-lang="fa">قیمت‌ها و سیاست‌ها تغییرپذیرند؛ برای تصمیم مالی نهایی این صفحات رسمی را بررسی کنید.</p>
+      <p data-lang="en">Prices and policies can change; review these official pages before making a final budget decision.</p>
+    </div>
+    <div class="sources">
+      <a class="sourceLink" href="https://render.com/docs/free" target="_blank" rel="noopener"><span>Render Free Instances</span><b>↗</b></a>
+      <a class="sourceLink" href="https://render.com/pricing" target="_blank" rel="noopener"><span>Render Pricing</span><b>↗</b></a>
+      <a class="sourceLink" href="https://developers.openai.com/api/docs/models/gpt-5-mini" target="_blank" rel="noopener"><span>OpenAI GPT-5 mini Pricing</span><b>↗</b></a>
+      <a class="sourceLink" href="https://developers.openai.com/api/docs/models/text-embedding-3-small" target="_blank" rel="noopener"><span>OpenAI Embedding Pricing</span><b>↗</b></a>
+      <a class="sourceLink" href="https://help.openai.com/en/articles/8264778" target="_blank" rel="noopener"><span>OpenAI Prepaid Billing</span><b>↗</b></a>
+      <a class="sourceLink" href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener"><span>Gemini API Pricing</span><b>↗</b></a>
+      <a class="sourceLink" href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" rel="noopener"><span>Gemini API Billing &amp; Tiers</span><b>↗</b></a>
+      <a class="sourceLink" href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener"><span>DeepSeek Models &amp; Pricing</span><b>↗</b></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span data-lang="fa">© ۲۰۲۶ دانشیار — راهنمای نسخهٔ نمایشی، آخرین به‌روزرسانی: ۳۱ تیر ۱۴۰۵</span>
+    <span data-lang="en">© 2026 Daneshyar — Demo Guide, last updated July 21, 2026</span>
+    <a href="citation.html">Citation &amp; DOI</a><a href="https://doi.org/10.5281/zenodo.21481330" target="_blank" rel="noopener">DOI 10.5281/zenodo.21481330 ↗</a><a href="https://github.com/FaramarzKowsari/daneshyar-educational-content-engine" target="_blank" rel="noopener">GitHub Repository ↗</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const key = "daneshyar-demo-guide-language";
+  const buttons = [...document.querySelectorAll("[data-set-lang]")];
+
+  function setLanguage(value){
+    const lang = value === "en" ? "en" : "fa";
+    root.dataset.language = lang;
+    root.lang = lang;
+    root.dir = lang === "fa" ? "rtl" : "ltr";
+    document.title = lang === "fa"
+      ? "راهنمای نسخهٔ نمایشی دانشیار — معماری، محدودیت‌ها و هزینه‌ها"
+      : "Daneshyar Demo Guide — Architecture, Limits & Costs";
+    buttons.forEach(button => {
+      const active = button.dataset.setLang === lang;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+    try{localStorage.setItem(key,lang)}catch(_){}
+  }
+
+  buttons.forEach(button => button.addEventListener("click", () => setLanguage(button.dataset.setLang)));
+
+  let initial = "fa";
+  try{
+    initial = localStorage.getItem(key)
+      || (navigator.language && navigator.language.toLowerCase().startsWith("fa") ? "fa" : "en");
+  }catch(_){}
+  setLanguage(initial);
+
+  const prices = {
+    openai:{input:0.25,output:2.00,embedding:0.02},
+    deepseek:{input:0.14,output:0.28,embedding:0},
+    gemini:{input:0.10,output:0.40,embedding:0},
+    "gemini-free":{input:0,output:0,embedding:0}
+  };
+  const provider = document.getElementById("provider");
+  const questions = document.getElementById("questions");
+  const generations = document.getElementById("generations");
+  const books = document.getElementById("books");
+  const money = value => "$" + value.toFixed(value < 1 ? 3 : 2);
+
+  function calculate(){
+    const p = prices[provider.value];
+    const q = Math.max(0, Number(questions.value)||0);
+    const g = Math.max(0, Number(generations.value)||0);
+    const b = Math.max(0, Number(books.value)||0);
+    const qa = q * ((6000/1e6)*p.input + (800/1e6)*p.output);
+    const gen = g * ((15000/1e6)*p.input + (4000/1e6)*p.output);
+    const emb = b * ((100000/1e6)*p.embedding);
+    document.getElementById("qaCost").textContent = money(qa);
+    document.getElementById("genCost").textContent = money(gen);
+    document.getElementById("embedCost").textContent = money(emb);
+    document.getElementById("totalAi").textContent = money(qa+gen+emb);
+    document.getElementById("freeNote").style.display = provider.value === "gemini-free" ? "block" : "none";
+  }
+  [provider,questions,generations,books].forEach(el => el.addEventListener("input",calculate));
+  calculate();
+})();
+</script>
+</body>
+</html>

@@ -63,10 +63,31 @@
 .modalHead p{margin:3px 0 0;color:var(--muted);font-size:.75rem}
 .closeModal{width:38px;height:38px;border:1px solid var(--line);border-radius:11px;background:#fff;cursor:pointer;font-size:1.1rem}
 .modalBody{padding:22px;overflow:auto}
-.previewBlock{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fbfdff;white-space:pre-wrap;color:#334b60;font-size:.84rem;line-height:2}
-.modalFoot{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;padding:14px 22px;border-top:1px solid var(--line);background:#fff}
+.previewBlock{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fbfdff;color:#334b60;font-size:.84rem;line-height:2}
+.previewBlock h4{margin:0 0 10px;color:var(--ink);font-size:1rem}
+.previewBlock p{margin:0 0 12px}
+.previewBlock pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:Vazirmatn,Tahoma,sans-serif}
+.previewIntro{margin-bottom:14px;padding:11px 13px;border:1px solid #c9e7e2;border-radius:12px;background:#eefaf8;color:#28595a}
+.previewItems{display:grid;gap:12px}
+.previewItem{padding:14px;border:1px solid var(--line);border-radius:13px;background:#fff}
+.previewItemHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.previewNumber{display:inline-grid;place-items:center;min-width:31px;height:31px;padding:0 7px;border-radius:9px;color:#fff;background:linear-gradient(135deg,var(--teal),var(--violet));font-weight:900}
+.previewMeta{color:var(--muted);font-size:.72rem}
+.previewQuestion{margin:0 0 9px;color:var(--ink);font-weight:800}
+.previewOptions{display:grid;gap:6px;margin:8px 0;padding:0;list-style:none}
+.previewOptions li{padding:7px 9px;border-radius:9px;background:#f4f8fb}
+.previewAnswer{margin-top:9px;padding:10px 12px;border-right:4px solid var(--teal);border-radius:10px;background:#eefaf8}
+.previewHint{color:var(--muted);font-size:.77rem}
+.mindTree,.mindTree ul{margin:0;padding-right:20px;list-style:none}
+.mindTree li{position:relative;margin:8px 0;padding:8px 11px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.mindTree li:before{content:"";position:absolute;right:-13px;top:19px;width:12px;border-top:2px solid #9ed8d4}
+.slidePreview{display:grid;gap:11px;text-align:center;padding:15px}
+.slidePreview .slideIcon{width:68px;height:68px;margin:auto;display:grid;place-items:center;border-radius:20px;color:#fff;background:linear-gradient(135deg,var(--teal),var(--violet));font-size:1.7rem}
+.modalFoot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:flex-end;gap:8px;padding:14px 22px;border-top:1px solid var(--line);background:#fff}
 .modalFoot button{padding:9px 13px;border:1px solid var(--line);border-radius:10px;background:#f8fbfd;cursor:pointer}
 .modalFoot .approve{color:#fff;border-color:transparent;background:linear-gradient(135deg,var(--teal),var(--teal2))}
+.downloadFormat{display:grid;gap:4px;margin-left:auto;color:var(--muted);font-size:.68rem}
+.downloadFormat select{min-width:155px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:#334b60}
 .resultAction{margin-right:9px;padding:6px 10px;border:1px solid #acdcd7;border-radius:9px;background:#fff;color:#087b78;cursor:pointer;font-weight:800}
 @media(max-width:720px){
   .draftTop{flex-direction:column}
@@ -170,6 +191,7 @@
     <button data-filter="summary">خلاصه</button>
     <button data-filter="quiz">آزمون</button>
     <button data-filter="flashcards">فلش‌کارت</button>
+    <button data-filter="mindmap">نقشهٔ مفهومی</button>
     <button data-filter="slides">اسلاید</button>
   </div>
   <div class="draftList" id="draftList"></div>
@@ -189,7 +211,15 @@
     </div>
     <div class="modalBody"><div class="previewBlock" id="modalContent"></div></div>
     <div class="modalFoot">
-      <button type="button" id="modalDownload">دانلود متن</button>
+      <label class="downloadFormat" id="downloadFormatWrap">
+        <span>فرمت دانلود</span>
+        <select id="modalFormat">
+          <option value="md">Markdown (.md)</option>
+          <option value="txt">Text (.txt)</option>
+          <option value="json">JSON (.json)</option>
+        </select>
+      </label>
+      <button type="button" id="modalDownload">دانلود فایل</button>
       <button type="button" class="approve" id="modalApprove">تأیید پیش‌نویس</button>
     </div>
   </div>
@@ -201,7 +231,7 @@
 <section class="cta"><div class="wrap"><div class="ctaBox"><h2>یک کتاب، یک پایلوت، یک تصمیم روشن</h2><p>دانشیار برای آن ساخته شده که پیش از توسعهٔ بزرگ، ارزش پروژه را با یک کتاب، چند معیار علمی و یک دموی قابل لمس نشان دهد.</p><a class="btn secondary" href="https://github.com/FaramarzKowsari/daneshyar-educational-content-engine" target="_blank" rel="noopener">مشاهدهٔ مستندات فنی در GitHub</a></div></div></section>
 </main>
 <footer><div class="wrap foot"><span>© ۲۰۲۶ Daneshyar Educational Content Engine — MIT License</span><div class="footLinks"><a href="https://github.com/FaramarzKowsari/daneshyar-educational-content-engine" target="_blank">GitHub</a><a href="https://orcid.org/0000-0003-1692-0453" target="_blank">ORCID</a><a href="demo-guide.html">راهنمای فنی و هزینه‌ها</a><a href="citation.html">استناد و DOI</a><a href="https://doi.org/10.5281/zenodo.21481330" target="_blank" rel="noopener">DOI: 10.5281/zenodo.21481330</a><a href="#top">بازگشت به بالا ↑</a></div></div></footer><div class="toast" id="toast"></div>
-<script src="config.js?v=20260721-interactive-features"></script>
+<script src="config.js?v=20260721-viewable-downloadable-drafts"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const SESSION_KEY='daneshyar_public_beta_session_v1';
@@ -272,14 +302,148 @@ const messages=$('#messages'),typing=$('#typing');
 async function ask(q){if(!q.trim()||!requireBook())return;let u=document.createElement('div');u.className='msg user';u.textContent=q;messages.insertBefore(u,typing);typing.style.display='block';messages.scrollTop=messages.scrollHeight;try{const {data}=await api(`/api/public/books/${state.session.public_id}/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});const a=document.createElement('div');a.className='msg ai';const cites=(data.citations||[]).slice(0,4).map(c=>`<span class="cite">صفحهٔ ${faNum(c.page_start)} • ${escapeHtml(c.chapter)}</span>`).join(' ');a.innerHTML=`${escapeHtml(data.answer).replace(/\n/g,'<br>')}<br>${cites}`;messages.insertBefore(a,typing)}catch(e){let a=document.createElement('div');a.className='msg error';a.textContent=e.message;messages.insertBefore(a,typing)}finally{typing.style.display='none';messages.scrollTop=messages.scrollHeight}}
 $('#form').onsubmit=e=>{e.preventDefault();let q=$('#question');ask(q.value);q.value=''};$$('.samples button').forEach(b=>b.onclick=()=>ask(b.dataset.q));
 const typeMap={'خلاصهٔ سه‌سطحی':'summary','آزمون ۱۰ سؤالی':'quiz','۲۰ فلش‌کارت':'flashcards','نقشهٔ مفهومی':'mindmap','۱۲ اسلاید آموزشی':'slides'};
-$$('.asset button').forEach(b=>b.onclick=async()=>{if(!requireBook())return;const type=typeMap[b.dataset.asset],chapter=$('#chapterSelect').value||null,r=$('#result');r.style.display='block';r.innerHTML=`در حال تولید <b>${escapeHtml(b.dataset.asset)}</b> از ${chapter?escapeHtml(chapter):'کل کتاب'}…`;b.disabled=true;try{if(type==='slides'){const fd=new FormData();if(chapter)fd.append('chapter',chapter);const response=await fetch(endpoint(`/api/public/books/${state.session.public_id}/slides`),{method:'POST',headers:headers(),body:fd});if(!response.ok){const d=await response.json();throw new Error(d.detail||'ساخت اسلاید ناموفق بود.')}const blob=await response.blob(),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='daneshyar-slides.pptx';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);r.innerHTML='✓ فایل PowerPoint ساخته و دانلود شد.'}else{const {data}=await api(`/api/public/books/${state.session.public_id}/generate/${type}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chapter,count:type==='quiz'?10:type==='flashcards'?20:8})});r.innerHTML=`✓ <b>${escapeHtml(data.title)}</b> ساخته شد. <button class="resultAction" id="showAsset">مشاهدهٔ پیش‌نویس</button>`;await loadAssets();$('#showAsset').onclick=()=>{panel('drafts');openAsset(data.id)}}}catch(e){r.textContent=e.message}finally{b.disabled=false}});
+$$('.asset button').forEach(b=>b.onclick=async()=>{
+ if(!requireBook())return;
+ const type=typeMap[b.dataset.asset],chapter=$('#chapterSelect').value||null,r=$('#result');
+ r.style.display='block';
+ r.innerHTML=`در حال تولید <b>${escapeHtml(b.dataset.asset)}</b> از ${chapter?escapeHtml(chapter):'کل کتاب'}…`;
+ b.disabled=true;
+ try{
+  const {data}=await api(`/api/public/books/${state.session.public_id}/generate/${type}`,{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({chapter,count:type==='quiz'?10:type==='flashcards'?20:8})
+  });
+  r.innerHTML=`✓ <b>${escapeHtml(data.title)}</b> ساخته و در مخزن پیش‌نویس‌ها ذخیره شد.`;
+  await loadAssets();
+  panel('drafts');
+  setTimeout(()=>openAsset(data.id),180);
+ }catch(e){
+  r.textContent=e.message;
+ }finally{
+  b.disabled=false;
+ }
+});
 let assets=[];
 async function loadAssets(){if(!state.session){renderAssets([]);return}try{assets=(await api(`/api/public/books/${state.session.public_id}/assets`)).data;renderAssets(assets)}catch(e){toast(e.message)}}
 function statusText(s){return s==='approved'?'تأییدشده':'پیش‌نویس'}function kindText(k){return({summary:'خلاصه',quiz:'آزمون',flashcards:'فلش‌کارت',mindmap:'نقشهٔ مفهومی',slides:'اسلاید'})[k]||'محتوا'}
 function renderAssets(list=assets){$('#draftCount').textContent=faNum(list.filter(x=>x.status==='draft').length);const approved=list.filter(x=>x.status==='approved').length;$('#draftSummary').innerHTML=`<span class="summaryPill">کل خروجی‌ها: <b>${faNum(list.length)}</b></span><span class="summaryPill">در انتظار بازبینی: <b>${faNum(list.length-approved)}</b></span><span class="summaryPill">تأییدشده: <b>${faNum(approved)}</b></span>`;const q=($('#draftSearch').value||'').toLowerCase(),filtered=list.filter(x=>(state.currentFilter==='all'||x.status===state.currentFilter||x.asset_type===state.currentFilter)&&(!q||`${x.title} ${x.chapter} ${kindText(x.asset_type)}`.toLowerCase().includes(q)));const box=$('#draftList');box.innerHTML='';$('#emptyDrafts').style.display=filtered.length?'none':'block';filtered.forEach(d=>{let c=document.createElement('article');c.className='draftCard';c.innerHTML=`<div class="draftKind">${d.asset_type==='summary'?'Σ':d.asset_type==='quiz'?'?':d.asset_type==='flashcards'?'▣':d.asset_type==='mindmap'?'⌘':d.asset_type==='slides'?'▶':'✦'}</div><div class="draftInfo"><div class="draftTitle"><strong>${escapeHtml(d.title)}</strong><span class="statusChip ${d.status}">${statusText(d.status)}</span></div><div class="draftMeta"><span>📂 ${escapeHtml(d.chapter)}</span><span>🕒 ${faDate(d.created_at)}</span></div></div><div class="draftActions"><button data-view="${d.id}">مشاهده</button>${d.status==='draft'?`<button data-approve="${d.id}">تأیید</button>`:''}<button data-download="${d.id}">دانلود</button></div>`;box.appendChild(c)})}
 $('#draftList').onclick=e=>{const v=e.target.closest('[data-view]'),a=e.target.closest('[data-approve]'),d=e.target.closest('[data-download]');if(v)openAsset(+v.dataset.view);if(a)approveAsset(+a.dataset.approve);if(d)downloadAsset(+d.dataset.download)};
 $('#draftFilters').onclick=e=>{const b=e.target.closest('[data-filter]');if(!b)return;state.currentFilter=b.dataset.filter;$$('#draftFilters button').forEach(x=>x.classList.toggle('active',x===b));renderAssets()};$('#draftSearch').oninput=()=>renderAssets();$('#clearDrafts').style.display='none';$('#goToAssets').onclick=()=>panel('assets');
-function formatContent(c){return typeof c==='string'?c:JSON.stringify(c,null,2)}async function openAsset(id){try{const {data}=await api(`/api/public/books/${state.session.public_id}/assets/${id}`);state.activeAsset=data;$('#modalTitle').textContent=data.title;$('#modalMeta').textContent=`${kindText(data.asset_type)} • ${data.chapter} • ${statusText(data.status)}`;$('#modalContent').textContent=formatContent(data.content);$('#modalApprove').style.display=data.status==='draft'?'inline-block':'none';$('#draftModal').classList.add('open');document.body.style.overflow='hidden'}catch(e){toast(e.message)}}function closeAsset(){$('#draftModal').classList.remove('open');document.body.style.overflow=''}$('#closeModal').onclick=closeAsset;$('#draftModal').onclick=e=>{if(e.target===$('#draftModal'))closeAsset()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAsset()});async function approveAsset(id){try{await api(`/api/public/books/${state.session.public_id}/assets/${id}/approve`,{method:'POST'});toast('خروجی تأیید شد.');await loadAssets();if(state.activeAsset?.id===id)openAsset(id)}catch(e){toast(e.message)}}$('#modalApprove').onclick=()=>state.activeAsset&&approveAsset(state.activeAsset.id);function downloadAsset(id){const d=assets.find(x=>x.id===id)||state.activeAsset;if(!d)return;const blob=new Blob([formatContent(d.content)],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(d.title||'daneshyar-output').replace(/[\\/:*?"<>|]/g,'-')+'.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}$('#modalDownload').onclick=()=>state.activeAsset&&downloadAsset(state.activeAsset.id);
+function valueText(v){return v===null||v===undefined?'':String(v)}
+function renderSummary(content){
+ const text=typeof content==='string'?content:JSON.stringify(content,null,2);
+ const blocks=text.split(/
+{2,}/).filter(Boolean);
+ return `<div class="previewIntro">این پیش‌نویس برای بازبینی استاد ذخیره شده است.</div>${blocks.map(x=>`<p>${escapeHtml(x).replace(/
+/g,'<br>')}</p>`).join('')}`;
+}
+function renderQuiz(content){
+ const items=Array.isArray(content)?content:[];
+ if(!items.length)return `<pre>${escapeHtml(JSON.stringify(content,null,2))}</pre>`;
+ return `<div class="previewItems">${items.map((item,i)=>{
+  const options=Array.isArray(item.options)&&item.options.length
+   ?`<ul class="previewOptions">${item.options.map((o,j)=>`<li>${faNum(j+1)}. ${escapeHtml(o)}</li>`).join('')}</ul>`:'';
+  return `<article class="previewItem">
+   <div class="previewItemHead"><span class="previewNumber">${faNum(i+1)}</span><span class="previewMeta">${escapeHtml(item.type||'سؤال')} • صفحه ${faNum(item.source_page||'—')} • ${escapeHtml(item.difficulty||'')}</span></div>
+   <p class="previewQuestion">${escapeHtml(item.question||'')}</p>${options}
+   <div class="previewAnswer"><b>پاسخ:</b> ${escapeHtml(item.answer||'')}</div>
+   ${item.explanation?`<p class="previewHint"><b>توضیح:</b> ${escapeHtml(item.explanation)}</p>`:''}
+  </article>`;
+ }).join('')}</div>`;
+}
+function renderFlashcards(content){
+ const items=Array.isArray(content)?content:[];
+ if(!items.length)return `<pre>${escapeHtml(JSON.stringify(content,null,2))}</pre>`;
+ return `<div class="previewItems">${items.map((item,i)=>`<article class="previewItem">
+  <div class="previewItemHead"><span class="previewNumber">${faNum(i+1)}</span><span class="previewMeta">صفحه ${faNum(item.source_page||'—')} • ${escapeHtml(item.difficulty||'')}</span></div>
+  <p class="previewQuestion">${escapeHtml(item.question||'')}</p>
+  <div class="previewAnswer"><b>پاسخ:</b> ${escapeHtml(item.answer||'')}</div>
+  ${item.hint?`<p class="previewHint"><b>راهنما:</b> ${escapeHtml(item.hint)}</p>`:''}
+ </article>`).join('')}</div>`;
+}
+function renderMindNode(node){
+ if(!node||typeof node!=='object')return '';
+ const children=Array.isArray(node.children)&&node.children.length
+  ?`<ul>${node.children.map(renderMindNode).join('')}</ul>`:'';
+ return `<li><b>${escapeHtml(node.label||node.root||'مفهوم')}</b>${children}</li>`;
+}
+function renderMindmap(content){
+ if(!content||typeof content!=='object')return `<pre>${escapeHtml(JSON.stringify(content,null,2))}</pre>`;
+ const root={label:content.root||'نقشهٔ مفهومی',children:content.children||[]};
+ return `<div class="previewIntro">ساختار سلسله‌مراتبی مفاهیم</div><ul class="mindTree">${renderMindNode(root)}</ul>`;
+}
+function renderSlides(content){
+ const filename=content&&typeof content==='object'?content.filename:'';
+ const note=content&&typeof content==='object'?content.note:'فایل PowerPoint آمادهٔ دانلود است.';
+ return `<div class="slidePreview"><div class="slideIcon">▶</div><h4>پیش‌نویس اسلاید آموزشی</h4><p>${escapeHtml(note||'')}</p>${filename?`<p class="previewMeta">${escapeHtml(filename)}</p>`:''}<p>برای دریافت فایل واقعی PowerPoint روی «دانلود PowerPoint» بزنید.</p></div>`;
+}
+function renderAssetContent(asset){
+ if(asset.asset_type==='summary')return renderSummary(asset.content);
+ if(asset.asset_type==='quiz')return renderQuiz(asset.content);
+ if(asset.asset_type==='flashcards')return renderFlashcards(asset.content);
+ if(asset.asset_type==='mindmap')return renderMindmap(asset.content);
+ if(asset.asset_type==='slides')return renderSlides(asset.content);
+ return `<pre>${escapeHtml(typeof asset.content==='string'?asset.content:JSON.stringify(asset.content,null,2))}</pre>`;
+}
+async function openAsset(id){
+ try{
+  const {data}=await api(`/api/public/books/${state.session.public_id}/assets/${id}`);
+  state.activeAsset=data;
+  $('#modalTitle').textContent=data.title;
+  $('#modalMeta').textContent=`${kindText(data.asset_type)} • ${data.chapter} • ${statusText(data.status)}`;
+  $('#modalContent').innerHTML=renderAssetContent(data);
+  $('#modalApprove').style.display=data.status==='draft'?'inline-block':'none';
+  const isSlides=data.asset_type==='slides';
+  $('#downloadFormatWrap').style.display=isSlides?'none':'grid';
+  $('#modalDownload').textContent=isSlides?'دانلود PowerPoint':'دانلود فایل';
+  $('#draftModal').classList.add('open');
+  document.body.style.overflow='hidden';
+ }catch(e){toast(e.message)}
+}
+function closeAsset(){$('#draftModal').classList.remove('open');document.body.style.overflow=''}
+$('#closeModal').onclick=closeAsset;
+$('#draftModal').onclick=e=>{if(e.target===$('#draftModal'))closeAsset()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAsset()});
+async function approveAsset(id){
+ try{
+  await api(`/api/public/books/${state.session.public_id}/assets/${id}/approve`,{method:'POST'});
+  toast('خروجی تأیید شد.');
+  await loadAssets();
+  if(state.activeAsset?.id===id)openAsset(id);
+ }catch(e){toast(e.message)}
+}
+$('#modalApprove').onclick=()=>state.activeAsset&&approveAsset(state.activeAsset.id);
+function responseFilename(response,fallback){
+ const header=response.headers.get('content-disposition')||'';
+ const utf=header.match(/filename\*=UTF-8''([^;]+)/i);
+ if(utf){try{return decodeURIComponent(utf[1])}catch(_){}}
+ const simple=header.match(/filename="?([^";]+)"?/i);
+ return simple?simple[1]:fallback;
+}
+async function downloadAsset(id,selectedFormat=null){
+ const asset=assets.find(x=>x.id===id)||state.activeAsset;
+ if(!asset)return;
+ const format=asset.asset_type==='slides'?'pptx':(selectedFormat||'md');
+ try{
+  const response=await fetch(endpoint(`/api/public/books/${state.session.public_id}/assets/${id}/download?format=${encodeURIComponent(format)}`),{
+   method:'GET',headers:headers(),credentials:'omit'
+  });
+  if(!response.ok){
+   let message='دانلود خروجی ناموفق بود.';
+   try{const data=await response.json();message=data.detail||message}catch(_){}
+   throw new Error(message);
+  }
+  const blob=await response.blob();
+  const extension=asset.asset_type==='slides'?'pptx':format;
+  const fallback=(asset.title||'daneshyar-output').replace(/[\/:*?"<>|]/g,'-')+'.'+extension;
+  const filename=responseFilename(response,fallback);
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1200);
+ }catch(e){toast(e.message)}
+}
+$('#modalDownload').onclick=()=>state.activeAsset&&downloadAsset(state.activeAsset.id,$('#modalFormat').value);
 (async()=>{await loadConfig();const saved=readSession();if(saved){saveSession(saved);await pollBook(false)}else{clearSessionUI()}})();
 </script>
 </body></html>
