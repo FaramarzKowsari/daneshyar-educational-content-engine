@@ -120,8 +120,6 @@
   outline-offset:4px;
 }
 
-
-.uploadFields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:13px}.uploadFields label{display:grid;gap:6px;font-size:.78rem;font-weight:800;color:#435a70}.uploadFields input,.chapterPicker select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;outline:none}.uploadFields input:focus,.chapterPicker select:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(10,167,165,.08)}.terms{display:flex;align-items:flex-start;gap:8px;margin:0 0 12px;padding:11px 13px;border:1px solid #d7e5ec;border-radius:12px;background:#f9fcfe;color:#52677c;font-size:.74rem}.terms input{margin-top:5px}.publicInfo{margin-bottom:13px;padding:10px 13px;border:1px solid #cce4e2;border-radius:11px;background:#effaf8;color:#315d65;font-size:.74rem}.publicInfo.error{border-color:#efc3bd;background:#fff3f1;color:#963f35}.chapterPicker{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding:11px 13px;border:1px solid var(--line);border-radius:13px;background:#f8fbfd}.chapterPicker label{font-size:.78rem;font-weight:800;white-space:nowrap}.chapterPicker select{max-width:420px}.upload.busy{pointer-events:none;opacity:.7}.msg.error{background:#fff1ef;border:1px solid #efc2bd;color:#963d34}.asset button:disabled,.btn:disabled{opacity:.55;cursor:not-allowed}.sessionExpiry{display:inline-block;margin-top:6px;color:#8a681c;font-size:.69rem}@media(max-width:720px){.uploadFields{grid-template-columns:1fr}.chapterPicker{align-items:stretch;flex-direction:column}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Daneshyar Educational Content Engine","alternateName":"دانشیار","applicationCategory":"EducationalApplication","operatingSystem":"Web","url":"https://faramarzkowsari.github.io/daneshyar-educational-content-engine/","codeRepository":"https://github.com/FaramarzKowsari/daneshyar-educational-content-engine","license":"https://opensource.org/licenses/MIT","author":[{"@type":"Person","name":"Faramarz Kowsari"},{"@type":"Person","name":"Safieh Siadat"}]}</script>
 </head>
@@ -131,19 +129,10 @@
 <section class="hero"><div class="wrap heroGrid"><div class="heroCopy"><span class="badge"><span class="pulse"></span>نسخهٔ MVP قابل اجرا</span><h1>کتاب دانشگاهی را به یک <span class="grad">دستیار آموزشی زنده</span> تبدیل کنید.</h1><p class="lead">دانشیار متن کتاب را با حفظ فصل و شمارهٔ صفحه پردازش می‌کند و از همان منبع، پاسخ مستند، خلاصه، آزمون، فلش‌کارت، نقشهٔ مفهومی و اسلاید می‌سازد.</p><div class="actions"><a class="btn primary" href="#demo">تجربهٔ رابط کاربری</a><a class="btn secondary" href="https://github.com/FaramarzKowsari/daneshyar-educational-content-engine" target="_blank" rel="noopener">مشاهدهٔ مخزن فنی</a></div><div class="trust"><span><i class="ok">✓</i>پاسخ منبع‌محور</span><span><i class="ok">✓</i>اجرای محلی و Docker</span><span><i class="ok">✓</i>بازبینی استاد</span></div></div><div class="visual"><div class="glow"></div><div class="float f1">📚 تبدیل کتاب به دانش ساختاریافته</div><div class="float f2">🔎 ارجاع دقیق به صفحه و فصل</div><div class="window"><div class="wbar"><span>● سامانه آماده است</span><span class="dots"><i></i><i></i><i></i></span></div><div class="preview"><aside class="side"><b>دانشیار</b><div class="active">گفت‌وگو با کتاب</div><div>خلاصه‌ساز</div><div>آزمون‌ساز</div><div>اسلایدساز</div></aside><div class="main"><b>کتاب فعال</b><div class="book"><span class="pdf">PDF</span><span><b>مبانی یادگیری هوشمند</b><br><small>۲۴۸ صفحه • ۱۲ فصل</small></span></div><div class="q">تفاوت یادگیری سطحی و عمیق چیست؟</div><div class="a">در یادگیری عمیق، دانشجو میان مفاهیم ارتباط می‌سازد و دانش را در موقعیت‌های تازه به‌کار می‌گیرد.<br><span class="source">فصل ۳ • صفحهٔ ۷۴</span></div></div></div></div></div></div></section>
 <div class="metrics"><div class="wrap metricGrid"><div class="metric"><strong>۱ کتاب</strong><span>برای پایلوت کنترل‌شده</span></div><div class="metric"><strong>۶ خروجی</strong><span>آموزشی و قابل ویرایش</span></div><div class="metric"><strong>RTL</strong><span>رابط فارسی واکنش‌گرا</span></div><div class="metric"><strong>CI ✓</strong><span>تست خودکار GitHub</span></div></div></div>
 <section id="features"><div class="wrap"><div class="head"><span class="kicker">از کتاب خام تا دارایی آموزشی</span><h2>یک موتور تولید محتوا؛ چندین ابزار برای استاد و دانشجو</h2><p>تمام خروجی‌ها از متن همان کتاب ساخته می‌شوند و پیش از انتشار رسمی می‌توانند توسط استاد بازبینی و تأیید شوند.</p></div><div class="features"><article class="card"><div class="icon">💬</div><h3>گفت‌وگو با کتاب</h3><p>پاسخ به سؤال دانشجو با نمایش فصل، صفحه، متن منبع و امتیاز بازیابی.</p></article><article class="card"><div class="icon">✦</div><h3>خلاصهٔ چندسطحی</h3><p>خلاصهٔ کوتاه، امتحانی و آموزشی برای مرور سریع یا طراحی تدریس.</p></article><article class="card"><div class="icon">✓</div><h3>آزمون‌ساز</h3><p>تولید سؤال چهارگزینه‌ای و تشریحی همراه با پاسخ، توضیح و منبع.</p></article><article class="card"><div class="icon">▣</div><h3>فلش‌کارت</h3><p>استخراج مفاهیم کلیدی و تبدیل آن‌ها به کارت‌های سؤال و پاسخ.</p></article><article class="card"><div class="icon">⌘</div><h3>نقشهٔ مفهومی</h3><p>نمایش ارتباط میان فصل، مفهوم، تعریف، مثال و پرسش.</p></article><article class="card"><div class="icon">▶</div><h3>اسلاید آموزشی</h3><p>ساخت فایل PowerPoint واقعی از اهداف، مفاهیم و جمع‌بندی فصل.</p></article></div></div></section>
-<section class="demoSec" id="demo"><div class="wrap"><div class="head"><span class="kicker">نمایش تعاملی رابط</span><h2>کتاب خودتان را بدهید و نتیجه را همان‌جا ببینید</h2><p>کتاب PDF دلخواه خود را بارگذاری کنید؛ متن و فصل‌ها در Backend پردازش می‌شوند و خروجی‌ها از همان کتاب ساخته خواهند شد.</p></div><div class="shell"><div class="shellTop"><b>دانشیار — پنل آموزشی</b><span class="demoTag">نسخهٔ عمومی آزمایشی</span></div><div class="layout"><aside class="demoSide"><h3>دانشیار</h3><div class="tabs"><button class="active" data-panel="upload">📤 افزودن کتاب</button><button data-panel="chat">💬 گفت‌وگو</button><button data-panel="assets">✦ تولید محتوا</button><button data-panel="drafts">🗂 پیش‌نویس‌ها <span class="draftBadge" id="draftCount">۰</span></button></div></aside><div class="content">
-<div class="panel active" id="upload"><div class="phead"><h3>افزودن کتاب دانشگاهی</h3><p>PDF دلخواه را انتخاب کنید. فایل‌های متنی مستقیماً و فایل‌های اسکن‌شده با OCR پردازش می‌شوند.</p></div>
-<div class="uploadFields">
-  <label>عنوان کتاب <input id="bookTitle" type="text" maxlength="300" placeholder="اختیاری؛ از PDF نیز تشخیص داده می‌شود"></label>
-  <label>نام نویسنده <input id="bookAuthor" type="text" maxlength="200" placeholder="اختیاری"></label>
-</div>
-<label class="terms"><input id="terms" type="checkbox"> <span>تأیید می‌کنم مجوز استفاده از این PDF را دارم و فایل صرفاً برای آزمایش آموزشی بارگذاری می‌شود.</span></label>
-<div class="publicInfo" id="publicInfo">در حال دریافت تنظیمات نسخهٔ عمومی…</div>
-<div class="upload" id="zone"><div class="uploadIcon">⇧</div><h4 id="uploadTitle">فایل PDF را اینجا رها کنید</h4><p>سقف فایل و تعداد صفحات بر اساس ظرفیت نسخهٔ عمومی نمایش داده می‌شود.</p><label class="btn primary" for="file">انتخاب فایل</label><input id="file" type="file" accept="application/pdf"><div class="progress" id="progress"><div class="track"><div class="bar" id="bar"></div></div><div class="plabel" id="plabel">در حال آماده‌سازی…</div></div></div></div>
-<div class="panel" id="chat"><div class="phead"><h3>گفت‌وگو با کتاب</h3><p>پاسخ‌ها به فصل و صفحهٔ منبع متصل می‌شوند.</p></div><div class="bookRow"><div class="bookMeta"><span class="pdf">PDF</span><span><strong id="activeBook">هنوز کتابی بارگذاری نشده است</strong><small id="activeBookMeta">ابتدا PDF خود را در بخش افزودن کتاب بارگذاری کنید.</small></span></div><span class="demoTag" id="chapterCount">۰ فصل</span><button class="btn secondary" id="deleteBook" type="button" style="display:none">حذف کتاب</button></div><div class="chat"><div class="messages" id="messages"><div class="msg ai">سلام. دربارهٔ محتوای کتاب سؤال بپرسید؛ پاسخ را همراه با منبع نمایش می‌دهم.</div><div class="typing" id="typing">دانشیار در حال بررسی منبع است…</div></div><form class="form" id="form"><input id="question" placeholder="سؤال خود را بنویسید…" autocomplete="off"><button class="btn primary">ارسال</button></form></div><div class="samples"><button data-q="هدف یادگیری عمیق چیست؟">هدف یادگیری عمیق چیست؟</button><button data-q="ارزشیابی تکوینی چه کاربردی دارد؟">ارزشیابی تکوینی چه کاربردی دارد؟</button><button data-q="نقش بازخورد در یادگیری چیست؟">نقش بازخورد در یادگیری چیست؟</button></div></div>
-<div class="panel" id="assets"><div class="phead"><h3>تولید محتوای آموزشی</h3><p>خروجی از کتاب بارگذاری‌شده ساخته و در حساب موقت همین مرورگر ذخیره می‌شود.</p></div>
-<div class="chapterPicker"><label for="chapterSelect">فصل یا بخش:</label><select id="chapterSelect"><option value="">کل کتاب</option></select></div>
-<div class="assets"><div class="asset"><span class="icon">Σ</span><span><strong>خلاصهٔ فصل</strong><small>سه سطح کاربردی</small></span><button data-asset="خلاصهٔ سه‌سطحی">تولید</button></div><div class="asset"><span class="icon">?</span><span><strong>آزمون</strong><small>چهارگزینه‌ای و تشریحی</small></span><button data-asset="آزمون ۱۰ سؤالی">تولید</button></div><div class="asset"><span class="icon">▣</span><span><strong>فلش‌کارت</strong><small>سؤال، پاسخ و راهنما</small></span><button data-asset="۲۰ فلش‌کارت">تولید</button></div><div class="asset"><span class="icon">▶</span><span><strong>اسلاید</strong><small>PowerPoint قابل دانلود</small></span><button data-asset="۱۲ اسلاید آموزشی">تولید</button></div></div><div class="result" id="result"></div></div>
+<section class="demoSec" id="demo"><div class="wrap"><div class="head"><span class="kicker">نمایش تعاملی رابط</span><h2>قبل از دیدن کد، خود محصول را لمس کنید</h2><p>این بخش نمایشی از تجربهٔ کاربری است؛ پردازش واقعی PDF در Backend انجام می‌شود.</p></div><div class="shell"><div class="shellTop"><b>دانشیار — پنل آموزشی</b><span class="demoTag">دموی رابط کاربری</span></div><div class="layout"><aside class="demoSide"><h3>دانشیار</h3><div class="tabs"><button class="active" data-panel="upload">📤 افزودن کتاب</button><button data-panel="chat">💬 گفت‌وگو</button><button data-panel="assets">✦ تولید محتوا</button><button data-panel="drafts">🗂 پیش‌نویس‌ها <span class="draftBadge" id="draftCount">۰</span></button></div></aside><div class="content">
+<div class="panel active" id="upload"><div class="phead"><h3>افزودن کتاب دانشگاهی</h3><p>PDF متنی را انتخاب کنید یا با کتاب نمونه ادامه دهید.</p></div><div class="upload" id="zone"><div class="uploadIcon">⇧</div><h4 id="uploadTitle">فایل PDF را اینجا رها کنید</h4><p>حداکثر حجم پیشنهادی برای پایلوت: ۵۰ مگابایت</p><label class="btn primary" for="file">انتخاب فایل</label><input id="file" type="file" accept="application/pdf"><button class="btn secondary" id="sample" style="margin-right:8px">کتاب نمونه</button><div class="progress" id="progress"><div class="track"><div class="bar" id="bar"></div></div><div class="plabel" id="plabel">در حال آماده‌سازی…</div></div></div></div>
+<div class="panel" id="chat"><div class="phead"><h3>گفت‌وگو با کتاب</h3><p>پاسخ‌ها به فصل و صفحهٔ منبع متصل می‌شوند.</p></div><div class="bookRow"><div class="bookMeta"><span class="pdf">PDF</span><span><strong id="activeBook">مبانی یادگیری هوشمند</strong><small>کتاب نمونه • آمادهٔ جست‌وجو</small></span></div><span class="demoTag">۱۲ فصل</span></div><div class="chat"><div class="messages" id="messages"><div class="msg ai">سلام. دربارهٔ محتوای کتاب سؤال بپرسید؛ پاسخ را همراه با منبع نمایش می‌دهم.</div><div class="typing" id="typing">دانشیار در حال بررسی منبع است…</div></div><form class="form" id="form"><input id="question" placeholder="سؤال خود را بنویسید…" autocomplete="off"><button class="btn primary">ارسال</button></form></div><div class="samples"><button data-q="هدف یادگیری عمیق چیست؟">هدف یادگیری عمیق چیست؟</button><button data-q="ارزشیابی تکوینی چه کاربردی دارد؟">ارزشیابی تکوینی چه کاربردی دارد؟</button><button data-q="نقش بازخورد در یادگیری چیست؟">نقش بازخورد در یادگیری چیست؟</button></div></div>
+<div class="panel" id="assets"><div class="phead"><h3>تولید محتوای آموزشی</h3><p>خروجی به‌عنوان پیش‌نویس ذخیره می‌شود.</p></div><div class="assets"><div class="asset"><span class="icon">Σ</span><span><strong>خلاصهٔ فصل</strong><small>سه سطح کاربردی</small></span><button data-asset="خلاصهٔ سه‌سطحی">تولید</button></div><div class="asset"><span class="icon">?</span><span><strong>آزمون</strong><small>چهارگزینه‌ای و تشریحی</small></span><button data-asset="آزمون ۱۰ سؤالی">تولید</button></div><div class="asset"><span class="icon">▣</span><span><strong>فلش‌کارت</strong><small>سؤال، پاسخ و راهنما</small></span><button data-asset="۲۰ فلش‌کارت">تولید</button></div><div class="asset"><span class="icon">▶</span><span><strong>اسلاید</strong><small>PowerPoint قابل دانلود</small></span><button data-asset="۱۲ اسلاید آموزشی">تولید</button></div></div><div class="result" id="result"></div></div>
 <div class="panel" id="drafts">
   <div class="draftTop">
     <div class="phead"><h3>مخزن پیش‌نویس‌ها</h3><p>خروجی‌های تولیدشده را مشاهده، بازبینی، تأیید، دانلود یا حذف کنید.</p></div>
@@ -155,7 +144,7 @@
   <div class="draftSummary" id="draftSummary"></div>
   <div class="draftStorageNote" role="note" aria-label="نکته مهم درباره ذخیره‌سازی پیش‌نویس‌ها">
   <span class="noteIcon" aria-hidden="true">ⓘ</span>
-  <p><strong>نکتهٔ مهم:</strong> در نسخهٔ عمومی، کتاب و پیش‌نویس‌ها در Backend و با یک کلید خصوصی مخصوص همان مرورگر نگه‌داری می‌شوند و پس از پایان زمان آزمایش به‌صورت خودکار حذف خواهند شد. برای استقرار رسمی دانشگاهی، ورود کاربران، نقش استاد و دانشجو، پایگاه دادهٔ سازمانی و سیاست نگه‌داری اختصاصی لازم است.</p>
+  <p><strong>نکتهٔ مهم:</strong> در این نسخهٔ نمایشی، پیش‌نویس‌ها فقط در مرورگر همان کاربر ذخیره می‌شوند. برای نسخهٔ واقعی دانشگاهی که چند استاد و دانشجو وارد سامانه می‌شوند، پیش‌نویس‌ها باید در Backend، پایگاه داده و حساب کاربری ذخیره شوند.</p>
 </div>
   <div class="filters" id="draftFilters">
     <button class="active" data-filter="all">همه</button>
@@ -195,66 +184,173 @@
 <section class="cta"><div class="wrap"><div class="ctaBox"><h2>یک کتاب، یک پایلوت، یک تصمیم روشن</h2><p>دانشیار برای آن ساخته شده که پیش از توسعهٔ بزرگ، ارزش پروژه را با یک کتاب، چند معیار علمی و یک دموی قابل لمس نشان دهد.</p><a class="btn secondary" href="https://github.com/FaramarzKowsari/daneshyar-educational-content-engine" target="_blank" rel="noopener">مشاهدهٔ مستندات فنی در GitHub</a></div></div></section>
 </main>
 <footer><div class="wrap foot"><span>© ۲۰۲۶ Daneshyar Educational Content Engine — MIT License</span><div class="footLinks"><a href="https://github.com/FaramarzKowsari/daneshyar-educational-content-engine" target="_blank">GitHub</a><a href="https://orcid.org/0000-0003-1692-0453" target="_blank">ORCID</a><a href="#top">بازگشت به بالا ↑</a></div></div></footer><div class="toast" id="toast"></div>
-<script src="config.js"></script>
 <script>
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-const SESSION_KEY='daneshyar_public_beta_session_v1';
-const API_BASE=(window.DANESHYAR_API_BASE||'').replace(/\/$/,'');
-const endpoint=path=>API_BASE+path;
-let state={session:null,book:null,config:null,currentFilter:'all',activeAsset:null};
-const toast=m=>{let t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),3000)};
-function panel(n){$$('.panel').forEach(x=>x.classList.remove('active'));$$('.tabs button').forEach(x=>x.classList.toggle('active',x.dataset.panel===n));$('#'+n)?.classList.add('active')}
-$$('.tabs button').forEach(b=>b.onclick=()=>panel(b.dataset.panel));
-const faNum=n=>new Intl.NumberFormat('fa-IR').format(n||0);
-const faDate=iso=>iso?new Intl.DateTimeFormat('fa-IR',{dateStyle:'medium',timeStyle:'short'}).format(new Date(iso)):'';
-function saveSession(v){state.session=v;v?localStorage.setItem(SESSION_KEY,JSON.stringify(v)):localStorage.removeItem(SESSION_KEY)}
-function readSession(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch{return null}}
-function headers(extra={}){return state.session?{'X-Daneshyar-Token':state.session.access_token,...extra}:extra}
-async function api(path,opts={}){const r=await fetch(endpoint(path),{...opts,headers:headers(opts.headers||{})});let data=null;const ct=r.headers.get('content-type')||'';if(ct.includes('json'))data=await r.json();if(!r.ok)throw new Error(data?.detail||'ارتباط با سرور ناموفق بود.');return {response:r,data}}
-function setInfo(text,error=false){const e=$('#publicInfo');e.textContent=text;e.classList.toggle('error',error)}
-async function loadConfig(){try{state.config=(await api('/api/public/config')).data;const c=state.config;setInfo(`حداکثر ${faNum(c.max_upload_mb)} مگابایت و ${faNum(c.max_pdf_pages)} صفحه • نگه‌داری موقت ${faNum(c.ttl_hours)} ساعت • OCR: ${c.ocr_enabled?'فعال':'غیرفعال'} • هوش مولد: ${c.llm_enabled?'فعال':'حالت محلی'}`)}catch(e){setInfo(e.message,true)}}
-function setProgress(percent,label){$('#progress').style.display='block';$('#bar').style.width=percent+'%';$('#plabel').textContent=label}
-async function uploadFile(file){
- if(!file)return;if(!$('#terms').checked){toast('ابتدا شرایط استفاده و حقوق نشر را تأیید کنید.');return}
- if(!file.name.toLowerCase().endsWith('.pdf')){toast('فقط فایل PDF پذیرفته می‌شود.');return}
- const zone=$('#zone');zone.classList.add('busy');$('#uploadTitle').textContent=file.name;setProgress(8,'در حال بارگذاری فایل…');
- const fd=new FormData();fd.append('file',file);fd.append('title',$('#bookTitle').value.trim());fd.append('author',$('#bookAuthor').value.trim());fd.append('accepted_terms','true');
- try{
-  const r=await fetch(endpoint('/api/public/books'),{method:'POST',body:fd});const data=await r.json();if(!r.ok)throw new Error(data.detail||'بارگذاری ناموفق بود.');
-  saveSession({public_id:data.public_id,access_token:data.access_token,expires_at:data.expires_at});setProgress(25,'فایل دریافت شد؛ پردازش متن و فصل‌ها آغاز شد…');await pollBook(true);
- }catch(e){setProgress(0,e.message);setInfo(e.message,true);toast(e.message)}finally{zone.classList.remove('busy')}
-}
-$('#file').onchange=e=>uploadFile(e.target.files[0]);
-const zone=$('#zone');['dragenter','dragover'].forEach(ev=>zone.addEventListener(ev,e=>{e.preventDefault();zone.style.borderColor='var(--teal)'}));['dragleave','drop'].forEach(ev=>zone.addEventListener(ev,e=>{e.preventDefault();zone.style.borderColor=''}));zone.addEventListener('drop',e=>uploadFile(e.dataTransfer.files[0]));
-async function pollBook(switchPanel=false){
- if(!state.session)return;let attempts=0;
- while(attempts++<180){
-  try{const {data}=await api(`/api/public/books/${state.session.public_id}`);state.book=data;renderBook();
-   if(data.status==='ready'){setProgress(100,'کتاب آماده است.');toast('کتاب شما با موفقیت پردازش شد.');await loadAssets();if(switchPanel)setTimeout(()=>panel('chat'),350);return}
-   if(data.status==='failed')throw new Error(data.processing_error||'پردازش کتاب ناموفق بود.');
-   setProgress(Math.min(92,28+attempts),attempts<8?'در حال استخراج متن و صفحات…':attempts<20?'در حال تشخیص فصل‌ها و ساخت نمایه…':'پردازش کتاب ادامه دارد…');
-   await new Promise(r=>setTimeout(r,2000));
-  }catch(e){setProgress(0,e.message);toast(e.message);if(/پایان یافته|معتبر نیست|پیدا نشد/.test(e.message))clearSessionUI();return}
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const toast=m=>{let t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),2400)};function panel(n){$$('.panel').forEach(x=>x.classList.remove('active'));$$('.tabs button').forEach(x=>x.classList.toggle('active',x.dataset.panel===n));$('#'+n).classList.add('active')}$$('.tabs button').forEach(b=>b.onclick=()=>panel(b.dataset.panel));let prog=$('#progress'),bar=$('#bar'),pl=$('#plabel');function loadBook(name='مبانی یادگیری هوشمند'){prog.style.display='block';$('#uploadTitle').textContent=name;[[18,'اعتبارسنجی PDF…'],[42,'استخراج متن و صفحات…'],[68,'تشخیص فصل‌ها…'],[87,'نمایه‌سازی محتوا…'],[100,'کتاب آماده است.']].forEach((x,i)=>setTimeout(()=>{bar.style.width=x[0]+'%';pl.textContent=x[1];if(x[0]===100){$('#activeBook').textContent=name.replace(/\.pdf$/i,'');toast('کتاب آماده شد');setTimeout(()=>panel('chat'),550)}},380*(i+1)))}$('#sample').onclick=()=>loadBook();$('#file').onchange=e=>{let f=e.target.files[0];if(f&&f.name.toLowerCase().endsWith('.pdf'))loadBook(f.name);else if(f)toast('فقط فایل PDF پذیرفته می‌شود')};let z=$('#zone');['dragenter','dragover'].forEach(e=>z.addEventListener(e,x=>{x.preventDefault();z.classList.add('drag')}));['dragleave','drop'].forEach(e=>z.addEventListener(e,x=>{x.preventDefault();z.classList.remove('drag')}));z.ondrop=e=>{let f=e.dataTransfer.files[0];if(f&&f.name.toLowerCase().endsWith('.pdf'))loadBook(f.name);else toast('فقط فایل PDF پذیرفته می‌شود')};const ans=['یادگیری عمیق زمانی رخ می‌دهد که دانشجو میان مفاهیم ارتباط بسازد و آموخته‌ها را در موقعیت تازه به‌کار گیرد.','ارزشیابی تکوینی در جریان یادگیری انجام می‌شود تا فاصله با هدف مشخص و مسیر پیش از ارزیابی نهایی اصلاح شود.','بازخورد مؤثر نشان می‌دهد چه چیزی درست انجام شده، چه بخشی نیازمند اصلاح است و گام بعدی چیست.'];let ai=0,msg=$('#messages'),typing=$('#typing');function ask(q){if(!q.trim())return;let u=document.createElement('div');u.className='msg user';u.textContent=q;msg.insertBefore(u,typing);typing.style.display='block';msg.scrollTop=msg.scrollHeight;setTimeout(()=>{typing.style.display='none';let a=document.createElement('div');a.className='msg ai';a.innerHTML=ans[ai%ans.length]+'<br><span class="cite">فصل '+(3+ai)+' • صفحهٔ '+(71+ai*8)+'</span>';ai++;msg.insertBefore(a,typing);msg.scrollTop=msg.scrollHeight},850)}$('#form').onsubmit=e=>{e.preventDefault();let q=$('#question');ask(q.value);q.value=''};$$('.samples button').forEach(b=>b.onclick=()=>ask(b.dataset.q));
+const DRAFT_KEY='daneshyar_demo_drafts_v2';
+const faNum=n=>new Intl.NumberFormat('fa-IR').format(n);
+const faDate=iso=>new Intl.DateTimeFormat('fa-IR',{dateStyle:'medium',timeStyle:'short'}).format(new Date(iso));
+let currentFilter='all',activeDraftId=null;
+
+const draftTemplates={
+ 'خلاصهٔ سه‌سطحی':{
+   kind:'summary',icon:'Σ',title:'خلاصهٔ فصل سوم — یادگیری عمیق',
+   content:'خلاصهٔ کوتاه\nیادگیری عمیق بر ایجاد ارتباط میان مفاهیم، تحلیل دلیل‌ها و انتقال آموخته‌ها به موقعیت‌های تازه استوار است.\n\nخلاصهٔ امتحانی\n• تفاوت یادگیری سطحی و عمیق\n• نقش دانش پیشین در فهم مطالب تازه\n• اهمیت بازخورد و خودارزیابی\n• کاربرد مفهوم در مسئله‌های جدید\n\nخلاصهٔ آموزشی\nاستاد می‌تواند درس را با یک مسئلهٔ واقعی آغاز کند، از دانشجویان بخواهد روابط میان مفاهیم را توضیح دهند و در پایان با یک فعالیت انتقال یادگیری، میزان فهم عمیق را بررسی کند.'
+ },
+ 'آزمون ۱۰ سؤالی':{
+   kind:'quiz',icon:'?',title:'آزمون فصل سوم — ۱۰ سؤال',
+   content:'۱. یادگیری عمیق را تعریف کنید.\n۲. دو تفاوت میان یادگیری سطحی و عمیق بنویسید.\n۳. کدام گزینه نمونهٔ انتقال یادگیری است؟\nالف) حفظ یک تعریف  ب) استفاده از مفهوم در مسئله‌ای تازه  ج) رونویسی متن  د) تکرار مثال کتاب\nپاسخ صحیح: ب\n\n۴. نقش بازخورد تکوینی چیست؟\n۵. چرا فعال‌سازی دانش پیشین مهم است؟\n۶. یک نمونه از خودارزیابی بنویسید.\n۷. ارتباط سازمان‌دهی مفاهیم و حافظه را توضیح دهید.\n۸. یک فعالیت کلاسی برای یادگیری عمیق پیشنهاد کنید.\n۹. تفاوت بازخورد توصیفی و نمره را بیان کنید.\n۱۰. چگونه می‌توان انتقال یادگیری را سنجید؟'
+ },
+ '۲۰ فلش‌کارت':{
+   kind:'flashcards',icon:'▣',title:'فلش‌کارت‌های فصل سوم',
+   content:'کارت ۱\nپرسش: یادگیری عمیق چیست؟\nپاسخ: ساختن ارتباط معنادار میان مفاهیم و کاربرد آن‌ها در موقعیت تازه.\n\nکارت ۲\nپرسش: یادگیری سطحی بر چه چیزی تکیه دارد؟\nپاسخ: حفظ و بازتولید اطلاعات بدون ایجاد ارتباط مفهومی.\n\nکارت ۳\nپرسش: بازخورد تکوینی چه زمانی ارائه می‌شود؟\nپاسخ: در جریان یادگیری، برای اصلاح مسیر پیش از ارزیابی نهایی.\n\nکارت ۴\nپرسش: انتقال یادگیری یعنی چه؟\nپاسخ: استفاده از آموخته‌ها در مسئله یا زمینه‌ای متفاوت.\n\n… ۱۶ کارت دیگر در نسخهٔ واقعی از مفاهیم همان فصل ساخته می‌شود.'
+ },
+ '۱۲ اسلاید آموزشی':{
+   kind:'slides',icon:'▶',title:'اسلاید آموزشی فصل سوم — ۱۲ اسلاید',
+   content:'اسلاید ۱: عنوان فصل و پرسش محوری\nاسلاید ۲: اهداف یادگیری\nاسلاید ۳: تعریف یادگیری عمیق\nاسلاید ۴: مقایسهٔ یادگیری سطحی و عمیق\nاسلاید ۵: نقش دانش پیشین\nاسلاید ۶: سازمان‌دهی مفاهیم\nاسلاید ۷: مثال کاربردی\nاسلاید ۸: بازخورد تکوینی\nاسلاید ۹: خودارزیابی دانشجو\nاسلاید ۱۰: فعالیت کلاسی\nاسلاید ۱۱: جمع‌بندی مفاهیم\nاسلاید ۱۲: پرسش‌های پایانی'
  }
- toast('پردازش طولانی شده است؛ وضعیت را چند دقیقه دیگر دوباره بررسی کنید.');
+};
+
+function readDrafts(){
+  try{return JSON.parse(localStorage.getItem(DRAFT_KEY)||'[]')}catch(e){return []}
 }
-function renderBook(){const b=state.book;if(!b)return;$('#activeBook').textContent=b.title;$('#activeBookMeta').innerHTML=`${b.page_count?faNum(b.page_count)+' صفحه':'در حال پردازش'} • ${b.status==='ready'?'آمادهٔ جست‌وجو':'در حال آماده‌سازی'}<span class="sessionExpiry">حذف خودکار: ${faDate(b.expires_at)}</span>`;$('#chapterCount').textContent=faNum(b.chapters?.length||0)+' فصل';$('#deleteBook').style.display='inline-flex';const sel=$('#chapterSelect');sel.innerHTML='<option value="">کل کتاب</option>'+(b.chapters||[]).map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('')}
-function clearSessionUI(){saveSession(null);state.book=null;$('#activeBook').textContent='هنوز کتابی بارگذاری نشده است';$('#activeBookMeta').textContent='ابتدا PDF خود را در بخش افزودن کتاب بارگذاری کنید.';$('#chapterCount').textContent='۰ فصل';$('#deleteBook').style.display='none';$('#chapterSelect').innerHTML='<option value="">کل کتاب</option>';renderAssets([])}
-$('#deleteBook').onclick=async()=>{if(!state.session||!confirm('کتاب، گفتگوها و تمام پیش‌نویس‌های آن حذف شوند؟'))return;try{await api(`/api/public/books/${state.session.public_id}`,{method:'DELETE'});clearSessionUI();panel('upload');toast('کتاب و داده‌های موقت آن حذف شد.')}catch(e){toast(e.message)}};
-function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-function requireBook(){if(!state.session||state.book?.status!=='ready'){toast('ابتدا یک PDF را بارگذاری کنید و تا پایان پردازش منتظر بمانید.');panel('upload');return false}return true}
-const messages=$('#messages'),typing=$('#typing');
-async function ask(q){if(!q.trim()||!requireBook())return;let u=document.createElement('div');u.className='msg user';u.textContent=q;messages.insertBefore(u,typing);typing.style.display='block';messages.scrollTop=messages.scrollHeight;try{const {data}=await api(`/api/public/books/${state.session.public_id}/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});const a=document.createElement('div');a.className='msg ai';const cites=(data.citations||[]).slice(0,4).map(c=>`<span class="cite">صفحهٔ ${faNum(c.page_start)} • ${escapeHtml(c.chapter)}</span>`).join(' ');a.innerHTML=`${escapeHtml(data.answer).replace(/\n/g,'<br>')}<br>${cites}`;messages.insertBefore(a,typing)}catch(e){let a=document.createElement('div');a.className='msg error';a.textContent=e.message;messages.insertBefore(a,typing)}finally{typing.style.display='none';messages.scrollTop=messages.scrollHeight}}
-$('#form').onsubmit=e=>{e.preventDefault();let q=$('#question');ask(q.value);q.value=''};$$('.samples button').forEach(b=>b.onclick=()=>ask(b.dataset.q));
-const typeMap={'خلاصهٔ سه‌سطحی':'summary','آزمون ۱۰ سؤالی':'quiz','۲۰ فلش‌کارت':'flashcards','۱۲ اسلاید آموزشی':'slides'};
-$$('.asset button').forEach(b=>b.onclick=async()=>{if(!requireBook())return;const type=typeMap[b.dataset.asset],chapter=$('#chapterSelect').value||null,r=$('#result');r.style.display='block';r.innerHTML=`در حال تولید <b>${escapeHtml(b.dataset.asset)}</b> از ${chapter?escapeHtml(chapter):'کل کتاب'}…`;b.disabled=true;try{if(type==='slides'){const fd=new FormData();if(chapter)fd.append('chapter',chapter);const response=await fetch(endpoint(`/api/public/books/${state.session.public_id}/slides`),{method:'POST',headers:headers(),body:fd});if(!response.ok){const d=await response.json();throw new Error(d.detail||'ساخت اسلاید ناموفق بود.')}const blob=await response.blob(),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='daneshyar-slides.pptx';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);r.innerHTML='✓ فایل PowerPoint ساخته و دانلود شد.'}else{const {data}=await api(`/api/public/books/${state.session.public_id}/generate/${type}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chapter,count:type==='quiz'?10:20})});r.innerHTML=`✓ <b>${escapeHtml(data.title)}</b> ساخته شد. <button class="resultAction" id="showAsset">مشاهدهٔ پیش‌نویس</button>`;await loadAssets();$('#showAsset').onclick=()=>{panel('drafts');openAsset(data.id)}}}catch(e){r.textContent=e.message}finally{b.disabled=false}});
-let assets=[];
-async function loadAssets(){if(!state.session){renderAssets([]);return}try{assets=(await api(`/api/public/books/${state.session.public_id}/assets`)).data;renderAssets(assets)}catch(e){toast(e.message)}}
-function statusText(s){return s==='approved'?'تأییدشده':'پیش‌نویس'}function kindText(k){return({summary:'خلاصه',quiz:'آزمون',flashcards:'فلش‌کارت',mindmap:'نقشهٔ مفهومی',slides:'اسلاید'})[k]||'محتوا'}
-function renderAssets(list=assets){$('#draftCount').textContent=faNum(list.filter(x=>x.status==='draft').length);const approved=list.filter(x=>x.status==='approved').length;$('#draftSummary').innerHTML=`<span class="summaryPill">کل خروجی‌ها: <b>${faNum(list.length)}</b></span><span class="summaryPill">در انتظار بازبینی: <b>${faNum(list.length-approved)}</b></span><span class="summaryPill">تأییدشده: <b>${faNum(approved)}</b></span>`;const q=($('#draftSearch').value||'').toLowerCase(),filtered=list.filter(x=>(state.currentFilter==='all'||x.status===state.currentFilter||x.asset_type===state.currentFilter)&&(!q||`${x.title} ${x.chapter} ${kindText(x.asset_type)}`.toLowerCase().includes(q)));const box=$('#draftList');box.innerHTML='';$('#emptyDrafts').style.display=filtered.length?'none':'block';filtered.forEach(d=>{let c=document.createElement('article');c.className='draftCard';c.innerHTML=`<div class="draftKind">${d.asset_type==='summary'?'Σ':d.asset_type==='quiz'?'?':d.asset_type==='flashcards'?'▣':'✦'}</div><div class="draftInfo"><div class="draftTitle"><strong>${escapeHtml(d.title)}</strong><span class="statusChip ${d.status}">${statusText(d.status)}</span></div><div class="draftMeta"><span>📂 ${escapeHtml(d.chapter)}</span><span>🕒 ${faDate(d.created_at)}</span></div></div><div class="draftActions"><button data-view="${d.id}">مشاهده</button>${d.status==='draft'?`<button data-approve="${d.id}">تأیید</button>`:''}<button data-download="${d.id}">دانلود</button></div>`;box.appendChild(c)})}
-$('#draftList').onclick=e=>{const v=e.target.closest('[data-view]'),a=e.target.closest('[data-approve]'),d=e.target.closest('[data-download]');if(v)openAsset(+v.dataset.view);if(a)approveAsset(+a.dataset.approve);if(d)downloadAsset(+d.dataset.download)};
-$('#draftFilters').onclick=e=>{const b=e.target.closest('[data-filter]');if(!b)return;state.currentFilter=b.dataset.filter;$$('#draftFilters button').forEach(x=>x.classList.toggle('active',x===b));renderAssets()};$('#draftSearch').oninput=()=>renderAssets();$('#clearDrafts').style.display='none';$('#goToAssets').onclick=()=>panel('assets');
-function formatContent(c){return typeof c==='string'?c:JSON.stringify(c,null,2)}async function openAsset(id){try{const {data}=await api(`/api/public/books/${state.session.public_id}/assets/${id}`);state.activeAsset=data;$('#modalTitle').textContent=data.title;$('#modalMeta').textContent=`${kindText(data.asset_type)} • ${data.chapter} • ${statusText(data.status)}`;$('#modalContent').textContent=formatContent(data.content);$('#modalApprove').style.display=data.status==='draft'?'inline-block':'none';$('#draftModal').classList.add('open');document.body.style.overflow='hidden'}catch(e){toast(e.message)}}function closeAsset(){$('#draftModal').classList.remove('open');document.body.style.overflow=''}$('#closeModal').onclick=closeAsset;$('#draftModal').onclick=e=>{if(e.target===$('#draftModal'))closeAsset()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAsset()});async function approveAsset(id){try{await api(`/api/public/books/${state.session.public_id}/assets/${id}/approve`,{method:'POST'});toast('خروجی تأیید شد.');await loadAssets();if(state.activeAsset?.id===id)openAsset(id)}catch(e){toast(e.message)}}$('#modalApprove').onclick=()=>state.activeAsset&&approveAsset(state.activeAsset.id);function downloadAsset(id){const d=assets.find(x=>x.id===id)||state.activeAsset;if(!d)return;const blob=new Blob([formatContent(d.content)],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=(d.title||'daneshyar-output').replace(/[\\/:*?"<>|]/g,'-')+'.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}$('#modalDownload').onclick=()=>state.activeAsset&&downloadAsset(state.activeAsset.id);
-(async()=>{await loadConfig();const saved=readSession();if(saved){saveSession(saved);await pollBook(false)}else{clearSessionUI()}})();
+function writeDrafts(items){
+  localStorage.setItem(DRAFT_KEY,JSON.stringify(items));
+  renderDrafts();
+}
+function addDraft(assetName){
+  const t=draftTemplates[assetName]||{kind:'other',icon:'✦',title:assetName,content:'پیش‌نویس تولیدشده برای بازبینی استاد.'};
+  const drafts=readDrafts();
+  const now=new Date().toISOString();
+  drafts.unshift({
+    id:'d_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),
+    assetName,
+    kind:t.kind,
+    icon:t.icon,
+    title:t.title,
+    book:$('#activeBook').textContent||'کتاب نمونه',
+    chapter:'فصل سوم',
+    status:'draft',
+    createdAt:now,
+    updatedAt:now,
+    content:t.content
+  });
+  writeDrafts(drafts);
+  return drafts[0];
+}
+function statusText(s){return s==='approved'?'تأییدشده':'پیش‌نویس'}
+function kindText(k){return({summary:'خلاصه',quiz:'آزمون',flashcards:'فلش‌کارت',slides:'اسلاید'})[k]||'محتوا'}
+function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+
+function renderDrafts(){
+  const drafts=readDrafts();
+  $('#draftCount').textContent=faNum(drafts.filter(x=>x.status==='draft').length);
+  const approved=drafts.filter(x=>x.status==='approved').length;
+  $('#draftSummary').innerHTML=
+    '<span class="summaryPill">کل خروجی‌ها: <b>'+faNum(drafts.length)+'</b></span>'+
+    '<span class="summaryPill">در انتظار بازبینی: <b>'+faNum(drafts.length-approved)+'</b></span>'+
+    '<span class="summaryPill">تأییدشده: <b>'+faNum(approved)+'</b></span>';
+
+  const query=($('#draftSearch').value||'').trim().toLowerCase();
+  const filtered=drafts.filter(d=>{
+    const filterOk=currentFilter==='all'||d.status===currentFilter||d.kind===currentFilter;
+    const queryOk=!query||[d.title,d.book,d.chapter,kindText(d.kind),statusText(d.status)].join(' ').toLowerCase().includes(query);
+    return filterOk&&queryOk;
+  });
+  const list=$('#draftList'),empty=$('#emptyDrafts');
+  list.innerHTML='';
+  empty.style.display=filtered.length?'none':'block';
+
+  filtered.forEach(d=>{
+    const card=document.createElement('article');
+    card.className='draftCard';
+    card.innerHTML=
+      '<div class="draftKind">'+escapeHtml(d.icon)+'</div>'+
+      '<div class="draftInfo"><div class="draftTitle"><strong>'+escapeHtml(d.title)+'</strong>'+
+      '<span class="statusChip '+d.status+'">'+statusText(d.status)+'</span></div>'+
+      '<div class="draftMeta"><span>📘 '+escapeHtml(d.book)+'</span><span>📂 '+escapeHtml(d.chapter)+'</span>'+
+      '<span>🕒 '+escapeHtml(faDate(d.updatedAt))+'</span></div></div>'+
+      '<div class="draftActions">'+
+      '<button data-action="view" data-id="'+d.id+'">مشاهده</button>'+
+      (d.status==='draft'?'<button data-action="approve" data-id="'+d.id+'">تأیید</button>':'')+
+      '<button data-action="download" data-id="'+d.id+'">دانلود</button>'+
+      '<button class="danger" data-action="delete" data-id="'+d.id+'">حذف</button>'+
+      '</div>';
+    list.appendChild(card);
+  });
+}
+function getDraft(id){return readDrafts().find(x=>x.id===id)}
+function openDraft(id){
+  const d=getDraft(id); if(!d)return;
+  activeDraftId=id;
+  $('#modalTitle').textContent=d.title;
+  $('#modalMeta').textContent=kindText(d.kind)+' • '+d.book+' • '+faDate(d.updatedAt)+' • '+statusText(d.status);
+  $('#modalContent').textContent=d.content;
+  $('#modalApprove').style.display=d.status==='draft'?'inline-block':'none';
+  $('#draftModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDraft(){
+  $('#draftModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function approveDraft(id){
+  const drafts=readDrafts(),d=drafts.find(x=>x.id===id); if(!d)return;
+  d.status='approved';d.updatedAt=new Date().toISOString();
+  writeDrafts(drafts);toast('پیش‌نویس تأیید شد');
+  if($('#draftModal').classList.contains('open'))openDraft(id);
+}
+function deleteDraft(id){
+  if(!confirm('این پیش‌نویس حذف شود؟'))return;
+  writeDrafts(readDrafts().filter(x=>x.id!==id));
+  if(activeDraftId===id)closeDraft();
+  toast('پیش‌نویس حذف شد');
+}
+function downloadDraft(id){
+  const d=getDraft(id); if(!d)return;
+  const text='عنوان: '+d.title+'\nکتاب: '+d.book+'\nوضعیت: '+statusText(d.status)+'\nتاریخ: '+faDate(d.updatedAt)+'\n\n'+d.content;
+  const blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download=d.title.replace(/[\\/:*?"<>|]/g,'-')+'.txt';a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+$('#draftList').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-action]');if(!b)return;
+  const {action,id}=b.dataset;
+  if(action==='view')openDraft(id);
+  if(action==='approve')approveDraft(id);
+  if(action==='download')downloadDraft(id);
+  if(action==='delete')deleteDraft(id);
+});
+$('#draftFilters').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-filter]');if(!b)return;
+  currentFilter=b.dataset.filter;
+  $$('#draftFilters button').forEach(x=>x.classList.toggle('active',x===b));
+  renderDrafts();
+});
+$('#draftSearch').addEventListener('input',renderDrafts);
+$('#goToAssets').onclick=()=>panel('assets');
+$('#clearDrafts').onclick=()=>{
+  if(!readDrafts().length){toast('پیش‌نویسی برای حذف وجود ندارد');return}
+  if(confirm('همهٔ پیش‌نویس‌ها و خروجی‌های تأییدشده پاک شوند؟')){writeDrafts([]);toast('مخزن پیش‌نویس‌ها پاک شد')}
+};
+$('#closeModal').onclick=closeDraft;
+$('#draftModal').addEventListener('click',e=>{if(e.target===$('#draftModal'))closeDraft()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDraft()});
+$('#modalApprove').onclick=()=>activeDraftId&&approveDraft(activeDraftId);
+$('#modalDownload').onclick=()=>activeDraftId&&downloadDraft(activeDraftId);
+
+$$('.asset button').forEach(b=>b.onclick=()=>{
+  let r=$('#result');r.style.display='block';
+  r.innerHTML='در حال تولید <b>'+b.dataset.asset+'</b>…';
+  b.disabled=true;
+  setTimeout(()=>{
+    const d=addDraft(b.dataset.asset);
+    b.disabled=false;
+    r.innerHTML='✓ <b>'+b.dataset.asset+'</b> ساخته شد و با وضعیت «پیش‌نویس» ذخیره شد.'+
+      '<button class="resultAction" id="showNewDraft">مشاهدهٔ پیش‌نویس</button>';
+    $('#showNewDraft').onclick=()=>{panel('drafts');openDraft(d.id)};
+  },800)
+});
+renderDrafts();
 </script>
 </body></html>

@@ -21,9 +21,7 @@
   <style>
     :root{
       --ink:#07111f;
-      --ink-2:#0d1b2e;
       --surface:#fff;
-      --surface-2:#f4f8fc;
       --line:#dce6ef;
       --muted:#627286;
       --teal:#0ba7a5;
@@ -31,11 +29,9 @@
       --violet:#7657d6;
       --shadow:0 24px 70px rgba(7,17,31,.12);
       --shadow-soft:0 12px 32px rgba(7,17,31,.07);
-      --radius:28px;
       --container:1080px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
       min-height:100vh;
@@ -52,7 +48,7 @@
     .topbar{
       position:sticky;top:0;z-index:20;
       border-bottom:1px solid rgba(220,230,239,.85);
-      background:rgba(251,253,255,.88);
+      background:rgba(251,253,255,.9);
       backdrop-filter:blur(16px);
     }
     .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
@@ -72,23 +68,44 @@
     main{padding:66px 0 86px}
     .profileCard{
       overflow:hidden;border:1px solid var(--line);border-radius:32px;
-      background:rgba(255,255,255,.95);box-shadow:var(--shadow)
+      background:rgba(255,255,255,.96);box-shadow:var(--shadow)
     }
     .hero{
-      display:grid;grid-template-columns:340px 1fr;gap:46px;
+      display:grid;grid-template-columns:300px 1fr;gap:46px;
       align-items:center;padding:48px
     }
-    .photoWrap{position:relative}
-    .photoGlow{
-      position:absolute;inset:-22px;border-radius:45%;
-      background:radial-gradient(circle,rgba(11,167,165,.22),transparent 67%);
-      filter:blur(4px)
+    .photoWrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+    }
+    .photoFrame{
+      position:relative;
+      width:min(100%,300px);
+      aspect-ratio:1 / 1;
+      padding:12px;
+      border-radius:32px;
+      background:linear-gradient(145deg,rgba(11,167,165,.14),rgba(118,87,214,.14));
+      box-shadow:0 24px 55px rgba(7,17,31,.14);
     }
     .photo{
-      position:relative;z-index:1;display:block;width:100%;aspect-ratio:995/1280;
-      object-fit:cover;object-position:center top;border-radius:28px;
-      border:7px solid white;box-shadow:0 24px 55px rgba(7,17,31,.18);
-      background:#eaf0f5
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center center;
+      border-radius:24px;
+      border:6px solid white;
+      background:#eaf0f5;
+      box-shadow:0 10px 26px rgba(7,17,31,.10);
+    }
+    .photoCaption{
+      margin:0;
+      color:var(--muted);
+      font-size:.78rem;
+      text-align:center;
+      line-height:1.7;
     }
     .status{
       display:inline-flex;align-items:center;gap:8px;padding:7px 11px;
@@ -98,7 +115,7 @@
     .statusDot{width:8px;height:8px;border-radius:50%;background:#1b9b68;box-shadow:0 0 0 5px rgba(27,155,104,.12)}
     h1{
       margin:18px 0 7px;font-size:clamp(2.3rem,5vw,4.3rem);
-      line-height:1.12;letter-spacing:-2.4px
+      line-height:1.12;letter-spacing:-2.2px
     }
     .role{
       margin:0 0 23px;color:transparent;font-size:1.02rem;font-weight:800;
@@ -151,7 +168,7 @@
     .footerRow{display:flex;align-items:center;justify-content:space-between;gap:18px}
     @media(max-width:820px){
       .hero{grid-template-columns:1fr;padding:28px}
-      .photoWrap{max-width:330px;margin-inline:auto}
+      .photoWrap{max-width:320px;margin-inline:auto}
       .heroCopy{text-align:center}
       .quickActions{justify-content:center}
       .profiles{padding:32px 24px 36px}
@@ -202,13 +219,15 @@
       <article class="profileCard">
         <section class="hero">
           <div class="photoWrap">
-            <div class="photoGlow"></div>
-            <img class="photo"
-                 src="https://avatars.githubusercontent.com/u/105053743?v=4"
-                 alt="Portrait of Faramarz Kowsari"
-                 width="995"
-                 height="1280"
-                 loading="eager">
+            <div class="photoFrame">
+              <img class="photo"
+                   src="https://avatars.githubusercontent.com/u/105053743?v=4"
+                   alt="Portrait of Faramarz Kowsari"
+                   width="400"
+                   height="400"
+                   loading="eager">
+            </div>
+            <p class="photoCaption">Official GitHub profile photo of Faramarz Kowsari</p>
           </div>
 
           <div class="heroCopy">
