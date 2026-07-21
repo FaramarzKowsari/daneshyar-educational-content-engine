@@ -1,0 +1,14 @@
+{
+  "README.md": true,
+  "CITATION.cff": true,
+  "pyproject.toml": true,
+  "docs/index.html": true,
+  "docs/author.html": true,
+  "docs/demo-guide.html": true,
+  "docs/citation.html": true,
+  "app/public/index.html": true,
+  "app/public/author.html": true,
+  "app/templates/base.html": true,
+  "app/templates/index.html": true,
+  "app/templates/book.html": true
+}

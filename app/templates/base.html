@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="citation_doi" content="10.5281/zenodo.21481330">
+  <meta name="DC.identifier" content="doi:10.5281/zenodo.21481330">
   <title>{% block title %}دانشیار{% endblock %}</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
@@ -10,10 +12,11 @@
   <header class="topbar">
     <a class="brand" href="/">دانشیار</a>
     <span>موتور هوشمند محتوای آموزشی دانشگاهی</span>
+    <a class="docs-link" href="https://doi.org/10.5281/zenodo.21481330" target="_blank" rel="noopener">DOI 10.5281/zenodo.21481330</a>
     <a class="docs-link" href="/docs" target="_blank">API Docs</a>
   </header>
   <main class="container">{% block content %}{% endblock %}</main>
-  <footer>نسخهٔ MVP پژوهشی — خروجی‌های هوش مصنوعی باید توسط استاد تأیید شوند.</footer>
+  <footer>نسخهٔ MVP پژوهشی — خروجی‌های هوش مصنوعی باید توسط استاد تأیید شوند. · <a href="https://doi.org/10.5281/zenodo.21481330" target="_blank" rel="noopener">DOI: 10.5281/zenodo.21481330</a></footer>
   <script src="/static/app.js"></script>
   {% block scripts %}{% endblock %}
 </body>

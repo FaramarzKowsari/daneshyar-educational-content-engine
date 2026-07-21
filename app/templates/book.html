@@ -3,7 +3,7 @@
 {% block content %}
 <section class="book-header">
   <div><a href="/" class="back">← بازگشت</a><h1>{{ book.title }}</h1><p>{{ book.author or "نویسنده ثبت نشده" }} · {{ book.page_count }} صفحه</p></div>
-  <span class="badge">{{ book.status }}</span>
+  <div><span class="badge">{{ book.status }}</span><br><a href="https://doi.org/10.5281/zenodo.21481330" target="_blank" rel="noopener">DOI نرم‌افزار: 10.5281/zenodo.21481330</a></div>
 </section>
 
 <div class="workspace">

@@ -1,5 +1,9 @@
 # Daneshyar Educational Content Engine — Public Beta
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21481330.svg)](https://doi.org/10.5281/zenodo.21481330)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.3.0-0aa7a5.svg)](https://github.com/FaramarzKowsari/daneshyar-educational-content-engine/releases)
+
 **دانشیار** یک اپلیکیشن قابل اجراست که به هر کاربر اجازه می‌دهد PDF دانشگاهی خودش را بارگذاری کند و از همان کتاب، پاسخ منبع‌محور، خلاصه، آزمون، فلش‌کارت، نقشهٔ مفهومی و PowerPoint بگیرد.
 
 این نسخه دیگر یک نمایش از پیش‌ساخته با کتاب ثابت نیست. رابط عمومی به Backend واقعی متصل است و هر کتاب در یک فضای موقت و خصوصی مخصوص همان مرورگر پردازش می‌شود.
@@ -64,12 +68,12 @@ USE_OPENAI_EMBEDDINGS=false
 ## حدود پیش‌فرض نسخهٔ عمومی
 
 ```env
-MAX_UPLOAD_MB=25
-MAX_PDF_PAGES=250
-PUBLIC_BOOK_TTL_HOURS=24
-PUBLIC_UPLOADS_PER_HOUR=3
-PUBLIC_CHAT_PER_HOUR=30
-PUBLIC_GENERATIONS_PER_HOUR=12
+MAX_UPLOAD_MB=10
+MAX_PDF_PAGES=120
+PUBLIC_BOOK_TTL_HOURS=2
+PUBLIC_UPLOADS_PER_HOUR=2
+PUBLIC_CHAT_PER_HOUR=20
+PUBLIC_GENERATIONS_PER_HOUR=6
 OCR_MAX_PAGES=60
 ```
 
@@ -78,6 +82,8 @@ OCR_MAX_PAGES=60
 - راهنمای نسخهٔ عمومی: [`docs/PUBLIC_BETA_DEPLOYMENT.md`](docs/PUBLIC_BETA_DEPLOYMENT.md)
 - حریم خصوصی: [`docs/PRIVACY_PUBLIC_BETA.md`](docs/PRIVACY_PUBLIC_BETA.md)
 - فایل Render Blueprint: [`render.yaml`](render.yaml)
+- راهنمای معماری، محدودیت‌ها و هزینه‌ها: [`docs/demo-guide.html`](https://faramarzkowsari.github.io/daneshyar-educational-content-engine/demo-guide.html)
+- صفحهٔ رسمی استناد و DOI: [`docs/citation.html`](https://faramarzkowsari.github.io/daneshyar-educational-content-engine/citation.html)
 
 برای یک تست عمومی محدود، یک Web Service دارای Persistent Disk قابل استفاده است. برای ترافیک هم‌زمان زیاد و مقیاس افقی، PostgreSQL، Object Storage، Queue/Worker و Rate Limiter مبتنی بر Redis لازم است.
 
@@ -87,6 +93,33 @@ OCR_MAX_PAGES=60
 ruff check app tests scripts
 pytest
 ```
+
+## استناد و DOI
+
+نسخهٔ `0.3.0` این نرم‌افزار در Zenodo آرشیو شده است:
+
+- **DOI:** [`10.5281/zenodo.21481330`](https://doi.org/10.5281/zenodo.21481330)
+- **Resource type:** Software
+- **Version:** 0.3.0
+- **Release date:** 2026-07-21
+
+استناد پیشنهادی:
+
+> Kowsari, F., & Siadat, S. (2026). *Daneshyar Educational Content Engine — Public Beta* (Version 0.3.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21481330
+
+```bibtex
+@software{Kowsari_Siadat_Daneshyar_2026,
+  author    = {Faramarz Kowsari and Safieh Siadat},
+  title     = {Daneshyar Educational Content Engine — Public Beta},
+  version   = {0.3.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.21481330},
+  url       = {https://doi.org/10.5281/zenodo.21481330}
+}
+```
+
+اطلاعات ماشین‌خوان استناد در فایل [`CITATION.cff`](CITATION.cff) قرار دارد.
 
 ## نویسندگان و راهبری علمی
 
