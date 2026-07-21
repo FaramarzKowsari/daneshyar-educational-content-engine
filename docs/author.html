@@ -3,181 +3,306 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07111f">
-  <meta name="description" content="Official biography and verified profiles of Faramarz Kowsari, author, Software Engineer and AI researcher based in Istanbul.">
+  <meta name="theme-color" content="#09111f">
+  <meta name="description" content="Official bilingual biography and verified profiles of Faramarz Kowsari, author, Software Engineer and AI researcher based in Istanbul.">
   <meta name="author" content="Faramarz Kowsari">
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="Faramarz Kowsari | Author, Software Engineer & AI Researcher">
-  <meta property="og:description" content="Official biography, profiles, repositories, publications and contact information for Faramarz Kowsari.">
+  <meta property="og:title" content="Faramarz Kowsari | Official Biography">
+  <meta property="og:description" content="Official bilingual biography, verified profiles, repositories and publications of Faramarz Kowsari.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/105053743?v=4">
   <meta property="og:url" content="https://faramarzkowsari.github.io/daneshyar-educational-content-engine/author.html">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://faramarzkowsari.github.io/daneshyar-educational-content-engine/author.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <title>Faramarz Kowsari | Official Biography</title>
 
   <style>
     :root{
-      --ink:#07111f;
-      --surface:#fff;
-      --line:#dce6ef;
-      --muted:#627286;
-      --teal:#0ba7a5;
-      --teal-2:#087c89;
-      --violet:#7657d6;
-      --shadow:0 24px 70px rgba(7,17,31,.12);
-      --shadow-soft:0 12px 32px rgba(7,17,31,.07);
-      --container:1080px;
+      --bg:#f6f9fc;
+      --card:#ffffff;
+      --card-soft:rgba(255,255,255,.76);
+      --ink:#0c1323;
+      --muted:#66778f;
+      --line:#dbe5ef;
+      --teal:#0ea5a7;
+      --teal-deep:#0b7785;
+      --violet:#7558db;
+      --navy:#09111f;
+      --ok:#1f8b5f;
+      --shadow:0 24px 70px rgba(10,18,31,.10);
+      --shadow-soft:0 12px 30px rgba(10,18,31,.07);
+      --container:1180px;
+      --radius-xl:34px;
+      --grad:linear-gradient(135deg,var(--teal),var(--violet));
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       min-height:100vh;
-      font-family:Inter,Arial,sans-serif;
+      font-family:Inter,Vazirmatn,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
       color:var(--ink);
       background:
-        radial-gradient(circle at 86% 5%,rgba(11,167,165,.14),transparent 27rem),
-        radial-gradient(circle at 8% 28%,rgba(118,87,214,.11),transparent 25rem),
-        #fbfdff;
-      line-height:1.8;
+        radial-gradient(circle at 12% 14%, rgba(14,165,167,.16), transparent 24rem),
+        radial-gradient(circle at 92% 8%, rgba(117,88,219,.14), transparent 26rem),
+        linear-gradient(180deg,#fafdff 0%,#f6f9fc 100%);
+      line-height:1.75;
     }
-    a{color:inherit;text-decoration:none}
-    .container{width:min(var(--container),calc(100% - 36px));margin-inline:auto}
+    html[dir="rtl"] body{font-family:Vazirmatn,Inter,Tahoma,sans-serif}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    .container{width:min(var(--container),calc(100% - 34px));margin-inline:auto}
+
     .topbar{
       position:sticky;top:0;z-index:20;
-      border-bottom:1px solid rgba(220,230,239,.85);
-      background:rgba(251,253,255,.9);
+      border-bottom:1px solid rgba(219,229,239,.9);
+      background:rgba(250,253,255,.80);
       backdrop-filter:blur(16px);
     }
-    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:11px;font-weight:800}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      min-height:78px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      font-weight:900;letter-spacing:-.02em;font-size:1.05rem;
+    }
     .brandMark{
-      width:42px;height:42px;display:grid;place-items:center;border-radius:14px;
-      color:white;background:linear-gradient(145deg,var(--teal),var(--violet));
-      box-shadow:0 10px 24px rgba(11,167,165,.23)
+      width:46px;height:46px;border-radius:16px;
+      display:grid;place-items:center;
+      color:#fff;background:var(--grad);
+      box-shadow:0 12px 28px rgba(14,165,167,.24);
+      font-weight:900;
     }
-    .brand small{display:block;font-size:.68rem;color:var(--muted);font-weight:500}
-    .back{
-      display:inline-flex;align-items:center;gap:8px;padding:10px 14px;
-      border:1px solid var(--line);border-radius:12px;background:white;
-      color:#334d67;font-weight:700;font-size:.84rem;transition:.2s
+    .brand small{
+      display:block;color:var(--muted);font-size:.72rem;
+      font-weight:600;letter-spacing:0;margin-top:2px;
     }
-    .back:hover{transform:translateY(-2px);border-color:#b7d9da;color:var(--teal-2)}
-    main{padding:66px 0 86px}
-    .profileCard{
-      overflow:hidden;border:1px solid var(--line);border-radius:32px;
-      background:rgba(255,255,255,.96);box-shadow:var(--shadow)
+    .navActions{display:flex;align-items:center;gap:10px}
+    .langSwitch{
+      display:flex;align-items:center;gap:4px;
+      padding:4px;border:1px solid var(--line);
+      border-radius:14px;background:#fff;
+      box-shadow:0 8px 22px rgba(10,18,31,.05);
     }
+    .langBtn{
+      min-width:46px;padding:7px 10px;border:0;border-radius:10px;
+      background:transparent;color:#53677d;font-weight:800;cursor:pointer;
+      transition:.2s ease;
+    }
+    .langBtn.active{color:#fff;background:var(--grad);box-shadow:0 8px 18px rgba(14,165,167,.20)}
+    .backBtn{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:12px 16px;border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;color:#35506c;
+      font-size:.9rem;font-weight:700;
+      transition:.2s ease;
+    }
+    .backBtn:hover{transform:translateY(-2px);border-color:#b4d5d6;color:var(--teal-deep)}
+
+    main{padding:54px 0 78px}
     .hero{
-      display:grid;grid-template-columns:300px 1fr;gap:46px;
-      align-items:center;padding:48px
+      position:relative;overflow:hidden;
+      border:1px solid rgba(219,229,239,.95);
+      border-radius:var(--radius-xl);
+      background:var(--card-soft);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
     }
-    .photoWrap{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:14px;
+    .hero::before{
+      content:"";position:absolute;inset:0 0 auto 0;height:240px;
+      background:
+        radial-gradient(circle at 18% 40%,rgba(14,165,167,.18),transparent 16rem),
+        radial-gradient(circle at 85% 24%,rgba(117,88,219,.16),transparent 18rem),
+        linear-gradient(180deg,rgba(9,17,31,.02),transparent);
+      pointer-events:none;
+    }
+    .heroInner{
+      position:relative;
+      display:grid;grid-template-columns:320px 1fr;
+      gap:40px;padding:42px;align-items:center;
+    }
+    html[dir="rtl"] .heroInner{grid-template-columns:1fr 320px}
+    html[dir="rtl"] .photoColumn{order:2}
+    html[dir="rtl"] .heroCopy{order:1}
+
+    .photoColumn{display:flex;flex-direction:column;align-items:center;gap:16px}
+    .photoShell{
+      width:min(100%,290px);aspect-ratio:1/1;padding:11px;border-radius:32px;
+      background:linear-gradient(145deg,rgba(14,165,167,.14),rgba(117,88,219,.16));
+      box-shadow:0 24px 54px rgba(9,17,31,.14);
     }
     .photoFrame{
-      position:relative;
-      width:min(100%,300px);
-      aspect-ratio:1 / 1;
-      padding:12px;
-      border-radius:32px;
-      background:linear-gradient(145deg,rgba(11,167,165,.14),rgba(118,87,214,.14));
-      box-shadow:0 24px 55px rgba(7,17,31,.14);
+      width:100%;height:100%;padding:8px;border-radius:26px;background:#fff;
+      box-shadow:inset 0 0 0 1px rgba(219,229,239,.75);
     }
-    .photo{
-      display:block;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center center;
-      border-radius:24px;
-      border:6px solid white;
-      background:#eaf0f5;
-      box-shadow:0 10px 26px rgba(7,17,31,.10);
+    .profilePhoto{
+      width:100%;height:100%;object-fit:cover;object-position:center center;
+      border-radius:22px;background:#e9f0f5;
     }
-    .photoCaption{
-      margin:0;
-      color:var(--muted);
-      font-size:.78rem;
-      text-align:center;
-      line-height:1.7;
+    .photoNote{margin:0;text-align:center;color:var(--muted);font-size:.8rem;line-height:1.75}
+
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid #cfe7df;background:#effaf7;
+      color:var(--ok);font-size:.8rem;font-weight:800;
     }
-    .status{
-      display:inline-flex;align-items:center;gap:8px;padding:7px 11px;
-      border:1px solid #cce7df;border-radius:999px;background:#eefaf6;
-      color:#167552;font-size:.78rem;font-weight:700
+    .eyebrowDot{
+      width:8px;height:8px;border-radius:50%;
+      background:var(--ok);box-shadow:0 0 0 6px rgba(31,139,95,.10);
     }
-    .statusDot{width:8px;height:8px;border-radius:50%;background:#1b9b68;box-shadow:0 0 0 5px rgba(27,155,104,.12)}
     h1{
-      margin:18px 0 7px;font-size:clamp(2.3rem,5vw,4.3rem);
-      line-height:1.12;letter-spacing:-2.2px
+      margin:18px 0 8px;
+      font-size:clamp(2.45rem,5.2vw,4.8rem);
+      line-height:1.04;letter-spacing:-.05em;
     }
-    .role{
-      margin:0 0 23px;color:transparent;font-size:1.02rem;font-weight:800;
-      background:linear-gradient(95deg,var(--teal-2),var(--violet));
-      -webkit-background-clip:text;background-clip:text
+    html[dir="rtl"] h1{letter-spacing:0}
+    .persianName{
+      display:block;margin-top:7px;color:#334b63;
+      font-size:clamp(1.1rem,2vw,1.45rem);font-weight:800;
     }
-    .bio{margin:0;color:#465d73;font-size:1rem}
-    .quickActions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-    .button{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:11px 15px;border-radius:12px;font-weight:700;font-size:.84rem;
-      transition:.2s
+    .subtitle{
+      margin:0 0 22px;font-size:1.04rem;font-weight:800;
+      background:linear-gradient(90deg,var(--teal-deep),var(--violet));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    .button:hover{transform:translateY(-2px)}
-    .primary{color:white;background:linear-gradient(135deg,var(--teal),var(--teal-2));box-shadow:0 12px 24px rgba(11,167,165,.22)}
-    .secondary{border:1px solid var(--line);background:white;color:#334d67}
-    .profiles{
-      padding:42px 48px 50px;border-top:1px solid var(--line);
-      background:linear-gradient(180deg,#f8fbfd,#fff)
+    .bio{margin:0;color:#465a72;font-size:1rem;max-width:820px}
+    html[dir="rtl"] .bio{text-align:justify}
+
+    .quickStats{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;margin-top:28px;
     }
-    .sectionHead{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:22px}
-    .sectionHead h2{margin:0;font-size:1.55rem}
-    .sectionHead p{margin:0;color:var(--muted);font-size:.82rem}
-    .linksGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+    .statCard{
+      padding:16px 17px;border:1px solid var(--line);
+      border-radius:18px;background:rgba(255,255,255,.84);
+      box-shadow:var(--shadow-soft);
+    }
+    .statValue{display:block;font-size:1.28rem;font-weight:900;margin-bottom:4px}
+    .statLabel{color:var(--muted);font-size:.82rem;font-weight:600}
+
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:12px 16px;border-radius:14px;font-size:.88rem;font-weight:800;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btnPrimary{color:#fff;background:var(--grad);box-shadow:0 14px 30px rgba(14,165,167,.22)}
+    .btnGhost{border:1px solid var(--line);background:#fff;color:#334b63}
+
+    .sections{
+      display:grid;grid-template-columns:1.12fr .88fr;
+      gap:22px;margin-top:24px;
+    }
+    html[dir="rtl"] .sections{grid-template-columns:.88fr 1.12fr}
+    html[dir="rtl"] .profilesPanel{order:2}
+    html[dir="rtl"] .snapshotPanel{order:1}
+    .panel{
+      border:1px solid rgba(219,229,239,.95);
+      border-radius:28px;background:rgba(255,255,255,.93);
+      box-shadow:var(--shadow-soft);overflow:hidden;
+    }
+    .panelHead{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:18px;
+      padding:26px 26px 0;
+    }
+    .panelHead h2{margin:0;font-size:1.42rem;letter-spacing:-.03em}
+    html[dir="rtl"] .panelHead h2{letter-spacing:0}
+    .panelHead p{margin:6px 0 0;color:var(--muted);font-size:.83rem}
+    .panelBody{padding:22px 26px 26px}
+
+    .profileGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .profileLink{
-      display:flex;align-items:center;gap:13px;min-width:0;padding:15px;
-      border:1px solid var(--line);border-radius:16px;background:white;
-      box-shadow:0 8px 22px rgba(7,17,31,.035);transition:.22s
+      display:flex;gap:14px;align-items:flex-start;min-width:0;
+      padding:16px;border:1px solid var(--line);
+      border-radius:18px;background:#fff;
+      box-shadow:0 8px 22px rgba(10,18,31,.035);transition:.22s ease;
     }
-    .profileLink:hover{transform:translateY(-3px);border-color:#abd7d7;box-shadow:var(--shadow-soft)}
-    .linkIcon{
-      flex:0 0 44px;width:44px;height:44px;display:grid;place-items:center;
-      border-radius:13px;color:white;font-weight:800;
-      background:linear-gradient(135deg,var(--teal),var(--violet))
+    .profileLink:hover{
+      transform:translateY(-3px);border-color:#b7dfe0;
+      box-shadow:0 16px 34px rgba(10,18,31,.07);
     }
+    .icon{
+      flex:0 0 46px;width:46px;height:46px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,#eef9fa,#f3f0ff);
+      border:1px solid #dce9f5;color:var(--teal-deep);
+    }
+    .icon svg{width:22px;height:22px}
     .linkText{min-width:0}
-    .linkText strong{display:block;font-size:.88rem}
+    .linkText strong{display:block;font-size:.92rem;margin-bottom:3px}
     .linkText span{
-      display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-      color:var(--muted);font-size:.72rem
+      display:block;font-size:.75rem;color:var(--muted);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
+
+    .infoStack{display:grid;gap:14px}
+    .infoCard{
+      display:flex;gap:14px;padding:16px;
+      border:1px solid var(--line);border-radius:18px;background:#fff;
+    }
+    .infoCard .icon{flex:0 0 44px;width:44px;height:44px}
+    .infoCard h3{margin:0 0 4px;font-size:.94rem}
+    .infoCard p{margin:0;color:var(--muted);font-size:.82rem}
+
     .emailBox{
-      display:flex;align-items:center;justify-content:space-between;gap:18px;
-      margin-top:18px;padding:18px 20px;border:1px solid #bfe1df;
-      border-radius:17px;background:linear-gradient(135deg,#effaf9,#f8fbff)
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      margin-top:18px;padding:18px 20px;
+      border:1px solid #c3e4df;border-radius:18px;
+      background:linear-gradient(135deg,#eefaf9,#faf7ff);
     }
-    .emailBox strong{display:block}
-    .emailBox span{color:var(--muted);font-size:.8rem}
-    footer{padding:28px 0;border-top:1px solid var(--line);background:white;color:var(--muted);font-size:.78rem}
-    .footerRow{display:flex;align-items:center;justify-content:space-between;gap:18px}
-    @media(max-width:820px){
-      .hero{grid-template-columns:1fr;padding:28px}
-      .photoWrap{max-width:320px;margin-inline:auto}
+    .emailMeta strong{display:block;font-size:.96rem}
+    .emailMeta span{display:block;color:var(--muted);font-size:.8rem}
+    .emailAddress{font-weight:900;color:#17395f;word-break:break-all;text-align:end}
+
+    footer{margin-top:28px;border-top:1px solid var(--line);background:#fff}
+    .footerRow{
+      min-height:74px;display:flex;align-items:center;
+      justify-content:space-between;gap:18px;color:var(--muted);font-size:.8rem;
+    }
+
+    [data-lang]{display:none}
+    html[data-language="en"] [data-lang="en"]{display:initial}
+    html[data-language="fa"] [data-lang="fa"]{display:initial}
+    html[data-language="en"] p[data-lang="en"],
+    html[data-language="fa"] p[data-lang="fa"],
+    html[data-language="en"] span[data-lang="en"],
+    html[data-language="fa"] span[data-lang="fa"]{display:block}
+    html[data-language="en"] .inlineLang[data-lang="en"],
+    html[data-language="fa"] .inlineLang[data-lang="fa"]{display:inline}
+
+    @media(max-width:1060px){
+      .sections,html[dir="rtl"] .sections{grid-template-columns:1fr}
+      html[dir="rtl"] .profilesPanel,html[dir="rtl"] .snapshotPanel{order:initial}
+    }
+    @media(max-width:860px){
+      .heroInner,html[dir="rtl"] .heroInner{grid-template-columns:1fr;gap:30px;padding:28px}
+      html[dir="rtl"] .photoColumn,html[dir="rtl"] .heroCopy{order:initial}
+      .photoColumn{max-width:320px;margin-inline:auto}
       .heroCopy{text-align:center}
-      .quickActions{justify-content:center}
-      .profiles{padding:32px 24px 36px}
+      .bio,html[dir="rtl"] .bio{text-align:start}
+      .quickStats{grid-template-columns:1fr}
+      .actions{justify-content:center}
+      .panelHead,.panelBody{padding-left:22px;padding-right:22px}
     }
-    @media(max-width:620px){
+    @media(max-width:700px){
+      .nav{flex-wrap:wrap;padding:10px 0}
+      .navActions{width:100%;justify-content:space-between}
+    }
+    @media(max-width:640px){
+      .container{width:min(100% - 22px,var(--container))}
       .brand small{display:none}
-      .linksGrid{grid-template-columns:1fr}
-      .sectionHead,.emailBox,.footerRow{align-items:flex-start;flex-direction:column}
-      h1{letter-spacing:-1.4px}
+      .backBtn{padding:10px 12px;font-size:.8rem}
+      .profileGrid{grid-template-columns:1fr}
+      .emailBox,.footerRow{flex-direction:column;align-items:flex-start}
+      .emailAddress{text-align:start}
+      h1{font-size:2.45rem}
     }
   </style>
 
@@ -186,6 +311,7 @@
     "@context":"https://schema.org",
     "@type":"Person",
     "name":"Faramarz Kowsari",
+    "alternateName":"فرامرز کوثری",
     "image":"https://avatars.githubusercontent.com/u/105053743?v=4",
     "jobTitle":["Author","Software Engineer","AI Researcher"],
     "homeLocation":{"@type":"Place","name":"Istanbul"},
@@ -203,111 +329,314 @@
   }
   </script>
 </head>
+
 <body>
   <header class="topbar">
     <div class="container nav">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Daneshyar home">
         <span class="brandMark">D</span>
-        <span>Daneshyar<small>Educational Content Engine</small></span>
+        <span>
+          <span data-lang="en">Daneshyar</span>
+          <span data-lang="fa">دانشیار</span>
+          <small data-lang="en">Educational Content Engine</small>
+          <small data-lang="fa">موتور هوشمند محتوای آموزشی</small>
+        </span>
       </a>
-      <a class="back" href="index.html">← Back to Daneshyar</a>
+
+      <div class="navActions">
+        <div class="langSwitch" role="group" aria-label="Language switcher">
+          <button class="langBtn" type="button" data-set-lang="fa">FA</button>
+          <button class="langBtn" type="button" data-set-lang="en">EN</button>
+        </div>
+
+        <a class="backBtn" href="index.html">
+          <span data-lang="en">← Back to Daneshyar</span>
+          <span data-lang="fa">بازگشت به دانشیار ←</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <article class="profileCard">
-        <section class="hero">
-          <div class="photoWrap">
-            <div class="photoFrame">
-              <img class="photo"
-                   src="https://avatars.githubusercontent.com/u/105053743?v=4"
-                   alt="Portrait of Faramarz Kowsari"
-                   width="400"
-                   height="400"
-                   loading="eager">
+      <section class="hero">
+        <div class="heroInner">
+          <div class="photoColumn">
+            <div class="photoShell">
+              <div class="photoFrame">
+                <img class="profilePhoto"
+                     src="https://avatars.githubusercontent.com/u/105053743?v=4"
+                     alt="Portrait of Faramarz Kowsari"
+                     width="420"
+                     height="420"
+                     loading="eager">
+              </div>
             </div>
-            <p class="photoCaption">Official GitHub profile photo of Faramarz Kowsari</p>
+            <p class="photoNote" data-lang="en">Official GitHub profile photo<br>used for the author identity card</p>
+            <p class="photoNote" data-lang="fa">تصویر رسمی پروفایل گیت‌هاب<br>در کارت هویت نویسنده</p>
           </div>
 
           <div class="heroCopy">
-            <span class="status"><span class="statusDot"></span>Official Author Profile</span>
-            <h1>Faramarz Kowsari</h1>
-            <p class="role">Author · Software Engineer · AI Researcher</p>
-            <p class="bio">Faramarz Kowsari is an author, Software Engineer and AI researcher based in Istanbul. Focusing on the intersection of technology, education, and personal growth, he has published over 80 digital titles on international platforms. His areas of expertise span Artificial Intelligence, prompt engineering, modern trading strategies (Smart Money Concepts &amp; algorithmic trading), as well as classical literature and mindfulness. In addition to writing, he develops web-based educational tools and creates specialized instructional video content.</p>
+            <span class="eyebrow">
+              <span class="eyebrowDot"></span>
+              <span class="inlineLang" data-lang="en">Official Author Profile</span>
+              <span class="inlineLang" data-lang="fa">صفحهٔ رسمی نویسنده</span>
+            </span>
 
-            <div class="quickActions">
-              <a class="button primary" href="mailto:FaramarzKowsari@gmail.com">Email Faramarz</a>
-              <a class="button secondary" href="https://github.com/FaramarzKowsari" target="_blank" rel="noopener noreferrer">View GitHub</a>
-              <a class="button secondary" href="https://FaramarzKowsari.github.io" target="_blank" rel="noopener noreferrer">Official Website</a>
+            <h1>
+              Faramarz Kowsari
+              <span class="persianName">فرامرز کوثری</span>
+            </h1>
+
+            <p class="subtitle" data-lang="en">Author · Software Engineer · AI Researcher</p>
+            <p class="subtitle" data-lang="fa">نویسنده · مهندس نرم‌افزار · پژوهشگر هوش مصنوعی</p>
+
+            <p class="bio" data-lang="en">
+              Faramarz Kowsari is an author, Software Engineer and AI researcher based in Istanbul.
+              Focusing on the intersection of technology, education, and personal growth, he has published
+              over 80 digital titles on international platforms. His areas of expertise span Artificial
+              Intelligence, prompt engineering, modern trading strategies (Smart Money Concepts &amp;
+              algorithmic trading), as well as classical literature and mindfulness. In addition to writing,
+              he develops web-based educational tools and creates specialized instructional video content.
+            </p>
+
+            <p class="bio" data-lang="fa">
+              فرامرز کوثری نویسنده، مهندس نرم‌افزار و پژوهشگر هوش مصنوعی ساکن استانبول است. تمرکز فعالیت‌های
+              او بر پیوند فناوری، آموزش و رشد فردی قرار دارد و بیش از ۸۰ عنوان دیجیتال را در پلتفرم‌های
+              بین‌المللی منتشر کرده است. حوزه‌های تخصصی او هوش مصنوعی، مهندسی پرامپت، راهبردهای نوین معامله‌گری
+              شامل مفاهیم پول هوشمند و معاملات الگوریتمی، ادبیات کلاسیک و ذهن‌آگاهی را دربرمی‌گیرد. او علاوه بر
+              نویسندگی، ابزارهای آموزشی تحت وب توسعه می‌دهد و محتوای تخصصی ویدئویی تولید می‌کند.
+            </p>
+
+            <div class="quickStats">
+              <div class="statCard">
+                <span class="statValue">80+</span>
+                <span class="statLabel" data-lang="en">Digital Titles Published</span>
+                <span class="statLabel" data-lang="fa">عنوان دیجیتال منتشرشده</span>
+              </div>
+              <div class="statCard">
+                <span class="statValue">AI × Education</span>
+                <span class="statLabel" data-lang="en">Core Focus Area</span>
+                <span class="statLabel" data-lang="fa">محور اصلی فعالیت</span>
+              </div>
+              <div class="statCard">
+                <span class="statValue">Istanbul</span>
+                <span class="statLabel" data-lang="en">Current Base</span>
+                <span class="statLabel" data-lang="fa">محل فعالیت کنونی</span>
+              </div>
+            </div>
+
+            <div class="actions">
+              <a class="btn btnPrimary" href="mailto:FaramarzKowsari@gmail.com">
+                <span data-lang="en">Email Faramarz</span>
+                <span data-lang="fa">ارسال ایمیل</span>
+              </a>
+              <a class="btn btnGhost" href="https://github.com/FaramarzKowsari" target="_blank" rel="noopener noreferrer">
+                <span data-lang="en">View GitHub</span>
+                <span data-lang="fa">مشاهدهٔ گیت‌هاب</span>
+              </a>
+              <a class="btn btnGhost" href="https://FaramarzKowsari.github.io" target="_blank" rel="noopener noreferrer">
+                <span data-lang="en">Official Website</span>
+                <span data-lang="fa">وب‌سایت رسمی</span>
+              </a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="profiles">
-          <div class="sectionHead">
+      <section class="sections">
+        <article class="panel profilesPanel">
+          <div class="panelHead">
             <div>
-              <h2>Official Profiles &amp; Repositories</h2>
-              <p>Verified academic, publishing and development profiles.</p>
+              <h2 data-lang="en">Official Profiles &amp; Repositories</h2>
+              <h2 data-lang="fa">پروفایل‌ها و مخزن‌های رسمی</h2>
+              <p data-lang="en">Verified academic, publishing and development identities.</p>
+              <p data-lang="fa">هویت‌های علمی، انتشاراتی و نرم‌افزاری قابل‌استناد.</p>
             </div>
           </div>
 
-          <div class="linksGrid">
-            <a class="profileLink" href="https://www.wikidata.org/wiki/Q140389378" target="_blank" rel="noopener noreferrer">
-              <span class="linkIcon">W</span>
-              <span class="linkText"><strong>Wikidata</strong><span>wikidata.org/wiki/Q140389378</span></span>
-            </a>
+          <div class="panelBody">
+            <div class="profileGrid">
+              <a class="profileLink" href="https://www.wikidata.org/wiki/Q140389378" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h16"/><circle cx="18" cy="12" r="2.7"/></svg></span>
+                <span class="linkText">
+                  <strong>Wikidata</strong>
+                  <span data-lang="en">Verified identity record</span>
+                  <span data-lang="fa">رکورد هویت تأییدشده</span>
+                </span>
+              </a>
 
-            <a class="profileLink" href="https://orcid.org/0000-0003-1692-0453" target="_blank" rel="noopener noreferrer">
-              <span class="linkIcon">ID</span>
-              <span class="linkText"><strong>ORCID</strong><span>0000-0003-1692-0453</span></span>
-            </a>
+              <a class="profileLink" href="https://orcid.org/0000-0003-1692-0453" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M9.6 8.8h.01M9.8 11.2v4M12.4 15.2v-4h1.2a2 2 0 1 1 0 4z"/></svg></span>
+                <span class="linkText"><strong>ORCID</strong><span>0000-0003-1692-0453</span></span>
+              </a>
 
-            <a class="profileLink" href="https://scholar.google.com/citations?user=G7tP5WMAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
-              <span class="linkIcon">GS</span>
-              <span class="linkText"><strong>Google Scholar</strong><span>Academic profile and citations</span></span>
-            </a>
+              <a class="profileLink" href="https://scholar.google.com/citations?user=G7tP5WMAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9l8-5 8 5-8 5-8-5z"/><path d="M7 11.3V16c0 1.1 2.2 2 5 2s5-.9 5-2v-4.7"/></svg></span>
+                <span class="linkText">
+                  <strong>Google Scholar</strong>
+                  <span data-lang="en">Academic profile and citations</span>
+                  <span data-lang="fa">پروفایل علمی و استنادها</span>
+                </span>
+              </a>
 
-            <a class="profileLink" href="https://github.com/FaramarzKowsari" target="_blank" rel="noopener noreferrer">
-              <span class="linkIcon">GH</span>
-              <span class="linkText"><strong>GitHub</strong><span>github.com/FaramarzKowsari</span></span>
-            </a>
+              <a class="profileLink" href="https://github.com/FaramarzKowsari" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .7a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.8 1.2 1.8 1.2 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.7-.3-5.6-1.4-5.6-6.1 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11.5 11.5 0 0 1 5.9 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.7-2.8 5.8-5.6 6.1.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12 12 0 0 0 12 .7Z"/></svg></span>
+                <span class="linkText"><strong>GitHub</strong><span>github.com/FaramarzKowsari</span></span>
+              </a>
 
-            <a class="profileLink" href="https://www.linkedin.com/in/faramarzkowsari" target="_blank" rel="noopener noreferrer">
-              <span class="linkIcon">in</span>
-              <span class="linkText"><strong>LinkedIn</strong><span>linkedin.com/in/faramarzkowsari</span></span>
-            </a>
+              <a class="profileLink" href="https://www.linkedin.com/in/faramarzkowsari" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.6 8.7H2.4V21h3.2V8.7Zm-1.6-5A1.9 1.9 0 1 0 4 7.5a1.9 1.9 0 0 0 0-3.8ZM21.6 13.5c0-3.6-1.9-5.3-4.5-5.3-2.1 0-3 .9-3.5 1.6v-1.1h-3.2c0 .7 0 12.3 0 12.3h3.2v-6.8c0-.4 0-.8.1-1 .3-.8 1-1.7 2.3-1.7 1.6 0 2.3 1.3 2.3 3.2V21h3.2v-7.5Z"/></svg></span>
+                <span class="linkText"><strong>LinkedIn</strong><span>linkedin.com/in/faramarzkowsari</span></span>
+              </a>
 
-            <a class="profileLink" href="https://play.google.com/store/search?q=Faramarz_Kowsari&amp;c=books" target="_blank" rel="noopener noreferrer">
-              <span class="linkIcon">GB</span>
-              <span class="linkText"><strong>Google Books</strong><span>Published digital titles</span></span>
-            </a>
+              <a class="profileLink" href="https://play.google.com/store/search?q=Faramarz_Kowsari&amp;c=books" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h9a3 3 0 0 1 3 3v13H9a3 3 0 0 0-3 3V4Z"/><path d="M9 4v16"/><path d="M12 8h4M12 12h4"/></svg></span>
+                <span class="linkText">
+                  <strong>Google Books</strong>
+                  <span data-lang="en">Published digital titles</span>
+                  <span data-lang="fa">کتاب‌های دیجیتال منتشرشده</span>
+                </span>
+              </a>
 
-            <a class="profileLink" href="https://FaramarzKowsari.github.io" target="_blank" rel="noopener noreferrer">
-              <span class="linkIcon">WWW</span>
-              <span class="linkText"><strong>Official Website</strong><span>FaramarzKowsari.github.io</span></span>
-            </a>
+              <a class="profileLink" href="https://FaramarzKowsari.github.io" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>
+                <span class="linkText">
+                  <strong data-lang="en">Official Website</strong>
+                  <strong data-lang="fa">وب‌سایت رسمی</strong>
+                  <span>FaramarzKowsari.github.io</span>
+                </span>
+              </a>
 
-            <a class="profileLink" href="https://zenodo.org/search?q=creators.orcid%3A%220000-0003-1692-0453%22&amp;l=list&amp;p=1&amp;s=10&amp;sort=bestmatch" target="_blank" rel="noopener noreferrer">
-              <span class="linkIcon">Z</span>
-              <span class="linkText"><strong>Zenodo Records</strong><span>Research and software records</span></span>
+              <a class="profileLink" href="https://zenodo.org/search?q=creators.orcid%3A%220000-0003-1692-0453%22&amp;l=list&amp;p=1&amp;s=10&amp;sort=bestmatch" target="_blank" rel="noopener noreferrer">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 6h14v12H5z"/><path d="M8 10h8M8 14h5"/></svg></span>
+                <span class="linkText">
+                  <strong>Zenodo Records</strong>
+                  <span data-lang="en">Research and software records</span>
+                  <span data-lang="fa">رکوردهای پژوهشی و نرم‌افزاری</span>
+                </span>
+              </a>
+            </div>
+
+            <a class="emailBox" href="mailto:FaramarzKowsari@gmail.com">
+              <span class="emailMeta">
+                <strong data-lang="en">Email</strong>
+                <strong data-lang="fa">ایمیل</strong>
+                <span data-lang="en">Direct professional contact</span>
+                <span data-lang="fa">راه ارتباط حرفه‌ای مستقیم</span>
+              </span>
+              <span class="emailAddress">FaramarzKowsari@gmail.com →</span>
             </a>
           </div>
+        </article>
 
-          <a class="emailBox" href="mailto:FaramarzKowsari@gmail.com">
-            <span><strong>Email</strong><span>Direct professional contact</span></span>
-            <strong>FaramarzKowsari@gmail.com →</strong>
-          </a>
-        </section>
-      </article>
+        <aside class="panel snapshotPanel">
+          <div class="panelHead">
+            <div>
+              <h2 data-lang="en">Professional Snapshot</h2>
+              <h2 data-lang="fa">نمای حرفه‌ای در یک نگاه</h2>
+              <p data-lang="en">A concise view of background, focus and digital presence.</p>
+              <p data-lang="fa">چکیده‌ای از پیشینه، تمرکز تخصصی و حضور دیجیتال.</p>
+            </div>
+          </div>
+
+          <div class="panelBody">
+            <div class="infoStack">
+              <div class="infoCard">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V8l8-4 8 4v10l-8 4-8-4Z"/><path d="M8.5 10.5h7M8.5 13.5h4"/></svg></span>
+                <div>
+                  <h3 data-lang="en">Publishing Activity</h3>
+                  <h3 data-lang="fa">فعالیت انتشاراتی</h3>
+                  <p data-lang="en">Over 80 digital titles published across international platforms with a focus on educational clarity and practical insight.</p>
+                  <p data-lang="fa">انتشار بیش از ۸۰ عنوان دیجیتال در پلتفرم‌های بین‌المللی با تمرکز بر آموزش روشن، کاربردی و قابل‌استفاده.</p>
+                </div>
+              </div>
+
+              <div class="infoCard">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8"/></svg></span>
+                <div>
+                  <h3 data-lang="en">Research &amp; Engineering Focus</h3>
+                  <h3 data-lang="fa">تمرکز پژوهشی و مهندسی</h3>
+                  <p data-lang="en">Artificial Intelligence, prompt engineering, educational technologies, and web-based instructional systems.</p>
+                  <p data-lang="fa">هوش مصنوعی، مهندسی پرامپت، فناوری‌های آموزشی و سامانه‌های یادگیری مبتنی بر وب.</p>
+                </div>
+              </div>
+
+              <div class="infoCard">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-4.8 7-11a7 7 0 1 0-14 0c0 6.2 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+                <div>
+                  <h3 data-lang="en">Current Base</h3>
+                  <h3 data-lang="fa">محل فعالیت</h3>
+                  <p data-lang="en">Istanbul, with work spanning writing, software development, AI experimentation, and digital publishing.</p>
+                  <p data-lang="fa">استانبول؛ با فعالیت‌هایی در زمینهٔ نویسندگی، توسعهٔ نرم‌افزار، آزمایش‌های هوش مصنوعی و نشر دیجیتال.</p>
+                </div>
+              </div>
+
+              <div class="infoCard">
+                <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 19h12M8 19V9l4-4 4 4v10"/><path d="M9.5 13h5"/></svg></span>
+                <div>
+                  <h3 data-lang="en">Content Domains</h3>
+                  <h3 data-lang="fa">حوزه‌های محتوایی</h3>
+                  <p data-lang="en">AI, machine learning, prompt design, trading frameworks, literature, mindfulness, and applied self-development.</p>
+                  <p data-lang="fa">هوش مصنوعی، یادگیری ماشین، طراحی پرامپت، چارچوب‌های معامله‌گری، ادبیات، ذهن‌آگاهی و خودشناسی کاربردی.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
     </div>
   </main>
 
   <footer>
     <div class="container footerRow">
-      <span>© 2026 Faramarz Kowsari. Official biography page.</span>
-      <a href="index.html">Daneshyar Educational Content Engine</a>
+      <span data-lang="en">© 2026 Faramarz Kowsari. Official biography page.</span>
+      <span data-lang="fa">© ۲۰۲۶ فرامرز کوثری. صفحهٔ رسمی معرفی نویسنده.</span>
+      <a href="index.html">
+        <span data-lang="en">Daneshyar Educational Content Engine</span>
+        <span data-lang="fa">موتور هوشمند محتوای آموزشی دانشیار</span>
+      </a>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const STORAGE_KEY = "daneshyar-author-language";
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll("[data-set-lang]");
+
+      function setLanguage(language) {
+        const lang = language === "fa" ? "fa" : "en";
+        root.dataset.language = lang;
+        root.lang = lang;
+        root.dir = lang === "fa" ? "rtl" : "ltr";
+        document.title = lang === "fa"
+          ? "فرامرز کوثری | صفحهٔ رسمی معرفی"
+          : "Faramarz Kowsari | Official Biography";
+
+        buttons.forEach(button => {
+          const active = button.dataset.setLang === lang;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        try {
+          localStorage.setItem(STORAGE_KEY, lang);
+        } catch (_) {}
+      }
+
+      buttons.forEach(button => {
+        button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+      });
+
+      let initial = "en";
+      try {
+        initial = localStorage.getItem(STORAGE_KEY)
+          || (navigator.language && navigator.language.toLowerCase().startsWith("fa") ? "fa" : "en");
+      } catch (_) {}
+
+      setLanguage(initial);
+    })();
+  </script>
 </body>
 </html>
