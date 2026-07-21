@@ -2,33 +2,39 @@ services:
   - type: web
     name: daneshyar-public-beta
     runtime: docker
-    plan: starter
+    plan: free
     healthCheckPath: /health
     autoDeploy: true
     envVars:
       - key: APP_ENV
         value: production
       - key: DATA_DIR
-        value: /data
+        value: /tmp/daneshyar-data
       - key: MAX_UPLOAD_MB
-        value: "25"
+        value: "10"
       - key: MAX_PDF_PAGES
-        value: "250"
+        value: "120"
       - key: PUBLIC_BOOK_TTL_HOURS
-        value: "24"
+        value: "2"
+      - key: PUBLIC_UPLOADS_PER_HOUR
+        value: "2"
+      - key: PUBLIC_CHAT_PER_HOUR
+        value: "20"
+      - key: PUBLIC_GENERATIONS_PER_HOUR
+        value: "6"
       - key: ENABLE_OCR
         value: "true"
       - key: OCR_LANGUAGES
         value: fas+eng
+      - key: OCR_MAX_PAGES
+        value: "20"
+      - key: OCR_DPI
+        value: "150"
       - key: TRUST_PROXY_HEADERS
         value: "true"
-      - key: OPENAI_API_KEY
-        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://faramarzkowsari.github.io
       - key: OPENAI_MODEL
         value: gpt-5-mini
       - key: USE_OPENAI_EMBEDDINGS
         value: "false"
-    disk:
-      name: daneshyar-data
-      mountPath: /data
-      sizeGB: 10
