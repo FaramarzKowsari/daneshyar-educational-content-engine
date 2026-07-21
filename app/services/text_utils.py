@@ -1,15 +1,45 @@
 from __future__ import annotations
 
 import re
+import unicodedata
 from collections.abc import Iterable
 
 PERSIAN_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
 
+# Directional controls are useful for display, but they damage indexing/search when
+# they are embedded in extracted PDF text.
+_BIDI_CONTROLS_RE = re.compile(r"[\u200e\u200f\u202a-\u202e\u2066-\u2069\ufeff]")
+_SPACE_BEFORE_PUNCT_RE = re.compile(r"\s+([،؛:؟!.,])")
+_SPACE_AFTER_OPEN_RE = re.compile(r"([(\[«])\s+")
+_SPACE_BEFORE_CLOSE_RE = re.compile(r"\s+([)\]»])")
+
 
 def normalize_text(text: str) -> str:
+    # NFKC converts many Arabic presentation-form glyphs and ligatures to their
+    # normal Unicode characters. This is important for Persian PDFs.
+    text = unicodedata.normalize("NFKC", text)
+    text = _BIDI_CONTROLS_RE.sub("", text)
     text = text.replace("\u200c", " ").replace("\u00a0", " ")
-    text = text.replace("ي", "ی").replace("ك", "ک")
+
+    # Arabic-to-Persian character normalization.
+    replacements = {
+        "ي": "ی",
+        "ى": "ی",
+        "ئ": "ئ",
+        "ك": "ک",
+        "ۀ": "ه",
+        "ة": "ه",
+        "ؤ": "و",
+    }
+    for source, target in replacements.items():
+        text = text.replace(source, target)
+
     text = re.sub(r"[ \t]+", " ", text)
+    text = _SPACE_BEFORE_PUNCT_RE.sub(r"\1", text)
+    text = _SPACE_AFTER_OPEN_RE.sub(r"\1", text)
+    text = _SPACE_BEFORE_CLOSE_RE.sub(r"\1", text)
+    text = re.sub(r"\n[ \t]+", "\n", text)
+    text = re.sub(r"[ \t]+\n", "\n", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
 

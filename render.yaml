@@ -27,9 +27,9 @@ services:
       - key: OCR_LANGUAGES
         value: fas+eng
       - key: OCR_MAX_PAGES
-        value: "20"
+        value: "60"
       - key: OCR_DPI
-        value: "150"
+        value: "160"
       - key: TRUST_PROXY_HEADERS
         value: "true"
       - key: ALLOWED_ORIGINS
