@@ -70,6 +70,34 @@
   .draftActions{grid-column:1/-1;justify-content:flex-start}
 }
 
+
+.draftStorageNote{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin:0 0 18px;
+  padding:15px 17px;
+  border:1px solid #b8dfe0;
+  border-right:5px solid var(--teal);
+  border-radius:15px;
+  background:linear-gradient(135deg,#effaf9,#f7fbff);
+  color:#315667;
+  box-shadow:0 8px 24px rgba(7,17,31,.035);
+}
+.draftStorageNote .noteIcon{
+  flex:0 0 38px;
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:#dff5f2;
+  color:#087b78;
+  font-size:1.05rem;
+}
+.draftStorageNote strong{color:#083c4b}
+.draftStorageNote p{margin:0;font-size:.79rem;line-height:2}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Daneshyar Educational Content Engine","alternateName":"دانشیار","applicationCategory":"EducationalApplication","operatingSystem":"Web","url":"https://faramarzkowsari.github.io/daneshyar-educational-content-engine/","codeRepository":"https://github.com/FaramarzKowsari/daneshyar-educational-content-engine","license":"https://opensource.org/licenses/MIT","author":[{"@type":"Person","name":"Faramarz Kowsari"},{"@type":"Person","name":"Safieh Siadat"}]}</script>
 </head>
@@ -92,6 +120,10 @@
     </div>
   </div>
   <div class="draftSummary" id="draftSummary"></div>
+  <div class="draftStorageNote" role="note" aria-label="نکته مهم درباره ذخیره‌سازی پیش‌نویس‌ها">
+  <span class="noteIcon" aria-hidden="true">ⓘ</span>
+  <p><strong>نکتهٔ مهم:</strong> در این نسخهٔ نمایشی، پیش‌نویس‌ها فقط در مرورگر همان کاربر ذخیره می‌شوند. برای نسخهٔ واقعی دانشگاهی که چند استاد و دانشجو وارد سامانه می‌شوند، پیش‌نویس‌ها باید در Backend، پایگاه داده و حساب کاربری ذخیره شوند.</p>
+</div>
   <div class="filters" id="draftFilters">
     <button class="active" data-filter="all">همه</button>
     <button data-filter="draft">پیش‌نویس</button>
