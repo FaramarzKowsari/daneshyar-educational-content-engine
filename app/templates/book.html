@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}{{ book.title }} | دانشیار{% endblock %}
+{% block content %}
+<section class="book-header">
+  <div><a href="/" class="back">← بازگشت</a><h1>{{ book.title }}</h1><p>{{ book.author or "نویسنده ثبت نشده" }} · {{ book.page_count }} صفحه</p></div>
+  <span class="badge">{{ book.status }}</span>
+</section>
+
+<div class="workspace">
+  <aside class="sidebar panel">
+    <h3>فصل یا بخش</h3>
+    <select id="chapter-select">
+      <option value="">کل کتاب</option>
+      {% for chapter in chapters %}<option value="{{ chapter }}">{{ chapter }}</option>{% endfor %}
+    </select>
+    <button data-generate="summary">تولید خلاصه</button>
+    <button data-generate="quiz">تولید آزمون</button>
+    <button data-generate="flashcards">تولید فلش‌کارت</button>
+    <button data-generate="mindmap">تولید نقشهٔ مفهومی</button>
+    <form action="/books/{{ book.id }}/slides" method="post" id="slides-form">
+      <input type="hidden" name="chapter" id="slides-chapter">
+      <button type="submit" class="secondary">دانلود پاورپوینت</button>
+    </form>
+  </aside>
+
+  <section class="main-column">
+    <div class="panel chat-panel">
+      <h2>گفت‌وگو با کتاب</h2>
+      <div id="chat-output" class="chat-output">
+        <div class="assistant-message">پرسش خود را بنویسید. پاسخ فقط بر اساس متن کتاب و همراه با منابع تولید می‌شود.</div>
+      </div>
+      <form id="chat-form" class="chat-form">
+        <textarea id="question" rows="3" placeholder="مثلاً مفهوم اصلی این فصل چیست؟" required></textarea>
+        <button type="submit">پرسش</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <div class="section-title"><h2>خروجی جدید</h2><span id="generation-mode"></span></div>
+      <div id="generated-output" class="generated-output muted">هنوز خروجی تازه‌ای تولید نشده است.</div>
+    </div>
+
+    <div class="panel">
+      <h2>مخزن دارایی‌های آموزشی</h2>
+      <div class="asset-list" id="asset-list">
+        {% for asset in assets %}
+          <div class="asset-row" data-asset-id="{{ asset.id }}">
+            <div><b>{{ asset.title }}</b><small>{{ asset.asset_type }} · {{ asset.chapter }}</small></div>
+            <span class="status {{ asset.status }}">{{ asset.status }}</span>
+            <button class="view-asset secondary" data-id="{{ asset.id }}">مشاهده</button>
+            {% if asset.status != "approved" %}<button class="approve-asset" data-id="{{ asset.id }}">تأیید استاد</button>{% endif %}
+          </div>
+        {% else %}<div class="empty">خروجی ذخیره‌شده‌ای وجود ندارد.</div>{% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+<script>window.DANESHYAR_BOOK_ID = {{ book.id }};</script>
+{% endblock %}

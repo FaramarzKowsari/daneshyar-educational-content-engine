@@ -1,3 +1,30 @@
+Metadata-Version: 2.4
+Name: daneshyar-educational-content-engine
+Version: 0.1.0
+Summary: A runnable MVP that converts university PDF textbooks into a grounded educational assistant.
+Author: Faramarz Kowsari, Dr. Safieh Siadat
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi<1.0,>=0.115
+Requires-Dist: uvicorn[standard]<1.0,>=0.30
+Requires-Dist: jinja2<4.0,>=3.1
+Requires-Dist: python-multipart<1.0,>=0.0.9
+Requires-Dist: sqlalchemy<3.0,>=2.0
+Requires-Dist: pydantic<3.0,>=2.8
+Requires-Dist: PyMuPDF<2.0,>=1.24
+Requires-Dist: scikit-learn<2.0,>=1.5
+Requires-Dist: numpy<3.0,>=1.26
+Requires-Dist: python-pptx<2.0,>=1.0
+Requires-Dist: openai<3.0,>=1.50
+Requires-Dist: httpx<1.0,>=0.27
+Provides-Extra: dev
+Requires-Dist: pytest<9.0,>=8.2; extra == "dev"
+Requires-Dist: pytest-cov<7.0,>=5.0; extra == "dev"
+Requires-Dist: ruff<1.0,>=0.6; extra == "dev"
+Dynamic: license-file
+
 # Daneshyar Educational Content Engine
 
 **دانشیار** یک MVP کامل و قابل اجرا برای تبدیل کتاب دانشگاهی PDF به یک دستیار آموزشی منبع‌محور است. سامانه برای پایلوت با یک کتاب طراحی شده، اما از چند کتاب نیز پشتیبانی می‌کند.

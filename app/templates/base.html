@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}دانشیار{% endblock %}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">دانشیار</a>
+    <span>موتور هوشمند محتوای آموزشی دانشگاهی</span>
+    <a class="docs-link" href="/docs" target="_blank">API Docs</a>
+  </header>
+  <main class="container">{% block content %}{% endblock %}</main>
+  <footer>نسخهٔ MVP پژوهشی — خروجی‌های هوش مصنوعی باید توسط استاد تأیید شوند.</footer>
+  <script src="/static/app.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

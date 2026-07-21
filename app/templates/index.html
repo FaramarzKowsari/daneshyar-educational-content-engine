@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}دانشیار | کتاب‌ها{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <span class="eyebrow">MVP دانشگاهی قابل اجرا</span>
+    <h1>یک کتاب را به دستیار آموزشی منبع‌محور تبدیل کنید.</h1>
+    <p>پرسش‌وپاسخ با ارجاع صفحه، خلاصه، آزمون، فلش‌کارت، نقشهٔ مفهومی و پاورپوینت.</p>
+  </div>
+  <div class="status-card">
+    <b>حالت هوش مصنوعی</b>
+    <span>{{ "OpenAI فعال" if settings.openai_api_key else "حالت محلی بدون کلید API" }}</span>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>افزودن کتاب آزمایشی</h2>
+  <form action="/books/upload" method="post" enctype="multipart/form-data" class="upload-grid">
+    <label>عنوان کتاب<input type="text" name="title" placeholder="اختیاری؛ از PDF نیز تشخیص داده می‌شود"></label>
+    <label>نام نویسنده<input type="text" name="author" placeholder="اختیاری"></label>
+    <label class="file-field">فایل PDF متنی<input type="file" name="file" accept="application/pdf" required></label>
+    <button type="submit">پردازش کتاب</button>
+  </form>
+  <p class="muted">نسخهٔ MVP برای PDFهای متنی است. فایل اسکن‌شده ابتدا باید OCR شود.</p>
+</section>
+
+<section>
+  <div class="section-title"><h2>کتاب‌های پردازش‌شده</h2><span>{{ books|length }} کتاب</span></div>
+  <div class="cards">
+    {% for book in books %}
+      <a class="book-card" href="/books/{{ book.id }}">
+        <div class="book-icon">PDF</div>
+        <div><h3>{{ book.title }}</h3><p>{{ book.author or "نویسنده ثبت نشده" }}</p></div>
+        <div class="book-meta"><span>{{ book.page_count }} صفحه</span><span>{{ book.status }}</span></div>
+      </a>
+    {% else %}
+      <div class="empty">هنوز کتابی بارگذاری نشده است.</div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
