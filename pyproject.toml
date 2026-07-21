@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "daneshyar-educational-content-engine"
-version = "0.1.0"
-description = "A runnable MVP that converts university PDF textbooks into a grounded educational assistant."
+version = "0.2.0"
+description = "A public beta that accepts user-supplied PDFs and converts them into grounded educational assets."
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
@@ -25,7 +25,10 @@ dependencies = [
   "numpy>=1.26,<3.0",
   "python-pptx>=1.0,<2.0",
   "openai>=1.50,<3.0",
-  "httpx>=0.27,<1.0"
+  "httpx>=0.27,<1.0",
+  "psycopg[binary]>=3.2,<4.0",
+  "pytesseract>=0.3.13,<1.0",
+  "Pillow>=10.4,<13.0"
 ]
 
 [project.optional-dependencies]

@@ -35,7 +35,7 @@ def health(request: Request) -> dict:
     }
 
 
-@router.get("/", response_class=HTMLResponse)
+@router.get("/classic", response_class=HTMLResponse)
 def dashboard(request: Request, session: DBSession):
     books = list(session.scalars(select(Book).order_by(Book.created_at.desc())))
     return request.app.state.templates.TemplateResponse(

@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: daneshyar-public-beta
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DATA_DIR
+        value: /data
+      - key: MAX_UPLOAD_MB
+        value: "25"
+      - key: MAX_PDF_PAGES
+        value: "250"
+      - key: PUBLIC_BOOK_TTL_HOURS
+        value: "24"
+      - key: ENABLE_OCR
+        value: "true"
+      - key: OCR_LANGUAGES
+        value: fas+eng
+      - key: TRUST_PROXY_HEADERS
+        value: "true"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5-mini
+      - key: USE_OPENAI_EMBEDDINGS
+        value: "false"
+    disk:
+      name: daneshyar-data
+      mountPath: /data
+      sizeGB: 10

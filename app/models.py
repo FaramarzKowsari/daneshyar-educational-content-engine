@@ -19,6 +19,7 @@ class Book(Base):
     page_count: Mapped[int] = mapped_column(Integer, default=0)
     language: Mapped[str] = mapped_column(String(20), default="fa")
     status: Mapped[str] = mapped_column(String(30), default="ready")
+    processing_error: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
     chunks: Mapped[list[Chunk]] = relationship(
@@ -27,6 +28,24 @@ class Book(Base):
     assets: Mapped[list[Asset]] = relationship(
         back_populates="book", cascade="all, delete-orphan"
     )
+    public_access: Mapped[PublicAccess | None] = relationship(
+        back_populates="book", cascade="all, delete-orphan", uselist=False
+    )
+
+
+class PublicAccess(Base):
+    __tablename__ = "public_access"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    book_id: Mapped[int] = mapped_column(
+        ForeignKey("books.id", ondelete="CASCADE"), unique=True, index=True
+    )
+    public_id: Mapped[str] = mapped_column(String(64), unique=True, index=True)
+    token_hash: Mapped[str] = mapped_column(String(128))
+    expires_at: Mapped[datetime] = mapped_column(DateTime, index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+
+    book: Mapped[Book] = relationship(back_populates="public_access")
 
 
 class Chunk(Base):

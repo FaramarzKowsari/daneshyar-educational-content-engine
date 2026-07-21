@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software in research, please cite it as below."
-title: "Daneshyar Educational Content Engine"
+title: "Daneshyar Educational Content Engine — Public Beta"
 type: software
 authors:
   - family-names: Kowsari
@@ -8,7 +8,7 @@ authors:
     orcid: "https://orcid.org/0000-0003-1692-0453"
   - family-names: Siadat
     given-names: Safieh
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-07-20
 license: MIT
 repository-code: "https://github.com/FaramarzKowsari/daneshyar-educational-content-engine"

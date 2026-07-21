@@ -6,8 +6,8 @@ services:
     env_file:
       - .env
     volumes:
-      - daneshyar_data:/data
+      - daneshyar-data:/data
     restart: unless-stopped
 
 volumes:
-  daneshyar_data:
+  daneshyar-data:

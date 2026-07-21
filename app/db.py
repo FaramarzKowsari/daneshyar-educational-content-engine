@@ -15,10 +15,13 @@ class Base(DeclarativeBase):
 class Database:
     def __init__(self, settings: Settings):
         settings.ensure_directories()
+        url = settings.database_url or f"sqlite:///{settings.db_path}"
+        connect_args = {"check_same_thread": False} if url.startswith("sqlite") else {}
         self.engine = create_engine(
-            f"sqlite:///{settings.db_path}",
-            connect_args={"check_same_thread": False},
+            url,
+            connect_args=connect_args,
             future=True,
+            pool_pre_ping=True,
         )
         self.session_factory = sessionmaker(
             bind=self.engine,

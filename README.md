@@ -1,51 +1,44 @@
-# Daneshyar Educational Content Engine
+# Daneshyar Educational Content Engine — Public Beta
 
-**دانشیار** یک MVP کامل و قابل اجرا برای تبدیل کتاب دانشگاهی PDF به یک دستیار آموزشی منبع‌محور است. سامانه برای پایلوت با یک کتاب طراحی شده، اما از چند کتاب نیز پشتیبانی می‌کند.
+**دانشیار** یک اپلیکیشن قابل اجراست که به هر کاربر اجازه می‌دهد PDF دانشگاهی خودش را بارگذاری کند و از همان کتاب، پاسخ منبع‌محور، خلاصه، آزمون، فلش‌کارت، نقشهٔ مفهومی و PowerPoint بگیرد.
 
-> این مخزن یک پروژهٔ پژوهشی مستقل است و وابستگی رسمی به دانشگاه پیام نور ندارد. استفاده از کتاب‌ها باید با رعایت حقوق نشر و مجوز دانشگاه انجام شود.
+این نسخه دیگر یک نمایش از پیش‌ساخته با کتاب ثابت نیست. رابط عمومی به Backend واقعی متصل است و هر کتاب در یک فضای موقت و خصوصی مخصوص همان مرورگر پردازش می‌شود.
 
-## قابلیت‌های آماده
+## قابلیت‌های نسخهٔ عمومی
 
-- بارگذاری و پردازش PDF متنی با حفظ شمارهٔ صفحه
-- تشخیص اولیهٔ فصل‌ها و تقسیم متن به قطعات قابل بازیابی
-- جست‌وجوی ترکیبی: TF‑IDF محلی + Embedding اختیاری OpenAI
-- گفت‌وگو با کتاب همراه با صفحه، فصل، قطعهٔ منبع و امتیاز بازیابی
-- پاسخ محلیِ استخراجی بدون نیاز به API Key
-- تولید خلاصه، آزمون، فلش‌کارت و نقشهٔ مفهومی
-- ساخت و دانلود فایل PowerPoint واقعی
-- مخزن دارایی‌های آموزشی با وضعیت Draft/Approved
-- رابط فارسی RTL، API مستند FastAPI، SQLite، Docker و GitHub Actions
-- ثبت لاگ پرسش و پاسخ برای ارزیابی علمی
+- بارگذاری PDF دلخواه کاربر؛
+- استخراج متن صفحه‌به‌صفحه و تشخیص اولیهٔ فصل‌ها؛
+- OCR اختیاری برای PDFهای اسکن‌شدهٔ فارسی و انگلیسی؛
+- گفت‌وگو با کتاب همراه با شمارهٔ صفحه و قطعهٔ منبع؛
+- تولید خلاصه، آزمون، فلش‌کارت و نقشهٔ مفهومی؛
+- ساخت و دانلود فایل PowerPoint؛
+- مخزن پیش‌نویس‌های واقعی در Backend؛
+- تأیید و دانلود خروجی‌ها؛
+- کلید خصوصی تصادفی برای جداسازی کتاب هر کاربر؛
+- حذف دستی یا خودکار کتاب‌ها پس از زمان تعیین‌شده؛
+- محدودیت حجم، صفحه، بارگذاری، چت و تولید برای کنترل هزینه و سوءاستفاده؛
+- رابط فارسی RTL، Docker، تست خودکار و GitHub Actions.
 
-## راه‌اندازی سریع با Python
+## نکتهٔ معماری
 
-```bash
-git clone <REPOSITORY_URL>
-cd daneshyar-educational-content-engine
-python -m venv .venv
-```
+GitHub Pages فقط برای محتوای استاتیک مناسب است و Backend پایتون، OCR، پایگاه داده و پردازش PDF را اجرا نمی‌کند. برای نسخهٔ قابل استفاده باید همین Docker application روی یک Web Service یا Container Platform مستقر شود.
 
-Windows PowerShell:
+## اجرای محلی
 
 ```powershell
+python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
 Copy-Item .env.example .env
-python scripts/create_demo_book.py
 uvicorn app.main:app --reload
 ```
 
-Linux/macOS:
+سپس:
 
-```bash
-source .venv/bin/activate
-python -m pip install -e ".[dev]"
-cp .env.example .env
-python scripts/create_demo_book.py
-uvicorn app.main:app --reload
-```
-
-سپس مرورگر را روی `http://localhost:8000` باز کنید. مستندات API در `http://localhost:8000/docs` قرار دارد.
+- رابط عمومی: `http://localhost:8000`
+- مستندات API: `http://localhost:8000/docs`
+- رابط کلاسیک توسعه: `http://localhost:8000/classic`
+- سلامت سرویس: `http://localhost:8000/health`
 
 ## اجرای Docker
 
@@ -54,58 +47,52 @@ cp .env.example .env
 docker compose up --build
 ```
 
-## فعال‌کردن OpenAI
+## فعال‌کردن هوش مولد
 
-در فایل `.env` مقدار زیر را تنظیم کنید:
+در محیط سرور تنظیم کنید:
 
 ```env
-OPENAI_API_KEY=your_key_here
+OPENAI_API_KEY=...
 OPENAI_MODEL=gpt-5-mini
-USE_OPENAI_EMBEDDINGS=true
-OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+USE_OPENAI_EMBEDDINGS=false
 ```
 
-کلید API هرگز نباید در GitHub ثبت شود. برنامه درخواست‌های تولید متن را با `store=False` ارسال می‌کند. در نبود کلید، همهٔ مسیرهای اصلی همچنان با حالت محلی کار می‌کنند، اما کیفیت تولید محتوا ساده‌تر خواهد بود.
+کلید API نباید در HTML، JavaScript یا GitHub Pages قرار گیرد. کلید فقط در Environment Variable سرور نگه‌داری می‌شود.
 
-## گردش کار MVP
+بدون کلید OpenAI نیز استخراج PDF، جست‌وجوی محلی، پاسخ استخراجی و خروجی‌های ساده فعال می‌مانند؛ برای کیفیت مناسب نسخهٔ عمومی، فعال‌کردن مدل مولد توصیه می‌شود.
 
-1. استاد یک PDF متنی را بارگذاری می‌کند.
-2. سامانه متن را صفحه‌به‌صفحه استخراج و فصل‌ها را تشخیص می‌دهد.
-3. قطعات متن در SQLite ذخیره و برای بازیابی آماده می‌شوند.
-4. دانشجو سؤال می‌پرسد؛ سیستم قطعات مرتبط را پیدا می‌کند.
-5. پاسخ فقط از همان قطعات ساخته می‌شود و منابع نمایش داده می‌شوند.
-6. استاد از فصل انتخابی خلاصه، آزمون، فلش‌کارت، نقشهٔ مفهومی یا اسلاید می‌سازد.
-7. خروجی پس از بازبینی استاد Approved می‌شود.
+## حدود پیش‌فرض نسخهٔ عمومی
 
-## محدودیت‌های آگاهانهٔ MVP
+```env
+MAX_UPLOAD_MB=25
+MAX_PDF_PAGES=250
+PUBLIC_BOOK_TTL_HOURS=24
+PUBLIC_UPLOADS_PER_HOUR=3
+PUBLIC_CHAT_PER_HOUR=30
+PUBLIC_GENERATIONS_PER_HOUR=12
+OCR_MAX_PAGES=60
+```
 
-- PDF اسکن‌شده به OCR جداگانه نیاز دارد.
-- احراز هویت، نقش‌های سازمانی، SSO و اتصال LMS در فاز بعدی است.
-- ساختار فصل با heuristic تشخیص داده می‌شود و برای کتاب‌های نامنظم ممکن است نیازمند اصلاح باشد.
-- خروجی هوش مصنوعی بدون تأیید استاد نباید به‌عنوان محتوای رسمی منتشر شود.
-- برای استقرار عمومی باید HTTPS، پشتیبان‌گیری، Rate Limit و سیاست نگه‌داری داده اضافه شود.
+## استقرار
 
-## آزمون و کنترل کیفیت
+- راهنمای نسخهٔ عمومی: [`docs/PUBLIC_BETA_DEPLOYMENT.md`](docs/PUBLIC_BETA_DEPLOYMENT.md)
+- حریم خصوصی: [`docs/PRIVACY_PUBLIC_BETA.md`](docs/PRIVACY_PUBLIC_BETA.md)
+- فایل Render Blueprint: [`render.yaml`](render.yaml)
+
+برای یک تست عمومی محدود، یک Web Service دارای Persistent Disk قابل استفاده است. برای ترافیک هم‌زمان زیاد و مقیاس افقی، PostgreSQL، Object Storage، Queue/Worker و Rate Limiter مبتنی بر Redis لازم است.
+
+## کنترل کیفیت
 
 ```bash
-pytest
 ruff check app tests scripts
+pytest
 ```
 
-پروتکل کامل ارزیابی در [docs/EVALUATION_PROTOCOL.md](docs/EVALUATION_PROTOCOL.md) آمده است.
+## نویسندگان و راهبری علمی
 
-## معماری
-
-```text
-PDF -> Text/Page Metadata -> Chunking -> SQLite
-                                 |-> TF-IDF Retrieval
-                                 |-> Optional OpenAI Embeddings
-Question -> Hybrid Retrieval -> Grounded Context -> LLM/Local Fallback -> Answer + Citations
-Chapter -> Generator -> Summary/Quiz/Flashcards/Mind Map/PPTX -> Asset Repository
-```
-
-جزئیات بیشتر: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- Faramarz Kowsari — Software Engineering & AI Architecture
+- Dr. Safieh Siadat — Academic Lead & Educational Design
 
 ## مجوز
 
-MIT برای کد نرم‌افزار. محتوای کتاب‌های بارگذاری‌شده تحت مجوز صاحبان همان محتوا باقی می‌ماند.
+کد تحت MIT License منتشر می‌شود. حقوق PDFهای بارگذاری‌شده متعلق به صاحبان همان محتواست و بارگذاری‌کننده باید مجوز پردازش آن را داشته باشد.
