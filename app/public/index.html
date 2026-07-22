@@ -333,10 +333,8 @@ $('#draftFilters').onclick=e=>{const b=e.target.closest('[data-filter]');if(!b)r
 function valueText(v){return v===null||v===undefined?'':String(v)}
 function renderSummary(content){
  const text=typeof content==='string'?content:JSON.stringify(content,null,2);
- const blocks=text.split(/
-{2,}/).filter(Boolean);
- return `<div class="previewIntro">این پیش‌نویس برای بازبینی استاد ذخیره شده است.</div>${blocks.map(x=>`<p>${escapeHtml(x).replace(/
-/g,'<br>')}</p>`).join('')}`;
+ const blocks=text.split(/\n{2,}/).filter(Boolean);
+ return `<div class="previewIntro">این پیش‌نویس برای بازبینی استاد ذخیره شده است.</div>${blocks.map(x=>`<p>${escapeHtml(x).replace(/\n/g,'<br>')}</p>`).join('')}`;
 }
 function renderQuiz(content){
  const items=Array.isArray(content)?content:[];

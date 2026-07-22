@@ -231,7 +231,7 @@
 <section class="cta"><div class="wrap"><div class="ctaBox"><h2>یک کتاب، یک پایلوت، یک تصمیم روشن</h2><p>دانشیار برای آن ساخته شده که پیش از توسعهٔ بزرگ، ارزش پروژه را با یک کتاب، چند معیار علمی و یک دموی قابل لمس نشان دهد.</p><a class="btn secondary" href="https://github.com/FaramarzKowsari/daneshyar-educational-content-engine" target="_blank" rel="noopener">مشاهدهٔ مستندات فنی در GitHub</a></div></div></section>
 </main>
 <footer><div class="wrap foot"><span>© ۲۰۲۶ Daneshyar Educational Content Engine — MIT License</span><div class="footLinks"><a href="https://github.com/FaramarzKowsari/daneshyar-educational-content-engine" target="_blank">GitHub</a><a href="https://orcid.org/0000-0003-1692-0453" target="_blank">ORCID</a><a href="demo-guide.html">راهنمای فنی و هزینه‌ها</a><a href="citation.html">استناد و DOI</a><a href="https://doi.org/10.5281/zenodo.21481330" target="_blank" rel="noopener">DOI: 10.5281/zenodo.21481330</a><a href="#top">بازگشت به بالا ↑</a></div></div></footer><div class="toast" id="toast"></div>
-<script src="config.js?v=20260721-viewable-downloadable-drafts"></script>
+<script src="config.js?v=20260722-upload-js-hotfix"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const SESSION_KEY='daneshyar_public_beta_session_v1';
@@ -333,10 +333,8 @@ $('#draftFilters').onclick=e=>{const b=e.target.closest('[data-filter]');if(!b)r
 function valueText(v){return v===null||v===undefined?'':String(v)}
 function renderSummary(content){
  const text=typeof content==='string'?content:JSON.stringify(content,null,2);
- const blocks=text.split(/
-{2,}/).filter(Boolean);
- return `<div class="previewIntro">این پیش‌نویس برای بازبینی استاد ذخیره شده است.</div>${blocks.map(x=>`<p>${escapeHtml(x).replace(/
-/g,'<br>')}</p>`).join('')}`;
+ const blocks=text.split(/\n{2,}/).filter(Boolean);
+ return `<div class="previewIntro">این پیش‌نویس برای بازبینی استاد ذخیره شده است.</div>${blocks.map(x=>`<p>${escapeHtml(x).replace(/\n/g,'<br>')}</p>`).join('')}`;
 }
 function renderQuiz(content){
  const items=Array.isArray(content)?content:[];
