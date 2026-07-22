@@ -1,16 +1,11 @@
 {
-  "backend": "https://daneshyar-public-beta.onrender.com",
-  "frontend": "https://faramarzkowsari.github.io/daneshyar-educational-content-engine/",
-  "files": {
-    "docs/index.html": "4adacb46a48a4ecaaa94ca97d312cceedb101833191c97ded73f410830b44adc",
-    "docs/config.js": "5ba9b2ed01245542274f3c33c5e58419e7123540c536f6e4b0f9c6e3d7a20a94",
-    "docs/author.html": "686af828d3f6df1dc78c30e3fa383598e8d3cbccd39daf0be1ba718107d82012"
-  },
-  "checks": {
-    "loads_config_js": true,
-    "uses_real_upload_api": true,
-    "sends_terms": true,
-    "links_author_page": true,
-    "backend_configured": true
-  }
+  "reason": "pyproject.toml, README.md, and CITATION.cff were deleted in commit 52ffc58",
+  "restore_to": "repository root",
+  "files": [
+    "pyproject.toml",
+    "README.md",
+    "CITATION.cff",
+    "README-INSTALL-FA.md"
+  ],
+  "commit_message": "Restore project metadata and Python build configuration"
 }
